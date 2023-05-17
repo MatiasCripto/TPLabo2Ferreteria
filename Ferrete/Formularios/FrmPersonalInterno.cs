@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Logica.Sistema;
-using Logica.Parsers;
+using Vista.Formularios;
 
 namespace Vista
 {
@@ -25,10 +25,18 @@ namespace Vista
         string precioInput;
 
         PersonalInterno usuarioLogeado;
+        // probando con pasar  de un data a otro 
+        private DataGridView dgv_ventas;
+
         public FrmPersonalInterno(PersonalInterno usuario)
         {
             InitializeComponent();
             usuarioLogeado = usuario;            
+        }
+        // de un data a otro
+        public FrmPersonalInterno(DataGridView dgv_ventas)
+        {
+            this.dgv_ventas = dgv_ventas;
         }
 
         private void btn_Usuarios_Click(object sender, EventArgs e)
@@ -51,6 +59,16 @@ namespace Vista
                 btn_Eliminar.Enabled = false;
                 btn_Informe.Enabled = false;
                 btn_Nuevo.Enabled = false;
+            }
+            else
+            {
+                btn_Actualizar.Enabled = false;
+                btn_Agrergar.Enabled = false;
+                btn_Buscar.Enabled = false;
+                btn_Cancelar.Enabled = false;
+                btn_Eliminar.Enabled = false;
+                btn_Informe.Enabled = false;
+                btn_Nuevo.Enabled = true;
             }
         }
 
@@ -77,13 +95,36 @@ namespace Vista
                     Sistema.AltaProducto(nuevoArticulo, usuarioLogeado);
                     Sistema.GuardarProducto(nuevoArticulo);
                 }
-                catch
+                catch(Exception ex)
                 {
-
-                    
+                    throw new Exception($"Error desconocido al guardar el usuario: {ex.Message}");
                 }
                 ActualizarDgv();
             }
-        }       
-    }
+        }
+
+        private void btn_Eliminar_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btn_Nuevo_Click(object sender, EventArgs e)
+        {
+            btn_Actualizar.Enabled = true;
+            btn_Agrergar.Enabled = true;
+            btn_Buscar.Enabled = true;
+            btn_Cancelar.Enabled = true;
+            btn_Eliminar.Enabled = true;
+            btn_Informe.Enabled = true;
+            btn_Nuevo.Enabled = true;
+        }
+
+        private void btn_Ventas_Click(object sender, EventArgs e)
+        {
+            Ventas frmVentas = new Ventas();
+            frmVentas.Show();
+        }
+        
+    }  
+    
 }

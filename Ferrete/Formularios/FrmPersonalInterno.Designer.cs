@@ -91,6 +91,7 @@
             this.btn_Ventas.Text = "Ventas";
             this.btn_Ventas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Ventas.UseVisualStyleBackColor = false;
+            this.btn_Ventas.Click += new System.EventHandler(this.btn_Ventas_Click);
             // 
             // btn_Usuarios
             // 
@@ -134,7 +135,7 @@
             // 
             this.lbl_Precio.AutoSize = true;
             this.lbl_Precio.ForeColor = System.Drawing.Color.White;
-            this.lbl_Precio.Location = new System.Drawing.Point(50, 160);
+            this.lbl_Precio.Location = new System.Drawing.Point(50, 168);
             this.lbl_Precio.Name = "lbl_Precio";
             this.lbl_Precio.Size = new System.Drawing.Size(40, 15);
             this.lbl_Precio.TabIndex = 35;
@@ -159,7 +160,7 @@
             // 
             // txb_Descripcion
             // 
-            this.txb_Descripcion.Location = new System.Drawing.Point(148, 97);
+            this.txb_Descripcion.Location = new System.Drawing.Point(148, 92);
             this.txb_Descripcion.Name = "txb_Descripcion";
             this.txb_Descripcion.Size = new System.Drawing.Size(222, 23);
             this.txb_Descripcion.TabIndex = 32;
@@ -254,6 +255,7 @@
             this.btn_Eliminar.Text = "Eliminar";
             this.btn_Eliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Eliminar.UseVisualStyleBackColor = false;
+            this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click);
             // 
             // btn_Nuevo
             // 
@@ -271,6 +273,7 @@
             this.btn_Nuevo.Text = "Nuevo";
             this.btn_Nuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Nuevo.UseVisualStyleBackColor = false;
+            this.btn_Nuevo.Click += new System.EventHandler(this.btn_Nuevo_Click);
             // 
             // btn_Cancelar
             // 
@@ -364,7 +367,7 @@
             // 
             // txb_stock
             // 
-            this.txb_stock.Location = new System.Drawing.Point(152, 126);
+            this.txb_stock.Location = new System.Drawing.Point(148, 126);
             this.txb_stock.Name = "txb_stock";
             this.txb_stock.Size = new System.Drawing.Size(222, 23);
             this.txb_stock.TabIndex = 43;
@@ -373,7 +376,7 @@
             // 
             this.lbl_stock.AutoSize = true;
             this.lbl_stock.ForeColor = System.Drawing.Color.White;
-            this.lbl_stock.Location = new System.Drawing.Point(54, 129);
+            this.lbl_stock.Location = new System.Drawing.Point(50, 134);
             this.lbl_stock.Name = "lbl_stock";
             this.lbl_stock.Size = new System.Drawing.Size(36, 15);
             this.lbl_stock.TabIndex = 42;
