@@ -1,0 +1,6 @@
+1,pipo,pipo12,1234,Empleado
+
+2,papa,papito,1144,Empleado
+3,papa,papito,1144,Empleado
+2,sdf,sdf,sdf,Empleado
+2,asdfasdf,fasdfasdf,asdfasdf,Empleado

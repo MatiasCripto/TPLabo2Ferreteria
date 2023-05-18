@@ -71,7 +71,7 @@
             this.dgv_principal.ReadOnly = true;
             this.dgv_principal.RowHeadersVisible = false;
             this.dgv_principal.RowTemplate.Height = 25;
-            this.dgv_principal.Size = new System.Drawing.Size(249, 506);
+            this.dgv_principal.Size = new System.Drawing.Size(577, 506);
             this.dgv_principal.TabIndex = 40;
             // 
             // btn_Ventas
@@ -110,7 +110,6 @@
             this.btn_Usuarios.Text = "Usuarios";
             this.btn_Usuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Usuarios.UseVisualStyleBackColor = false;
-            this.btn_Usuarios.Click += new System.EventHandler(this.btn_Usuarios_Click);
             // 
             // lbl_MensajeAdmin
             // 
@@ -358,6 +357,7 @@
             this.nuevoEmpleadoToolStripMenuItem.Name = "nuevoEmpleadoToolStripMenuItem";
             this.nuevoEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.nuevoEmpleadoToolStripMenuItem.Text = "Nuevo empleado";
+            this.nuevoEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.nuevoEmpleadoToolStripMenuItem_Click);
             // 
             // verEmpleadosToolStripMenuItem
             // 

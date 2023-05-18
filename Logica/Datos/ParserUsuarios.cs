@@ -1,4 +1,6 @@
-﻿using Logica.Productos;
+﻿using Logica.Enumerados;
+using Logica.Productos;
+using Logica.Usuarios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +11,7 @@ namespace Logica.Datos
 {
     public class ParserUsuarios
     {
-        public static void CrearUsuario(int id, string nombre, string usuario, string contrasenia)
+        public static void CrearUsuario(int id, string nombre, string usuario, string contrasenia, Role role)
         {
 
             try
@@ -26,7 +28,7 @@ namespace Logica.Datos
                 // Escribir los datos del usuario en el archivo.
                 using (StreamWriter sw = new StreamWriter("usuarios.txt", true))
                 {
-                    sw.WriteLine("{0},{1},{2},{3}", id, nombre, usuario, contrasenia);
+                    sw.WriteLine("{0},{1},{2},{3},{4}", id, nombre, usuario, contrasenia, role);
                 }
             }
 
@@ -62,13 +64,14 @@ namespace Logica.Datos
                     // Dividimos la línea en campos utilizando la coma como separador
                     string[] campos = linea.Split(',');
                     // Verifica que la línea tenga exactamente 3 campos
-                    if (campos.Length == 4)
+                    if (campos.Length == 5)
                     {
                         // Creamos un objeto Usuario con los campos leídos y lo agrega a la lista de usuarios
-                        Usuarios.Persona usuario = new Usuarios.PersonalInterno(int.Parse(campos[0]), campos[1], campos[2], campos[3]);
+                        Usuarios.Persona usuario = new Usuarios.PersonalInterno(int.Parse(campos[0]), campos[1], campos[2], campos[3], campos[4]);
                         usuarios.Add(usuario);
                     }
                 }
+                Persona.NexId = usuarios[usuarios.Count - 1].Id;
             }
             catch (Exception error)
             {

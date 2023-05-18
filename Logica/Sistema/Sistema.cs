@@ -11,7 +11,8 @@ namespace Logica.Sistema
 {
     public class Sistema
     {
-       
+        private static List<Articulo> _productos = new List<Articulo>();
+
         public static void AltaProducto(Articulo producto, PersonalInterno usuario)
         {
             //validaciones
@@ -32,6 +33,17 @@ namespace Logica.Sistema
             //validaciones
           
             BaseDeDatos.BaseDatosPersonas.Add(usuario);
+        }
+
+        public static List<Articulo> ObtenerProductos()
+        {
+            return _productos;
+        }
+
+        public static void GuardarUsuario(PersonalInterno usuario)
+        {
+            usuario.Id = PersonalInterno.NexId;
+            ParserUsuarios.CrearUsuario(usuario.Id, usuario.Nombre, usuario.Usuario, usuario.Contrasenia, usuario.Role);
         }
     }
 }

@@ -3,9 +3,16 @@
     public abstract class Persona
     {
         private int _id;
+        static int nexId = 1;
         private string _nombre;
         private string _usuario;
         private string _contrasenia;
+
+        public int Id { get => _id; set => _id = value; }
+        public string Nombre { get => _nombre; }
+        public string Usuario { get => _usuario; }
+        public string Contrasenia { get => _contrasenia; }
+        public static int NexId { get => ++nexId; set => nexId = value; }
 
         protected Persona(int id, string nombre, string usuario, string contrasenia)
         {

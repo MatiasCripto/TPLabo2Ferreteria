@@ -37,12 +37,7 @@ namespace Vista
         public FrmPersonalInterno(DataGridView dgv_ventas)
         {
             this.dgv_ventas = dgv_ventas;
-        }
-
-        private void btn_Usuarios_Click(object sender, EventArgs e)
-        {
-            
-        }
+        }     
 
         private void FrmPersonalInterno_Load(object sender, EventArgs e)
         {
@@ -77,8 +72,10 @@ namespace Vista
         {
             dgv_principal.DataSource = null;            
             dgv_principal.DataSource = BaseDeDatos.BaseDatosProductos;
+            
+
         }
-        
+
 
         private void btn_Agrergar_Click(object sender, EventArgs e)
         {
@@ -124,7 +121,12 @@ namespace Vista
             Ventas frmVentas = new Ventas();
             frmVentas.Show();
         }
-        
+
+        private void nuevoEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Usuarios frmusuario = new Usuarios();
+            frmusuario.Show();
+        }
     }  
     
 }

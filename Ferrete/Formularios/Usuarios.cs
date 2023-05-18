@@ -17,6 +17,7 @@ namespace Vista
 {
     public partial class Usuarios : Form
     {
+        List<Persona> usuario;
         string nombreInput;
         string nombreUsuarioInput;
         string contraseniaInput;
@@ -25,6 +26,7 @@ namespace Vista
         public Usuarios()
         {
             InitializeComponent();
+            LeerUsuarios();
         }
 
         private void ActualizarDgv()
@@ -43,9 +45,9 @@ namespace Vista
             {
                 try
                 {
-                   // Logica.Usuarios.PersonalInterno nuevoUsuario = new Logica.Usuarios.PersonalInterno(nombreInput, nombreUsuarioInput, contraseniaInput, cbx_role.Text );
-                    //Sistema.AltaUsuario(nuevoUsuario);
-                    //Sistema.GuardarProducto(nuevoArticulo);
+                    Logica.Usuarios.PersonalInterno nuevoUsuario = new Logica.Usuarios.PersonalInterno(nombreInput, nombreUsuarioInput, contraseniaInput);
+                    Sistema.AltaUsuario(nuevoUsuario);
+                    Sistema.GuardarUsuario(nuevoUsuario);
                 }
                 catch (Exception ex)
                 {
@@ -54,6 +56,13 @@ namespace Vista
                 ActualizarDgv();
             }
 
+        }
+        public void LeerUsuarios()
+        {
+            dgv_usuarios.DataSource = null;
+            usuario = ParserUsuarios.LeerUsuario();
+            dgv_usuarios.DataSource = usuario;
+            dgv_usuarios.Refresh();
         }
     }
 }
