@@ -8,7 +8,7 @@ namespace Logica.Usuarios
 {
     public class Cliente : Persona
     {
-        public Cliente(int id, string nombre, string usuario, string contrasenia) : base(id, nombre, usuario, contrasenia)
+        public Cliente(int id, string nombre, string usuario, string contrasenia) : base(id, nombre, usuario, contrasenia, Enumerados.Role.Cliente)
         {
         }
     }

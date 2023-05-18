@@ -65,11 +65,13 @@
             this.dgv_principal.AllowUserToAddRows = false;
             this.dgv_principal.AllowUserToDeleteRows = false;
             this.dgv_principal.AllowUserToOrderColumns = true;
+            this.dgv_principal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv_principal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_principal.Location = new System.Drawing.Point(410, 79);
             this.dgv_principal.Name = "dgv_principal";
             this.dgv_principal.ReadOnly = true;
             this.dgv_principal.RowHeadersVisible = false;
+            this.dgv_principal.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgv_principal.RowTemplate.Height = 25;
             this.dgv_principal.Size = new System.Drawing.Size(577, 506);
             this.dgv_principal.TabIndex = 40;

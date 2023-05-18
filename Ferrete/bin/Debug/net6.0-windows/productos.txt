@@ -1,4 +1,4 @@
-1, Martillo, 10.99, 50
+﻿1, Martillo, 10.99, 50
 2, Destornillador, 4.99, 100
 3, Sierra electrica, 89.99, 20
 4, Clavos (paquete de 100), 1.99, 500
@@ -40,3 +40,4 @@
 40, Soplete de gas, 12.99, 20
 41, Mascara de proteccion, 5.99, 100
 42, Puntas de destornillador (juego de 6), 3.49, 150
+

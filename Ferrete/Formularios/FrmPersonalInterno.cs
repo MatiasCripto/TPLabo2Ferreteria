@@ -70,8 +70,8 @@ namespace Vista
 
         private void ActualizarDgv()
         {
-            dgv_principal.DataSource = null;            
-            dgv_principal.DataSource = BaseDeDatos.BaseDatosProductos;
+            dgv_principal.DataSource = null;
+            dgv_principal.DataSource = Sistema.ObtenerProductos();
             
 
         }
@@ -87,7 +87,7 @@ namespace Vista
             {
                 try
                 {
-                    Articulo nuevoArticulo = new Articulo( articuloInput, decimal.Parse(precioInput), 
+                    Articulo nuevoArticulo = new Articulo( articuloInput, decimal.Parse(precioInput, System.Globalization.CultureInfo.InvariantCulture), 
                                             Convert.ToInt16(txb_stock.Text));
                     Sistema.AltaProducto(nuevoArticulo, usuarioLogeado);
                     Sistema.GuardarProducto(nuevoArticulo);
@@ -127,6 +127,5 @@ namespace Vista
             Usuarios frmusuario = new Usuarios();
             frmusuario.Show();
         }
-    }  
-    
+    }      
 }

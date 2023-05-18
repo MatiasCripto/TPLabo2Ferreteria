@@ -16,31 +16,34 @@ namespace Vista.Formularios
 {
     public partial class Ventas : Form
     {
-        List<Articulo> stock;
+        List<Articulo> Carrito;
+
         public Ventas()
         {
             InitializeComponent();
-            LeerProductos();
+            ActualizarProductosDgv();
+            Carrito= new List<Articulo>();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ParserProductos.LeerProductos();
-            var itemSeleccionado = dgv_stock.SelectedRows[0].DataBoundItem as Articulo;
-            MessageBox.Show(itemSeleccionado.Nombre.ToString());
+            
+
+            var itemSeleccionado = dgv_stock.SelectedRows[0].DataBoundItem as DataRowView;
+            var producto = new Articulo((int) itemSeleccionado[0],(string) itemSeleccionado[1], (decimal)itemSeleccionado[2],(int) itemSeleccionado[3]);
+            
+            Carrito.Add(producto);
+            ActualizarDgvVentas();
         }
-        public void LeerProductos()
+        private void ActualizarDgvVentas()
         {
-            dgv_stock.DataSource = null;
-            stock = ParserProductos.LeerProductos();
-            dgv_stock.DataSource = stock;
-            dgv_stock.Refresh();
+           dgv_venta.DataSource = null;
+           dgv_venta.DataSource = Carrito;
         }
+       
 
         private void ActualizarProductosDgv()
-        {
-            // --------------------------------
-            // CON DATATABLE
+        {           
 
             var dt = new DataTable();
 
@@ -56,24 +59,14 @@ namespace Vista.Formularios
                 row["Id"] = item.Id;
                 row["Articulo"] = item.Nombre;
                 row["Precio"] = item.Precio ;
-                row["Stock"] = item.Stock;
-                
+                row["Stock"] = item.Stock;                
 
                 dt.Rows.Add(row);
             }
 
             dgv_stock.DataSource = dt;
 
-        }
-
-        private void ActualizarDataGrid(List<Articulo> productos)
-        {
-            if (productos.Count > 0)
-            {
-                dgv_stock.DataSource = null;
-                dgv_stock.DataSource = Sistema.ObtenerProductos();
-            }
-        }
+        }       
 
         private void txb_buscar_TextChanged(object sender, EventArgs e)
         {            

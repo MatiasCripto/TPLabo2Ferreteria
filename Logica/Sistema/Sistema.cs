@@ -12,6 +12,7 @@ namespace Logica.Sistema
     public class Sistema
     {
         private static List<Articulo> _productos = new List<Articulo>();
+       
 
         public static void AltaProducto(Articulo producto, PersonalInterno usuario)
         {
@@ -20,7 +21,7 @@ namespace Logica.Sistema
             {
                 throw new Exception("No tiene permiso suficiente");
             }
-            BaseDeDatos.BaseDatosProductos.Add(producto);
+            GuardarProducto(producto);
         }
         public static void GuardarProducto(Articulo producto)
         {
@@ -37,7 +38,8 @@ namespace Logica.Sistema
 
         public static List<Articulo> ObtenerProductos()
         {
-            return _productos;
+            
+            return ParserProductos.LeerProductos();
         }
 
         public static void GuardarUsuario(PersonalInterno usuario)

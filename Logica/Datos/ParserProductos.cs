@@ -1,6 +1,7 @@
 ﻿using Logica.Productos;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -29,7 +30,7 @@ namespace Logica.Datos
                 // Escribir los datos del usuario en el archivo.
                 using (StreamWriter sw = new StreamWriter("productos.txt", true))
                 {
-                    sw.WriteLine("{0},{1},{2},{3}", id, nombre, precio, stock);
+                    sw.WriteLine("{0},{1},{2},{3}", id, nombre, precio.ToString("0.00",CultureInfo.InvariantCulture), stock);
                 }
             }
 
@@ -68,7 +69,7 @@ namespace Logica.Datos
                     if (campos.Length == 4)
                     {
                         // Creamos un objeto Usuario con los campos leídos y lo agrega a la lista de usuarios
-                        Articulo producto = new Articulo(int.Parse(campos[0]), campos[1], decimal.Parse(campos[2]), int.Parse(campos[3]));
+                        Articulo producto = new Articulo(int.Parse(campos[0]), campos[1], decimal.Parse(campos[2],System.Globalization.CultureInfo.InvariantCulture), int.Parse(campos[3]));
                         productos.Add(producto);
                     }
                 }

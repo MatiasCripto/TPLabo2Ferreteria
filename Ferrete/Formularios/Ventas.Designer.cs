@@ -41,16 +41,17 @@
             this.dgv_stock.AllowUserToAddRows = false;
             this.dgv_stock.AllowUserToDeleteRows = false;
             this.dgv_stock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_stock.Location = new System.Drawing.Point(199, 157);
+            this.dgv_stock.Location = new System.Drawing.Point(22, 120);
             this.dgv_stock.Name = "dgv_stock";
             this.dgv_stock.ReadOnly = true;
             this.dgv_stock.RowTemplate.Height = 25;
-            this.dgv_stock.Size = new System.Drawing.Size(240, 250);
+            this.dgv_stock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_stock.Size = new System.Drawing.Size(374, 250);
             this.dgv_stock.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(477, 91);
+            this.button1.Location = new System.Drawing.Point(477, 62);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -71,11 +72,11 @@
             this.dgv_venta.AllowUserToAddRows = false;
             this.dgv_venta.AllowUserToDeleteRows = false;
             this.dgv_venta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_venta.Location = new System.Drawing.Point(477, 157);
+            this.dgv_venta.Location = new System.Drawing.Point(413, 120);
             this.dgv_venta.Name = "dgv_venta";
             this.dgv_venta.ReadOnly = true;
             this.dgv_venta.RowTemplate.Height = 25;
-            this.dgv_venta.Size = new System.Drawing.Size(240, 250);
+            this.dgv_venta.Size = new System.Drawing.Size(375, 250);
             this.dgv_venta.TabIndex = 3;
             // 
             // Ventas

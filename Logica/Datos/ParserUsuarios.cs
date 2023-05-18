@@ -67,7 +67,7 @@ namespace Logica.Datos
                     if (campos.Length == 5)
                     {
                         // Creamos un objeto Usuario con los campos leídos y lo agrega a la lista de usuarios
-                        Usuarios.Persona usuario = new Usuarios.PersonalInterno(int.Parse(campos[0]), campos[1], campos[2], campos[3], campos[4]);
+                        Usuarios.Persona usuario = new Usuarios.PersonalInterno(int.Parse(campos[0]), campos[1], campos[2], campos[3], Enum.Parse<Role>(campos[4]));
                         usuarios.Add(usuario);
                     }
                 }

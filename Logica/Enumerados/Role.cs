@@ -9,6 +9,7 @@ namespace Logica.Enumerados
     public enum Role
     {
         Administrador,
-        Empleado
+        Empleado,
+        Cliente
     }
 }

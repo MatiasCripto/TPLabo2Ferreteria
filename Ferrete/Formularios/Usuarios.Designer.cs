@@ -142,6 +142,7 @@
             // 
             // cbx_role
             // 
+            this.cbx_role.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_role.FormattingEnabled = true;
             this.cbx_role.Items.AddRange(new object[] {
             "Administrador",
