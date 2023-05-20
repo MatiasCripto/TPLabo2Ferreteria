@@ -73,6 +73,7 @@
             this.dgv_principal.RowHeadersVisible = false;
             this.dgv_principal.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgv_principal.RowTemplate.Height = 25;
+            this.dgv_principal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_principal.Size = new System.Drawing.Size(577, 506);
             this.dgv_principal.TabIndex = 40;
             // 
@@ -352,7 +353,7 @@
             this.verEmpleadosToolStripMenuItem});
             this.personalInternoToolStripMenuItem.Name = "personalInternoToolStripMenuItem";
             this.personalInternoToolStripMenuItem.Size = new System.Drawing.Size(105, 20);
-            this.personalInternoToolStripMenuItem.Text = "Personal interno";
+            this.personalInternoToolStripMenuItem.Text = "Personal Interno";
             // 
             // nuevoEmpleadoToolStripMenuItem
             // 

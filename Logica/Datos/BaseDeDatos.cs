@@ -21,11 +21,7 @@ namespace Logica.Datos
             _baseDatosPersonas = new List<Persona>();
             _baseDatosProductos = new List<Articulo>();
             HarcodeoPersonas();
-
-
         }
-
-
         private static void HarcodeoPersonas()
         {
             _baseDatosPersonas.Add(new Cliente(Persona.NexId, "Ana", "nava12", "1234"));

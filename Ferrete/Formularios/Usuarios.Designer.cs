@@ -146,7 +146,8 @@
             this.cbx_role.FormattingEnabled = true;
             this.cbx_role.Items.AddRange(new object[] {
             "Administrador",
-            "Vendedor"});
+            "Vendedor",
+            "Cliente"});
             this.cbx_role.Location = new System.Drawing.Point(115, 256);
             this.cbx_role.Name = "cbx_role";
             this.cbx_role.Size = new System.Drawing.Size(121, 23);

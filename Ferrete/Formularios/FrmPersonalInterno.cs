@@ -20,9 +20,10 @@ namespace Vista
 {
     public partial class FrmPersonalInterno : Form
     {
-        private const string vacio = "";        
+        private const string vacio = "";
         string articuloInput;
         string precioInput;
+        string stockInput;
 
         PersonalInterno usuarioLogeado;
         // probando con pasar  de un data a otro 
@@ -31,20 +32,20 @@ namespace Vista
         public FrmPersonalInterno(PersonalInterno usuario)
         {
             InitializeComponent();
-            usuarioLogeado = usuario;            
+            usuarioLogeado = usuario;
         }
         // de un data a otro
         public FrmPersonalInterno(DataGridView dgv_ventas)
         {
             this.dgv_ventas = dgv_ventas;
-        }     
+        }
 
         private void FrmPersonalInterno_Load(object sender, EventArgs e)
         {
-            BaseDeDatos.BaseDatosProductos = ParserProductos.LeerProductos();
-            this.dgv_principal.DataSource = BaseDeDatos.BaseDatosProductos;
 
-            if(usuarioLogeado.Role != Logica.Enumerados.Role.Administrador)
+            this.dgv_principal.DataSource = ParserProductos.LeerProductos();
+
+            if (usuarioLogeado.Role != Logica.Enumerados.Role.Administrador)
             {
                 personalInternoToolStripMenuItem.Visible = false;
                 btn_Actualizar.Enabled = false;
@@ -72,7 +73,6 @@ namespace Vista
         {
             dgv_principal.DataSource = null;
             dgv_principal.DataSource = Sistema.ObtenerProductos();
-            
 
         }
 
@@ -81,18 +81,18 @@ namespace Vista
         {
             articuloInput = txb_Descripcion.Text;
             precioInput = txb_Precio.Text;
-            
+            stockInput = txb_stock.Text;
 
-            if (articuloInput != vacio && precioInput != vacio)
+
+            if (articuloInput != vacio && precioInput != vacio && stockInput != vacio)
             {
                 try
                 {
-                    Articulo nuevoArticulo = new Articulo( articuloInput, decimal.Parse(precioInput, System.Globalization.CultureInfo.InvariantCulture), 
-                                            Convert.ToInt16(txb_stock.Text));
-                    Sistema.AltaProducto(nuevoArticulo, usuarioLogeado);
-                    Sistema.GuardarProducto(nuevoArticulo);
+                    Articulo nuevoArticulo = new Articulo(Articulo.NexId ,articuloInput, decimal.Parse(precioInput, System.Globalization.CultureInfo.InvariantCulture),
+                                            Convert.ToInt16(stockInput), false);
+                    ParserProductos.EscribirProducto(nuevoArticulo);                  
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     throw new Exception($"Error desconocido al guardar el usuario: {ex.Message}");
                 }
@@ -102,7 +102,45 @@ namespace Vista
 
         private void btn_Eliminar_Click(object sender, EventArgs e)
         {
-            
+            List<Articulo> productos = new List<Articulo>();
+            var itemSeleccionado = dgv_principal.SelectedRows[0].DataBoundItem as DataRowView;
+            DataGridViewRow filaSeleccionada = dgv_principal.SelectedRows[0];
+            string valorNombre = filaSeleccionada.Cells["id"].Value.ToString();
+            //productos = ParserProductos.LeerProductos();
+            //Sistema.BajaProducto(productos, valorNombre);
+            ////ParserProductos.EscribirProducto(itemSeleccionado);
+            //ParserProductos.EscribirSrchivo(productos);
+
+
+            string[] lineas = File.ReadAllLines("productos.txt");
+
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var linea in lineas)
+            {
+                
+                string[] campos = linea.Split(',');
+                if (campos[0] == valorNombre)
+                {                    
+                    sb.Append(campos[0]);
+                    sb.Append(",");
+                    sb.Append(campos[1]);
+                    sb.Append(",");
+                    sb.Append(campos[2]);
+                    sb.Append(",");
+                    sb.Append(campos[3]);
+                    sb.Append(",");
+                    sb.Append("True\n");
+                }
+                else
+                {
+                    sb.AppendLine(linea);
+                }
+
+            }
+            // Sobrescribir el archivo con el contenido actualizado
+            File.WriteAllText("productos.txt", sb.ToString());
+            ActualizarDgv();
         }
 
         private void btn_Nuevo_Click(object sender, EventArgs e)
@@ -127,5 +165,7 @@ namespace Vista
             Usuarios frmusuario = new Usuarios();
             frmusuario.Show();
         }
-    }      
+
+       
+    }
 }

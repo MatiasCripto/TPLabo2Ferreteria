@@ -12,28 +12,28 @@ namespace Logica.Sistema
     public class Sistema
     {
         private static List<Articulo> _productos = new List<Articulo>();
-       
 
-        public static void AltaProducto(Articulo producto, PersonalInterno usuario)
-        {
-            //validaciones
-            if (usuario.Role != Enumerados.Role.Administrador)
-            {
-                throw new Exception("No tiene permiso suficiente");
-            }
-            GuardarProducto(producto);
-        }
-        public static void GuardarProducto(Articulo producto)
-        {
-            producto.Id = Articulo.NexId;
-            ParserProductos.CrearProducto(producto.Id, producto.Nombre, producto.Precio, producto.Stock);
-        }
+
+        //public static void AltaProducto(Articulo producto, PersonalInterno usuario)
+        //{
+        //    //validaciones
+        //    if (usuario.Role != Enumerados.Role.Administrador)
+        //    {
+        //        throw new Exception("No tiene permiso suficiente");
+        //    }
+        //    GuardarProducto(producto);
+        //}
+        //public static void GuardarProducto(Articulo producto)
+        //{
+        //    producto.Id = Articulo.NexId;
+        //    ParserProductos.EscribirProducto(producto.Id, producto.Nombre, producto.Precio, producto.Stock, producto.Baja);
+        //}
 
         public static void AltaUsuario(Usuarios.PersonalInterno usuario)
         {
             //validaciones
-          
-            BaseDeDatos.BaseDatosPersonas.Add(usuario);
+            AltaUsuario(usuario);
+           
         }
 
         public static List<Articulo> ObtenerProductos()
@@ -46,6 +46,30 @@ namespace Logica.Sistema
         {
             usuario.Id = PersonalInterno.NexId;
             ParserUsuarios.CrearUsuario(usuario.Id, usuario.Nombre, usuario.Usuario, usuario.Contrasenia, usuario.Role);
+        }
+
+        public static Persona ObtenerUsuario(string usuario, string contrasenia)
+        {
+            foreach (Persona item in ParserUsuarios.LeerUsuario())
+            {
+                if (item.ComprobarUsuario(usuario, contrasenia))
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
+        public static void BajaProducto(List<Articulo> producto, string id)
+        {
+            foreach (var articulo in producto)
+            {
+                if (articulo.Id == int.Parse(id))
+                {
+                    articulo.Baja = true;
+                    break;
+                }
+            }
         }
     }
 }

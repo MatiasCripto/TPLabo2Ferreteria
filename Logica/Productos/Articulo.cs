@@ -13,27 +13,27 @@ namespace Logica.Productos
         string nombre;
         decimal precio;
         int stock;
+        bool baja;
 
-        public Articulo(int id, string nombre, decimal precio, int stock)
-        {
-            this.id = id;
-            this.nombre = nombre;
-            this.precio = precio;
-            this.stock = stock;
-        }
-
-        public Articulo(string nombre, decimal precio, int stock)
+        public Articulo(string nombre, decimal precio, int stock, bool baja)
         {
             this.nombre = nombre;
             this.precio = precio;
             this.stock = stock;
+            this.baja = baja;
         }
+        public Articulo(int id, string nombre, decimal precio, int stock, bool baja) : this (nombre, precio, stock, baja)
+        {
+            this.id = id;            
+        }
+
 
         public int Id { get => id; set => id = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public decimal Precio { get => precio; set => precio = value; }
         public int Stock { get => stock; set => stock = value; }
         public static int NexId { get => ++nexId; set => nexId = value; }
+        public bool Baja { get => baja; set => baja = value; }
     }
   
 

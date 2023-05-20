@@ -27,10 +27,8 @@ namespace Vista.Formularios
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-
             var itemSeleccionado = dgv_stock.SelectedRows[0].DataBoundItem as DataRowView;
-            var producto = new Articulo((int) itemSeleccionado[0],(string) itemSeleccionado[1], (decimal)itemSeleccionado[2],(int) itemSeleccionado[3]);
+            /*try*/var producto = new Articulo((int) itemSeleccionado[0],(string) itemSeleccionado[1], (decimal)itemSeleccionado[2],(int) itemSeleccionado[3], (bool) itemSeleccionado[4]);
             
             Carrito.Add(producto);
             ActualizarDgvVentas();
