@@ -31,11 +31,11 @@ namespace Vista
         {
             InitializeComponent();
             usuarioLogeado = usuario;
-        }        
+        }
 
         private void FrmPersonalInterno_Load(object sender, EventArgs e)
         {
-
+           
             this.dgv_principal.DataSource = ParserProductos.LeerProductos();
 
             if (usuarioLogeado.Role != Logica.Enumerados.Role.Administrador)
@@ -66,7 +66,6 @@ namespace Vista
         {
             dgv_principal.DataSource = null;
             dgv_principal.DataSource = Sistema.ObtenerProductos();
-
         }
 
 
@@ -76,14 +75,13 @@ namespace Vista
             precioInput = txb_Precio.Text;
             stockInput = txb_stock.Text;
 
-
-            if (articuloInput != vacio && precioInput != vacio && stockInput != vacio)
+            string mensajeError = Sistema.ValidarCamposAgregar(articuloInput, precioInput, stockInput);
+            if (mensajeError == null)
             {
                 try
                 {
-                    Articulo nuevoArticulo = new Articulo(Articulo.NexId ,articuloInput, decimal.Parse(precioInput, System.Globalization.CultureInfo.InvariantCulture),
-                                            Convert.ToInt16(stockInput), false);
-                    ParserProductos.EscribirProducto(nuevoArticulo);                  
+                    Articulo nuevoArticulo = new Articulo(Articulo.NexId, articuloInput, decimal.Parse(precioInput, System.Globalization.CultureInfo.InvariantCulture), Convert.ToInt16(stockInput), false);
+                    ParserProductos.EscribirProducto(nuevoArticulo);
                 }
                 catch (Exception ex)
                 {
@@ -91,49 +89,53 @@ namespace Vista
                 }
                 ActualizarDgv();
             }
+            else
+            {
+                MessageBox.Show(mensajeError);
+            }
         }
 
         private void btn_Eliminar_Click(object sender, EventArgs e)
         {
-            List<Articulo> productos = new List<Articulo>();
-            var itemSeleccionado = dgv_principal.SelectedRows[0].DataBoundItem as DataRowView;
-            DataGridViewRow filaSeleccionada = dgv_principal.SelectedRows[0];
-            string valorNombre = filaSeleccionada.Cells["id"].Value.ToString();
-            //productos = ParserProductos.LeerProductos();
-            //Sistema.BajaProducto(productos, valorNombre);
-            ////ParserProductos.EscribirProducto(itemSeleccionado);
-            //ParserProductos.EscribirSrchivo(productos);
-
-
-            string[] lineas = File.ReadAllLines("productos.txt");
-
-            StringBuilder sb = new StringBuilder();
-
-            foreach (var linea in lineas)
+            if (dgv_principal.SelectedRows.Count > 0)
             {
-                
-                string[] campos = linea.Split(',');
-                if (campos[0] == valorNombre)
-                {                    
-                    sb.Append(campos[0]);
-                    sb.Append(",");
-                    sb.Append(campos[1]);
-                    sb.Append(",");
-                    sb.Append(campos[2]);
-                    sb.Append(",");
-                    sb.Append(campos[3]);
-                    sb.Append(",");
-                    sb.Append("True\n");
-                }
-                else
+                DataGridViewRow filaSeleccionada = dgv_principal.SelectedRows[0];
+                string valorId = filaSeleccionada.Cells["id"].Value.ToString();
+
+                // Eliminar el artículo del archivo
+                string[] lineas = File.ReadAllLines("productos.txt");
+                StringBuilder sb = new StringBuilder();
+
+                foreach (var linea in lineas)
                 {
-                    sb.AppendLine(linea);
+                    string[] campos = linea.Split(',');
+
+                    if (campos[0] != valorId)
+                    {
+                        sb.AppendLine(linea);
+                    }
                 }
 
+                // Sobrescribir el archivo con el contenido actualizado
+                File.WriteAllText("productos.txt", sb.ToString());               
+
+                // Eliminar el artículo del origen de datos
+                List<Articulo> productos = ParserProductos.LeerProductos();
+                Articulo articuloAEliminar = productos.FirstOrDefault(a => a.Id == int.Parse(valorId));
+
+                if (articuloAEliminar != null)
+                {
+                    productos.Remove(articuloAEliminar);
+                    ParserProductos.EscribirArchivo(productos); // Guardar los productos actualizados en el archivo
+                }
+                // Eliminar la fila del DataGridView                
+                ActualizarDgv();
             }
-            // Sobrescribir el archivo con el contenido actualizado
-            File.WriteAllText("productos.txt", sb.ToString());
-            ActualizarDgv();
+            else
+            {
+                MessageBox.Show("No se ha seleccionado ningún artículo para eliminar.");
+            }
+            
         }
 
         private void btn_Nuevo_Click(object sender, EventArgs e)

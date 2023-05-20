@@ -71,5 +71,27 @@ namespace Logica.Sistema
                 }
             }
         }
+
+        public static string ValidarCamposAgregar(string articuloInput, string precioInput, string stockInput)
+        {
+            if (string.IsNullOrEmpty(articuloInput) || string.IsNullOrEmpty(precioInput) || string.IsNullOrEmpty(stockInput))
+            {
+                return "Todos los campos deben ser completados.";
+            }
+
+            decimal precio;
+            if (!decimal.TryParse(precioInput, System.Globalization.NumberStyles.AllowDecimalPoint, System.Globalization.CultureInfo.InvariantCulture, out precio))
+            {
+                return "El valor ingresado para el precio no es válido. Debe ser un número decimal.";
+            }
+
+            int stock;
+            if (!int.TryParse(stockInput, out stock))
+            {
+                return "El valor ingresado para el stock no es válido. Debe ser un número entero.";
+            }
+
+            return null; // No hay errores de validación
+        }
     }
 }

@@ -40,9 +40,4 @@
 40,Soplete de gas,12.99,20,False
 41,Mascara de proteccion,5.99,100,False
 42,Puntas de destornillador (juego de 6),3.49,150,False
-43,valeri,99999.99,1,True
-44,valeri,12.12,2,True
-45,valeri,12.12,2,False
-46,jona,12.36,50,True
-47,johnny,12.36,25,False
-48,lalala,123.46,26,True
+43,nuevo1,123.32,23,False

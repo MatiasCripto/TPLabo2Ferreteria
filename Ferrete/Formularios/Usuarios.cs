@@ -57,9 +57,14 @@ namespace Vista
         public void LeerUsuarios()
         {
             dgv_usuarios.DataSource = null;
-            usuario = ParserUsuarios.LeerUsuario();
-            dgv_usuarios.DataSource = usuario;
+            List<Persona> usuarios = ParserUsuarios.LeerUsuario();
+            List<Persona> usuariosFiltrados = usuarios.Where(u => u.Role != Role.Cliente).ToList();
+            dgv_usuarios.DataSource = usuariosFiltrados;
             dgv_usuarios.Refresh();
+            //dgv_usuarios.DataSource = null;
+            //usuario = ParserUsuarios.LeerUsuario();
+            //dgv_usuarios.DataSource = usuario;
+            //dgv_usuarios.Refresh();
         }
     }
 }
