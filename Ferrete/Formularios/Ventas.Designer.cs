@@ -32,6 +32,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.txb_buscar = new System.Windows.Forms.TextBox();
             this.dgv_venta = new System.Windows.Forms.DataGridView();
+            this.lbl_total = new System.Windows.Forms.Label();
+            this.btn_calcularTotal = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_stock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_venta)).BeginInit();
             this.SuspendLayout();
@@ -61,7 +63,7 @@
             // 
             // txb_buscar
             // 
-            this.txb_buscar.Location = new System.Drawing.Point(264, 62);
+            this.txb_buscar.Location = new System.Drawing.Point(196, 63);
             this.txb_buscar.Name = "txb_buscar";
             this.txb_buscar.Size = new System.Drawing.Size(100, 23);
             this.txb_buscar.TabIndex = 2;
@@ -79,12 +81,33 @@
             this.dgv_venta.Size = new System.Drawing.Size(375, 250);
             this.dgv_venta.TabIndex = 3;
             // 
+            // lbl_total
+            // 
+            this.lbl_total.AutoSize = true;
+            this.lbl_total.BackColor = System.Drawing.Color.White;
+            this.lbl_total.Location = new System.Drawing.Point(700, 394);
+            this.lbl_total.Name = "lbl_total";
+            this.lbl_total.Size = new System.Drawing.Size(0, 15);
+            this.lbl_total.TabIndex = 4;
+            // 
+            // btn_calcularTotal
+            // 
+            this.btn_calcularTotal.Location = new System.Drawing.Point(413, 394);
+            this.btn_calcularTotal.Name = "btn_calcularTotal";
+            this.btn_calcularTotal.Size = new System.Drawing.Size(75, 23);
+            this.btn_calcularTotal.TabIndex = 5;
+            this.btn_calcularTotal.Text = "calcular";
+            this.btn_calcularTotal.UseVisualStyleBackColor = true;
+            this.btn_calcularTotal.Click += new System.EventHandler(this.btn_calcularTotal_Click);
+            // 
             // Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_calcularTotal);
+            this.Controls.Add(this.lbl_total);
             this.Controls.Add(this.dgv_venta);
             this.Controls.Add(this.txb_buscar);
             this.Controls.Add(this.button1);
@@ -104,5 +127,7 @@
         private Button button1;
         private TextBox txb_buscar;
         private DataGridView dgv_venta;
+        private Label lbl_total;
+        private Button btn_calcularTotal;
     }
 }

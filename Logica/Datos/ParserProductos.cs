@@ -95,7 +95,7 @@ namespace Logica.Datos
             return productos;
         }
 
-        public static void EscribirSrchivo(List<Articulo> productos)
+        public static void EscribirArchivo(List<Articulo> productos)
         {
 
             try

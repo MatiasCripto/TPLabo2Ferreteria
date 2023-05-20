@@ -16,7 +16,7 @@ namespace Vista.Formularios
 {
     public partial class Ventas : Form
     {
-        List<Articulo> Carrito;
+        List<Articulo> Carrito;        
 
         public Ventas()
         {
@@ -49,6 +49,7 @@ namespace Vista.Formularios
             dt.Columns.Add("Articulo", typeof(string));
             dt.Columns.Add("Precio", typeof(decimal));
             dt.Columns.Add("Stock", typeof(int));          
+            dt.Columns.Add("Baja", typeof(bool));          
 
             foreach (var item in Sistema.ObtenerProductos())
             {
@@ -58,6 +59,7 @@ namespace Vista.Formularios
                 row["Articulo"] = item.Nombre;
                 row["Precio"] = item.Precio ;
                 row["Stock"] = item.Stock;                
+                row["Baja"] = item.Baja;                
 
                 dt.Rows.Add(row);
             }
@@ -77,5 +79,51 @@ namespace Vista.Formularios
 
             }
         }
+        private decimal CalcularTotal()
+        {
+            decimal total = 0;
+
+            foreach (DataGridViewRow row in dgv_venta.Rows)
+            {
+                // Obtener el valor de la columna que contiene el precio
+                decimal precio = (decimal)row.Cells["Precio"].Value;
+
+                // Sumar el precio al total
+                total += precio;
+            }
+
+            return total;
+        }
+
+        private void btn_calcularTotal_Click(object sender, EventArgs e)
+        {
+            decimal total = CalcularTotal();
+            lbl_total.Text = "Total: $" + total.ToString();
+        }
+
+
+
+        //private void TotalPrecio()
+        //{
+        //    lbl_total.Text = "Total";
+        //    decimal total = 0;
+
+        //    foreach (DataGridViewRow row in dgv_venta.Rows)
+        //    {
+        //        if (row.Selected)
+        //        {
+        //            // Obtener el valor de la columna que contiene el precio
+        //            decimal precio = Convert.ToDecimal(row.Cells["Precio"].Value);
+
+        //            // Sumar el precio al total
+        //            total += precio;
+        //        }
+        //    }
+
+        //    lbl_total.Text = total.ToString();
+
+        //    // Ahora, la variable 'total' contiene la suma de los precios de los artículos seleccionados
+
+        //}
     }
 }

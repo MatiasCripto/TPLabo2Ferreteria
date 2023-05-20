@@ -25,20 +25,13 @@ namespace Vista
         string precioInput;
         string stockInput;
 
-        PersonalInterno usuarioLogeado;
-        // probando con pasar  de un data a otro 
-        private DataGridView dgv_ventas;
+        PersonalInterno usuarioLogeado;       
 
         public FrmPersonalInterno(PersonalInterno usuario)
         {
             InitializeComponent();
             usuarioLogeado = usuario;
-        }
-        // de un data a otro
-        public FrmPersonalInterno(DataGridView dgv_ventas)
-        {
-            this.dgv_ventas = dgv_ventas;
-        }
+        }        
 
         private void FrmPersonalInterno_Load(object sender, EventArgs e)
         {
@@ -166,6 +159,10 @@ namespace Vista
             frmusuario.Show();
         }
 
-       
+        private void nuevoClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clientes nuevoCliene = new Clientes();
+            nuevoCliene.Show();
+        }
     }
 }

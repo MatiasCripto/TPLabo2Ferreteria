@@ -82,5 +82,39 @@ namespace Logica.Datos
 
             return usuarios;
         }
+
+        public static List<Usuarios.Persona> LeerClientes()
+        {
+            List<Usuarios.Persona> clientes = new List<Usuarios.Persona>();
+
+            try
+            {
+                // Leemos todas las líneas del archivo
+                string[] lineas = File.ReadAllLines("clientes.txt");
+
+                // Recorremos cada línea del archivo
+                foreach (string linea in lineas)
+                {
+                    // Dividimos la línea en campos utilizando la coma como separador
+                    string[] campos = linea.Split(',');
+                    // Verifica que la línea tenga exactamente 3 campos
+                    if (campos.Length == 5)
+                    {
+                        // Creamos un objeto Usuario con los campos leídos y lo agrega a la lista de usuarios
+                        Usuarios.Persona cliente = new Usuarios.Cliente(int.Parse(campos[0]), campos[1], campos[2], campos[3], Enum.Parse<Role>(campos[4]));
+                        clientes.Add(cliente);
+                    }
+                }
+                Persona.NexId = clientes[clientes.Count - 1].Id;
+            }
+            catch (Exception error)
+            {
+                // Si ocurre algún error al leer el archivo, se lanza una excepción
+                throw new Exception("Error al leer el archivo de clientes: " + error.Message);
+            }
+            // Retornamos la lista de usuarios leída desde el archivo
+
+            return clientes;
+        }
     }
 }
