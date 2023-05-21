@@ -151,20 +151,26 @@ namespace Vista
 
         private void btn_Ventas_Click(object sender, EventArgs e)
         {
-            Ventas frmVentas = new Ventas();
+            FrmVentas frmVentas = new FrmVentas();
             frmVentas.Show();
         }
 
         private void nuevoEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Usuarios frmusuario = new Usuarios();
+            FrmAgregarUsuarios frmusuario = new FrmAgregarUsuarios();
             frmusuario.Show();
         }
 
         private void nuevoClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Clientes nuevoCliene = new Clientes();
+            FrmAgregarClientes nuevoCliene = new FrmAgregarClientes();
             nuevoCliene.Show();
+        }
+
+        private void verClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAgregarClientes frmClientes = new FrmAgregarClientes();            
+            frmClientes.ShowDialog();
         }
     }
 }

@@ -116,5 +116,31 @@ namespace Logica.Datos
 
             return clientes;
         }
+
+        public static void EliminarUsuario(Persona usuario)
+        {
+            try
+            {
+                string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "usuarios.txt");
+                string[] lines = File.ReadAllLines(filePath);
+
+                using (StreamWriter sw = new StreamWriter(filePath))
+                {
+                    foreach (string line in lines)
+                    {
+                        string[] campos = line.Split(',');
+
+                        if (campos.Length == 5 && campos[2] == usuario.Usuario) // Verificar el campo de usuario para eliminar la línea
+                            continue; // Saltar la línea a eliminar
+
+                        sw.WriteLine(line);
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                throw new Exception("Error al eliminar el usuario del archivo: " + error.Message);
+            }
+        }
     }
 }

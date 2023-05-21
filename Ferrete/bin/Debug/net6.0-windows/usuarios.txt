@@ -1,15 +1,1 @@
 1,pipo,pipo12,1234,Empleado
-2,papa,papito,1144,Empleado
-3,papa,papito,1144,Empleado
-4,sdf,sdf,sdf,Empleado
-5,asdfasdf,fasdfasdf,asdfasdf,Empleado
-6,laka,asd,asfd,Empleado
-7,jojo,jojojojo,klasjdfhklsadjf,Administrador
-8,sadfsadf,adsfadsf,sadfasdf,Administrador
-9,sadfsadf,adsfadsf,sadfasdf,Administrador
-10,sadfsadf,adsfadsf,sadfasdf,Administrador
-11,sadfsadf,adsfadsf,sadfasdf,Administrador
-12,sadfsadf,adsfadsf,sadfasdf,Administrador
-13,sadfsadf,adsfadsf,sadfasdf,Administrador
-14,sadfsadf,adsfadsf,sadfasdf,Administrador
-15,sadfsadf,adsfadsf,sadfasdf,Administrador

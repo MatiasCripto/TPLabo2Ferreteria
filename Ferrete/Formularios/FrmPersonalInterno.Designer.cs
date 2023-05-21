@@ -346,6 +346,7 @@
             this.verClientesToolStripMenuItem.Name = "verClientesToolStripMenuItem";
             this.verClientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.verClientesToolStripMenuItem.Text = "Ver clientes";
+            this.verClientesToolStripMenuItem.Click += new System.EventHandler(this.verClientesToolStripMenuItem_Click);
             // 
             // personalInternoToolStripMenuItem
             // 

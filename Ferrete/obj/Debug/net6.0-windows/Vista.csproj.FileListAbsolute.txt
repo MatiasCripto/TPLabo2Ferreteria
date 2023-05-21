@@ -1,6 +1,5 @@
 C:\Users\Pablo\Desktop\Programacion\progra y labo 2\2do cuatri\Ferrete\Ferrete\obj\Debug\net6.0-windows\Vista.csproj.AssemblyReference.cache
 C:\Users\Pablo\Desktop\Programacion\progra y labo 2\2do cuatri\Ferrete\Ferrete\obj\Debug\net6.0-windows\Vista.FrmPersonalInterno.resources
-C:\Users\Pablo\Desktop\Programacion\progra y labo 2\2do cuatri\Ferrete\Ferrete\obj\Debug\net6.0-windows\Ferrete.Login.resources
 C:\Users\Pablo\Desktop\Programacion\progra y labo 2\2do cuatri\Ferrete\Ferrete\obj\Debug\net6.0-windows\Vista.csproj.GenerateResource.cache
 C:\Users\Pablo\Desktop\Programacion\progra y labo 2\2do cuatri\Ferrete\Ferrete\obj\Debug\net6.0-windows\Vista.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Pablo\Desktop\Programacion\progra y labo 2\2do cuatri\Ferrete\Ferrete\obj\Debug\net6.0-windows\Vista.AssemblyInfoInputs.cache
@@ -19,6 +18,9 @@ C:\Users\Pablo\Desktop\Programacion\progra y labo 2\2do cuatri\Ferrete\Ferrete\o
 C:\Users\Pablo\Desktop\Programacion\progra y labo 2\2do cuatri\Ferrete\Ferrete\obj\Debug\net6.0-windows\Vista.pdb
 C:\Users\Pablo\Desktop\Programacion\progra y labo 2\2do cuatri\Ferrete\Ferrete\obj\Debug\net6.0-windows\Vista.genruntimeconfig.cache
 C:\Users\Pablo\Desktop\Programacion\progra y labo 2\2do cuatri\Ferrete\Ferrete\obj\Debug\net6.0-windows\ref\Vista.dll
-C:\Users\Pablo\Desktop\Programacion\progra y labo 2\2do cuatri\Ferrete\Ferrete\obj\Debug\net6.0-windows\Vista.Formularios.Ventas.resources
-C:\Users\Pablo\Desktop\Programacion\progra y labo 2\2do cuatri\Ferrete\Ferrete\obj\Debug\net6.0-windows\Vista.Usuarios.resources
-C:\Users\Pablo\Desktop\Programacion\progra y labo 2\2do cuatri\Ferrete\Ferrete\obj\Debug\net6.0-windows\Vista.Formularios.Clientes.resources
+C:\Users\Pablo\Desktop\Programacion\progra y labo 2\2do cuatri\Ferrete\Ferrete\obj\Debug\net6.0-windows\Vista.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programacion\progra y labo 2\2do cuatri\Ferrete\Ferrete\obj\Debug\net6.0-windows\Vista.Formularios.FrmAgregarClientes.resources
+C:\Users\Pablo\Desktop\Programacion\progra y labo 2\2do cuatri\Ferrete\Ferrete\obj\Debug\net6.0-windows\Vista.FrmAgregarUsuarios.resources
+C:\Users\Pablo\Desktop\Programacion\progra y labo 2\2do cuatri\Ferrete\Ferrete\obj\Debug\net6.0-windows\Ferrete.FrmLogin.resources
+C:\Users\Pablo\Desktop\Programacion\progra y labo 2\2do cuatri\Ferrete\Ferrete\obj\Debug\net6.0-windows\Vista.Formularios.FrmVentas.resources
+C:\Users\Pablo\Desktop\Programacion\progra y labo 2\2do cuatri\Ferrete\Ferrete\obj\Debug\net6.0-windows\Vista.Formularios.MostrarClientes.resources
