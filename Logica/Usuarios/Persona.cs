@@ -18,11 +18,6 @@ namespace Logica.Usuarios
         public static int NexId { get => ++nexId; set => nexId = value; }
         public Role Role { get => role; set => role = value; }
 
-        protected Persona(int id, string nombre, string usuario, string contrasenia, Role role) : this(nombre, usuario, contrasenia, role)
-        {
-            this._id = id;
-          
-        } 
         protected Persona(string nombre, string usuario, string contrasenia, Role role)
         {
             
@@ -31,6 +26,11 @@ namespace Logica.Usuarios
             this._contrasenia = contrasenia;
             this.Role = role;
         }
+        protected Persona(int id, string nombre, string usuario, string contrasenia, Role role) : this(nombre, usuario, contrasenia, role)
+        {
+            this._id = id;
+          
+        } 
         public bool ComprobarUsuario(string usuario, string contrasenia)
         {
             return (this._usuario == usuario && this._contrasenia == contrasenia);
