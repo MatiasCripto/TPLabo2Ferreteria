@@ -48,6 +48,9 @@ namespace Vista
                 btn_Eliminar.Enabled = false;
                 btn_Informe.Enabled = false;
                 btn_Nuevo.Enabled = false;
+                txb_Descripcion.Enabled = false;
+                txb_Precio.Enabled = false;
+                txb_stock.Enabled = false;
             }
             else
             {
@@ -57,6 +60,9 @@ namespace Vista
                 btn_Cancelar.Enabled = false;
                 btn_Eliminar.Enabled = false;
                 btn_Informe.Enabled = false;
+                txb_Descripcion.Enabled = false;
+                txb_Precio.Enabled = false;
+                txb_stock.Enabled = false;
                 btn_Nuevo.Enabled = true;
             }
         }
@@ -80,7 +86,7 @@ namespace Vista
             {
                 try
                 {
-                    Articulo nuevoArticulo = new Articulo(Articulo.NexId, articuloInput, decimal.Parse(precioInput, System.Globalization.CultureInfo.InvariantCulture), Convert.ToInt16(stockInput), false);
+                    Articulo nuevoArticulo = new Articulo(Articulo.NexId, articuloInput, decimal.Parse(precioInput), int.Parse(stockInput), false);
                     ParserProductos.EscribirProducto(nuevoArticulo);
                 }
                 catch (Exception ex)
@@ -147,12 +153,19 @@ namespace Vista
             btn_Eliminar.Enabled = true;
             btn_Informe.Enabled = true;
             btn_Nuevo.Enabled = true;
+            txb_Descripcion.Enabled = true;
+            txb_Precio.Enabled = true;
+            txb_stock.Enabled = true;
         }
 
         private void btn_Ventas_Click(object sender, EventArgs e)
         {
             FrmVentas frmVentas = new FrmVentas();
-            frmVentas.Show();
+            var resultado = frmVentas.ShowDialog();
+            if (resultado == DialogResult.OK)
+            {
+                ActualizarDgv();
+            }
         }
 
         private void nuevoEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -172,5 +185,39 @@ namespace Vista
             FrmAgregarClientes frmClientes = new FrmAgregarClientes();            
             frmClientes.ShowDialog();
         }
+
+        private void btn_Actualizar_Click(object sender, EventArgs e)
+        {
+            if (dgv_principal.SelectedRows.Count > 0)
+            {
+                DataGridViewRow filaSeleccionada = dgv_principal.SelectedRows[0];
+                string valorId = filaSeleccionada.Cells["id"].Value.ToString();
+
+                FrmModificarProducto frmModificar = new FrmModificarProducto(valorId);
+                DialogResult resultado = frmModificar.ShowDialog();
+
+                if (resultado == DialogResult.OK)
+                {
+                    // Actualizar el artículo en el archivo
+                    List<Articulo> productos = ParserProductos.LeerProductos();
+                    Articulo articuloAModificar = productos.FirstOrDefault(a => a.Id == int.Parse(valorId));
+
+                    if (articuloAModificar != null)
+                    {
+                        articuloAModificar.Nombre = frmModificar.NombreModificado;
+                        articuloAModificar.Precio = frmModificar.PrecioModificado;
+                        articuloAModificar.Stock = frmModificar.StockModificado;
+
+                        ParserProductos.EscribirArchivo(productos); // Guardar los productos actualizados en el archivo
+                        ActualizarDgv();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se ha seleccionado ningún artículo para modificar.");
+            }
+        }
     }
+    
 }

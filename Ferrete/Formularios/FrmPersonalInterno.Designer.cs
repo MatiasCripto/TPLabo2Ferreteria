@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPersonalInterno));
             this.dgv_principal = new System.Windows.Forms.DataGridView();
             this.btn_Ventas = new System.Windows.Forms.Button();
-            this.btn_Usuarios = new System.Windows.Forms.Button();
             this.lbl_MensajeAdmin = new System.Windows.Forms.Label();
             this.txb_Precio = new System.Windows.Forms.TextBox();
             this.lbl_Precio = new System.Windows.Forms.Label();
@@ -89,30 +88,12 @@
             this.btn_Ventas.Location = new System.Drawing.Point(21, 380);
             this.btn_Ventas.Name = "btn_Ventas";
             this.btn_Ventas.Padding = new System.Windows.Forms.Padding(1);
-            this.btn_Ventas.Size = new System.Drawing.Size(119, 58);
+            this.btn_Ventas.Size = new System.Drawing.Size(118, 58);
             this.btn_Ventas.TabIndex = 39;
             this.btn_Ventas.Text = "Ventas";
             this.btn_Ventas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Ventas.UseVisualStyleBackColor = false;
             this.btn_Ventas.Click += new System.EventHandler(this.btn_Ventas_Click);
-            // 
-            // btn_Usuarios
-            // 
-            this.btn_Usuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.btn_Usuarios.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
-            this.btn_Usuarios.FlatAppearance.BorderSize = 2;
-            this.btn_Usuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Usuarios.ForeColor = System.Drawing.Color.White;
-            this.btn_Usuarios.Image = ((System.Drawing.Image)(resources.GetObject("btn_Usuarios.Image")));
-            this.btn_Usuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Usuarios.Location = new System.Drawing.Point(21, 268);
-            this.btn_Usuarios.Name = "btn_Usuarios";
-            this.btn_Usuarios.Padding = new System.Windows.Forms.Padding(1);
-            this.btn_Usuarios.Size = new System.Drawing.Size(119, 58);
-            this.btn_Usuarios.TabIndex = 38;
-            this.btn_Usuarios.Text = "Usuarios";
-            this.btn_Usuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Usuarios.UseVisualStyleBackColor = false;
             // 
             // lbl_MensajeAdmin
             // 
@@ -240,6 +221,7 @@
             this.btn_Actualizar.Text = "Actualizar";
             this.btn_Actualizar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Actualizar.UseVisualStyleBackColor = false;
+            this.btn_Actualizar.Click += new System.EventHandler(this.btn_Actualizar_Click);
             // 
             // btn_Eliminar
             // 
@@ -337,14 +319,14 @@
             // nuevoClienteToolStripMenuItem
             // 
             this.nuevoClienteToolStripMenuItem.Name = "nuevoClienteToolStripMenuItem";
-            this.nuevoClienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nuevoClienteToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.nuevoClienteToolStripMenuItem.Text = "Nuevo cliente";
             this.nuevoClienteToolStripMenuItem.Click += new System.EventHandler(this.nuevoClienteToolStripMenuItem_Click);
             // 
             // verClientesToolStripMenuItem
             // 
             this.verClientesToolStripMenuItem.Name = "verClientesToolStripMenuItem";
-            this.verClientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.verClientesToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.verClientesToolStripMenuItem.Text = "Ver clientes";
             this.verClientesToolStripMenuItem.Click += new System.EventHandler(this.verClientesToolStripMenuItem_Click);
             // 
@@ -397,7 +379,6 @@
             this.Controls.Add(this.lbl_stock);
             this.Controls.Add(this.dgv_principal);
             this.Controls.Add(this.btn_Ventas);
-            this.Controls.Add(this.btn_Usuarios);
             this.Controls.Add(this.lbl_MensajeAdmin);
             this.Controls.Add(this.txb_Precio);
             this.Controls.Add(this.lbl_Precio);
@@ -430,7 +411,6 @@
 
         private DataGridView dgv_principal;
         private Button btn_Ventas;
-        private Button btn_Usuarios;
         private Label lbl_MensajeAdmin;
         private TextBox txb_Precio;
         private Label lbl_Precio;

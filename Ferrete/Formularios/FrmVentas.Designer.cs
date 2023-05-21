@@ -38,6 +38,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_Eliminar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_stock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_venta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -55,6 +56,7 @@
             this.dgv_stock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_stock.Size = new System.Drawing.Size(374, 250);
             this.dgv_stock.TabIndex = 0;
+            this.dgv_stock.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_stock_CellClick);
             // 
             // btn_AgregarArticulo
             // 
@@ -97,10 +99,12 @@
             // lbl_total
             // 
             this.lbl_total.AutoSize = true;
-            this.lbl_total.BackColor = System.Drawing.Color.White;
-            this.lbl_total.Location = new System.Drawing.Point(700, 394);
+            this.lbl_total.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.lbl_total.Font = new System.Drawing.Font("Showcard Gothic", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_total.ForeColor = System.Drawing.Color.Maroon;
+            this.lbl_total.Location = new System.Drawing.Point(566, 380);
             this.lbl_total.Name = "lbl_total";
-            this.lbl_total.Size = new System.Drawing.Size(0, 15);
+            this.lbl_total.Size = new System.Drawing.Size(0, 37);
             this.lbl_total.TabIndex = 4;
             // 
             // btn_ImporteTotal
@@ -160,12 +164,23 @@
             this.btn_Eliminar.UseVisualStyleBackColor = false;
             this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click);
             // 
-            // Ventas
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(102, 405);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 29;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // FrmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_Eliminar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -175,7 +190,7 @@
             this.Controls.Add(this.txb_buscar);
             this.Controls.Add(this.btn_AgregarArticulo);
             this.Controls.Add(this.dgv_stock);
-            this.Name = "Ventas";
+            this.Name = "FrmVentas";
             this.Text = "Ventas";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_stock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_venta)).EndInit();
@@ -196,5 +211,6 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Button btn_Eliminar;
+        private Button button1;
     }
 }

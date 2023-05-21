@@ -25,7 +25,7 @@ namespace Vista.Formularios
         public void CargarClientes()
         {
             dgv_mostrarClientes.DataSource = null;
-            List<Logica.Usuarios.Persona> clientes = ParserUsuarios.LeerClientes();
+            List<Logica.Usuarios.Persona> clientes = ParserUsuarios.LeerCliente();
             dgv_mostrarClientes.DataSource = clientes;
             dgv_mostrarClientes.Refresh();
         }

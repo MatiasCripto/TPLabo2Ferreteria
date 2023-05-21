@@ -94,6 +94,7 @@
             // 
             this.txb_contrasenia.Location = new System.Drawing.Point(141, 190);
             this.txb_contrasenia.Name = "txb_contrasenia";
+            this.txb_contrasenia.PasswordChar = '*';
             this.txb_contrasenia.Size = new System.Drawing.Size(100, 23);
             this.txb_contrasenia.TabIndex = 27;
             // 
@@ -182,10 +183,11 @@
             // 
             this.txb_confirmarContra.Location = new System.Drawing.Point(141, 228);
             this.txb_confirmarContra.Name = "txb_confirmarContra";
+            this.txb_confirmarContra.PasswordChar = '*';
             this.txb_confirmarContra.Size = new System.Drawing.Size(100, 23);
             this.txb_confirmarContra.TabIndex = 34;
             // 
-            // Usuarios
+            // FrmAgregarUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -204,7 +206,7 @@
             this.Controls.Add(this.txb_nombre);
             this.Controls.Add(this.btn_Agrergar);
             this.Controls.Add(this.dgv_usuarios);
-            this.Name = "Usuarios";
+            this.Name = "FrmAgregarUsuarios";
             this.Text = "Usuarios";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_usuarios)).EndInit();
             this.ResumeLayout(false);

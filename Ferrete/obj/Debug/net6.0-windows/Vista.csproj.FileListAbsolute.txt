@@ -24,3 +24,4 @@ C:\Users\Pablo\Desktop\Programacion\progra y labo 2\2do cuatri\Ferrete\Ferrete\o
 C:\Users\Pablo\Desktop\Programacion\progra y labo 2\2do cuatri\Ferrete\Ferrete\obj\Debug\net6.0-windows\Ferrete.FrmLogin.resources
 C:\Users\Pablo\Desktop\Programacion\progra y labo 2\2do cuatri\Ferrete\Ferrete\obj\Debug\net6.0-windows\Vista.Formularios.FrmVentas.resources
 C:\Users\Pablo\Desktop\Programacion\progra y labo 2\2do cuatri\Ferrete\Ferrete\obj\Debug\net6.0-windows\Vista.Formularios.MostrarClientes.resources
+C:\Users\Pablo\Desktop\Programacion\progra y labo 2\2do cuatri\Ferrete\Ferrete\obj\Debug\net6.0-windows\Vista.Formularios.FrmModificarProducto.resources

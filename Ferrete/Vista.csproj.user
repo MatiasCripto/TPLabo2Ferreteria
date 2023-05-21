@@ -4,16 +4,19 @@
     <Compile Update="Formularios\FrmAgregarClientes.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Formularios\FrmAgregarUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Formularios\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\FrmModificarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Formularios\FrmPersonalInterno.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Formularios\FrmVentas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Formularios\FrmAgregarUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Formularios\MostrarClientes.cs">

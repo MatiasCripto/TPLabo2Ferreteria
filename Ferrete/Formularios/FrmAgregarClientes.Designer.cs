@@ -37,9 +37,9 @@
             this.txb_nombreUsuario = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txb_contrasenia = new System.Windows.Forms.TextBox();
-            this.btn_Eliminar = new System.Windows.Forms.Button();
             this.lbl_confirmarContra = new System.Windows.Forms.Label();
             this.txb_confirmarContra = new System.Windows.Forms.TextBox();
+            this.btn_Cancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,7 +77,7 @@
             this.btn_Agrergar.Text = "Agregar";
             this.btn_Agrergar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Agrergar.UseVisualStyleBackColor = false;
-            this.btn_Agrergar.Click += new System.EventHandler(this.btn_Agrergar_Click_1);
+            this.btn_Agrergar.Click += new System.EventHandler(this.btn_Agrergar_Click);
             // 
             // dgv_cliente
             // 
@@ -123,27 +123,9 @@
             // 
             this.txb_contrasenia.Location = new System.Drawing.Point(174, 214);
             this.txb_contrasenia.Name = "txb_contrasenia";
+            this.txb_contrasenia.PasswordChar = '*';
             this.txb_contrasenia.Size = new System.Drawing.Size(114, 23);
             this.txb_contrasenia.TabIndex = 42;
-            // 
-            // btn_Eliminar
-            // 
-            this.btn_Eliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.btn_Eliminar.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
-            this.btn_Eliminar.FlatAppearance.BorderSize = 2;
-            this.btn_Eliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.btn_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Eliminar.ForeColor = System.Drawing.Color.White;
-            this.btn_Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Eliminar.Image")));
-            this.btn_Eliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Eliminar.Location = new System.Drawing.Point(500, 395);
-            this.btn_Eliminar.Name = "btn_Eliminar";
-            this.btn_Eliminar.Size = new System.Drawing.Size(94, 43);
-            this.btn_Eliminar.TabIndex = 44;
-            this.btn_Eliminar.Text = "Eliminar";
-            this.btn_Eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Eliminar.UseVisualStyleBackColor = false;
-            this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click_1);
             // 
             // lbl_confirmarContra
             // 
@@ -159,18 +141,37 @@
             // 
             this.txb_confirmarContra.Location = new System.Drawing.Point(174, 265);
             this.txb_confirmarContra.Name = "txb_confirmarContra";
+            this.txb_confirmarContra.PasswordChar = '*';
             this.txb_confirmarContra.Size = new System.Drawing.Size(114, 23);
             this.txb_confirmarContra.TabIndex = 45;
             // 
-            // Clientes
+            // btn_Cancelar
+            // 
+            this.btn_Cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btn_Cancelar.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
+            this.btn_Cancelar.FlatAppearance.BorderSize = 2;
+            this.btn_Cancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Cancelar.ForeColor = System.Drawing.Color.White;
+            this.btn_Cancelar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cancelar.Image")));
+            this.btn_Cancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_Cancelar.Location = new System.Drawing.Point(500, 395);
+            this.btn_Cancelar.Name = "btn_Cancelar";
+            this.btn_Cancelar.Size = new System.Drawing.Size(94, 43);
+            this.btn_Cancelar.TabIndex = 47;
+            this.btn_Cancelar.Text = "Cancelar";
+            this.btn_Cancelar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Cancelar.UseVisualStyleBackColor = false;
+            // 
+            // FrmAgregarClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.lbl_confirmarContra);
             this.Controls.Add(this.txb_confirmarContra);
-            this.Controls.Add(this.btn_Eliminar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txb_contrasenia);
             this.Controls.Add(this.lbl_NombreUsuario);
@@ -179,7 +180,7 @@
             this.Controls.Add(this.txb_nombreCliente);
             this.Controls.Add(this.btn_Agrergar);
             this.Controls.Add(this.dgv_cliente);
-            this.Name = "Clientes";
+            this.Name = "FrmAgregarClientes";
             this.Text = "Clientes";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cliente)).EndInit();
             this.ResumeLayout(false);
@@ -197,8 +198,19 @@
         private TextBox txb_nombreUsuario;
         private Label label2;
         private TextBox txb_contrasenia;
-        private Button btn_Eliminar;
         private Label lbl_confirmarContra;
         private TextBox txb_confirmarContra;
+        private Label lbl_confirmarContraseña;
+        private TextBox textBox1;
+        private Label lbl_contrasenia;
+        private Label label1;
+        private Label label3;
+        private TextBox textBox2;
+        private TextBox textBox3;
+        private TextBox txb_nombre;
+        private Button button1;
+        private Button button2;
+        private DataGridView dgv_Clientes;
+        private Button btn_Cancelar;
     }
 }

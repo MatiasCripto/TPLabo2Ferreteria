@@ -16,29 +16,25 @@ namespace Vista.Formularios
 {
     public partial class FrmAgregarClientes : Form
     {
-        string roleInput;
         string nombreInput;
-        string nombreClienteInput;
-        string contraseniaInput;       
-        private const string vacio = "";        
+        string nombreUsuarioInput;
+        string contraseniaInput;
+        string roleInput;
+        private const string vacio = "";
+
         public FrmAgregarClientes()
         {
             InitializeComponent();
-        }       
-        public void LeerClientes()
+            LeerClientes();
+        }
+        // Evento que se ejecuta al hacer clic en el botón "Agregar"
+        private void btn_Agrergar_Click(object sender, EventArgs e)
         {
-            dgv_cliente.DataSource = null;
-            List<Persona> usuarios = ParserUsuarios.LeerUsuario();
-            List<Persona> usuariosFiltrados = usuarios.Where(u => u.Role != Role.Cliente).ToList();
-            dgv_cliente.DataSource = usuariosFiltrados;
-            dgv_cliente.Refresh();
-
-        }       
-
-        private void btn_Agrergar_Click_1(object sender, EventArgs e)
-        {
+            // Obtener los valores ingresados por el usuario
             nombreInput = txb_nombreCliente.Text;
-            nombreClienteInput = txb_nombreUsuario.Text;
+            nombreUsuarioInput = txb_nombreUsuario.Text;
+
+            // Verificar si las contraseñas coinciden
             if (txb_contrasenia.Text == txb_confirmarContra.Text)
             {
                 contraseniaInput = txb_contrasenia.Text;
@@ -46,40 +42,79 @@ namespace Vista.Formularios
             else
             {
                 MessageBox.Show("Las contraseñas no coinciden");
+                return; // Salir del método si las contraseñas no coinciden
             }
 
+            roleInput = "Cliente";
 
-
-            if (nombreInput != vacio && nombreClienteInput != vacio && contraseniaInput != vacio)
+            try
             {
-                roleInput = "Cliente";
-                try
+                // Verificar que los campos no estén vacíos
+                if (nombreInput != vacio && nombreUsuarioInput != vacio && contraseniaInput != vacio)
                 {
-                    Logica.Usuarios.Cliente nuevoUsuario = new Logica.Usuarios.Cliente(nombreInput, nombreClienteInput, contraseniaInput, Enum.Parse<Role>(roleInput));
-                    Sistema.AltaUsuario(nuevoUsuario);
-                    Sistema.GuardarUsuario(nuevoUsuario);
+                    // Crear un nuevo objeto de usuario
+                    Logica.Usuarios.Persona nuevoUsuario = new Logica.Usuarios.Cliente(Persona.NexId, nombreInput, nombreUsuarioInput, contraseniaInput, Enum.Parse<Role>(roleInput));
+                    ParserUsuarios.EscribirCliente(nuevoUsuario);
+                    // Llamar a métodos para dar de alta y guardar el nuevo usuario
+                    //Sistema.AltaUsuario(nuevoUsuario);
+                    //Sistema.GuardarUsuario(nuevoUsuario);
                 }
-                catch (Exception ex)
-                {
-                    throw new Exception($"Error desconocido al guardar el usuario: {ex.Message}");
-                }
-                LeerClientes();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error desconocido al guardar el usuario: {ex.Message}");
+            }
+
+            LeerClientes(); // Actualizar la lista de usuarios mostrada en el DataGridView
         }
 
-        private void btn_Eliminar_Click_1(object sender, EventArgs e)
+        // Método para leer y mostrar los usuarios en el DataGridView
+        public void LeerClientes()
         {
-            if (dgv_cliente.SelectedRows.Count > 0)
+            try
             {
-                // Obtener el objeto Usuario seleccionado en la fila
-                Persona usuario = dgv_cliente.SelectedRows[0].DataBoundItem as Persona;
+                dgv_cliente.DataSource = null;
 
-                // Eliminar el usuario del archivo
-                ParserUsuarios.EliminarUsuario(usuario);
+                // Leer la lista de usuarios desde el archivo
+                List<Persona> usuarios = ParserUsuarios.LeerCliente();
 
-                // Actualizar el DataGridView
-                LeerClientes();
+                // Filtrar la lista para mostrar solo los usuarios que no son clientes
+                List<Persona> usuariosFiltrados = usuarios.Where(u => u.Role == Role.Cliente).ToList();
+
+                // Asignar la lista filtrada como origen de datos para el DataGridView
+                dgv_cliente.DataSource = usuariosFiltrados;
+                dgv_cliente.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al leer los usuarios: {ex.Message}");
             }
         }
+
+        // Evento que se ejecuta al hacer clic en el botón "Eliminar"
+        private void btn_Eliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Verificar si se ha seleccionado una fila en el DataGridView
+                if (dgv_cliente.SelectedRows.Count > 0)
+                {
+                    // Obtener el objeto Usuario seleccionado en la fila
+                    Persona usuario = dgv_cliente.SelectedRows[0].DataBoundItem as Persona;
+
+                    // Eliminar el usuario del archivo
+                    ParserUsuarios.EliminarCliente(usuario);
+
+                    ParserUsuarios.LeerCliente(); // Actualizar la lista de clientes mostrada en el DataGridView
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al eliminar el usuario: {ex.Message}");
+            }
+        }
+
+
+
     }
 }

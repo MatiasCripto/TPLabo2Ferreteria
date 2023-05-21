@@ -28,10 +28,25 @@ namespace Vista.Formularios
         private void button1_Click(object sender, EventArgs e)
         {
             var itemSeleccionado = dgv_stock.SelectedRows[0].DataBoundItem as DataRowView;
-            /*try*/var producto = new Articulo((int) itemSeleccionado[0],(string) itemSeleccionado[1], (decimal)itemSeleccionado[2],(int) itemSeleccionado[3], (bool) itemSeleccionado[4]);
-            
-            Carrito.Add(producto);
-            ActualizarDgvVentas();
+            var producto = new Articulo((int)itemSeleccionado[0], (string)itemSeleccionado[1], (decimal)itemSeleccionado[2], (int)itemSeleccionado[3], (bool)itemSeleccionado[4]);
+
+            if (producto.Stock > 0)
+            {
+                // Disminuir el stock del artículo
+                producto.Stock--;
+                ParserProductos.ActualizarStock(producto);
+
+                // Agregar el artículo al carrito
+                Carrito.Add(producto);
+                ActualizarDgvVentas();
+                ActualizarProductosDgv();
+                
+            }
+            else
+            {
+                MessageBox.Show("No hay stock disponible para este artículo.", "Stock agotado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
         private void ActualizarDgvVentas()
         {
@@ -41,15 +56,15 @@ namespace Vista.Formularios
        
 
         private void ActualizarProductosDgv()
-        {           
+        {
 
             var dt = new DataTable();
 
             dt.Columns.Add("Id", typeof(int));
             dt.Columns.Add("Articulo", typeof(string));
             dt.Columns.Add("Precio", typeof(decimal));
-            dt.Columns.Add("Stock", typeof(int));          
-            dt.Columns.Add("Baja", typeof(bool));          
+            dt.Columns.Add("Stock", typeof(int));           
+            dt.Columns.Add("Baja", typeof(bool));
 
             foreach (var item in Sistema.ObtenerProductos())
             {
@@ -57,14 +72,23 @@ namespace Vista.Formularios
 
                 row["Id"] = item.Id;
                 row["Articulo"] = item.Nombre;
-                row["Precio"] = item.Precio ;
-                row["Stock"] = item.Stock;                
-                row["Baja"] = item.Baja;                
+                row["Precio"] = item.Precio;
+                row["Stock"] = item.Stock;
+                row["Baja"] = item.Baja;
 
                 dt.Rows.Add(row);
             }
 
+            // Mantener la selección actual en el DataGridView de stock
+            int selectedIndex = dgv_stock.SelectedRows.Count > 0 ? dgv_stock.SelectedRows[0].Index : -1;
+
             dgv_stock.DataSource = dt;
+
+            // Restaurar la selección anterior si existe
+            if (selectedIndex >= 0 && selectedIndex < dgv_stock.Rows.Count)
+            {
+                dgv_stock.Rows[selectedIndex].Selected = true;
+            }
 
         }       
 
@@ -115,6 +139,21 @@ namespace Vista.Formularios
                 ActualizarDgvVentas();
             }
         }
+
+        private void dgv_stock_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+        }
+
+
+
+
+
 
 
 
