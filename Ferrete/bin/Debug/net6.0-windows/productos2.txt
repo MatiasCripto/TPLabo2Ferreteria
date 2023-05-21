@@ -1,0 +1,43 @@
+1,Martillo,10.99,50,False
+2,Destornillador,4.99,100,False
+3,Sierra electrica,89.99,20,False
+4,Clavos(paquete de 100),1.99,500,False
+5,Llave ajustable,7.49,75,False
+6,Cinta metrica,3.99,200,False
+7,Tornillos (paquete de 50),0.99,300,False
+8,Taladro inalambrico,79.99,15,False
+9,Alicates,5.99,100,False
+10,Sierra de mano,8.99,40,False
+11,Cepillo de carpintero,6.49,60,False
+12,Grapadora manual,2.99,150,False
+13,Escalera plegable,39.99,10,False
+14,Brocas (juego de 10),9.99,100,False
+15,Llave de tubo,4.49,80,False
+16,Nivel de burbuja,3.49,150,False
+17,Serrucho,6.99,30,False
+18,Cajas de almacenamiento (juego de 3),12.99,50,False
+19,Cincel,4.99,70,False
+20,Pistola de pegamento,7.99,25,False
+21,Guantes de trabajo,3.99,200,False
+22,Brocha,2.49,120,False
+23,Tornillos autorroscantes (paquete de 50),1.49,250,False
+24,Cerradura de puerta,14.99,30,False
+25,Pala de jardin,9.99,40,False
+26,Sargentos (juego de 4),16.99,20,False
+27,Destornillador de estrella,3.49,100,False
+28,Lijadora orbital,49.99,15,False
+29,Clavijas de madera (paquete de 50),2.99,200,False
+30,Gafas de seguridad,4.99,80,False
+31,Espatula,2.49,90,False
+32,Caja de herramientas,19.99,25,False
+33,Cuerda de nylon (rollo de 50 metros),8.99,60,False
+34,Limas (juego de 3),6.99,70,False
+35,Cinta adhesiva,1.99,300,False
+36,Tijeras de corte,3.99,120,False
+37,Arco de sierra,7.99,40,False
+38,Broca de madera,2.49,150,False
+39,Escobilla de alambre,1.49,200,False
+40,Soplete de gas,12.99,20,False
+41,Mascara de proteccion,5.99,100,False
+42,Puntas de destornillador (juego de 6),3.49,150,False
+43,sdfgsdg,21.00,21,False
