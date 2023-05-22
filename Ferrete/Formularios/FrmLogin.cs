@@ -22,20 +22,14 @@ namespace Ferrete
             string user = txb_UsuarioInput.Text;
             string pass = txb_ContraseniaInput.Text;
 
-            //if (user != null)
-            //{
-            //    if (!ValidarCamposLogin(user, pass))
-            //    {
-            //        MessageBox.Show("Usuario o contraseña incorrecto");
-            //    }
-            //}
-
+            
 
 
 
             if (ValidarCamposLogin(user, pass))
             {
-                Persona usuario = BaseDeDatos.ObtenerUsuario(user, pass);
+                //Persona usuario = BaseDeDatos.ObtenerUsuario(user, pass);
+                PersonalInterno usuario = ObtenerUsuarioLogueado(user, pass, personaList);
 
                 if (usuario != null)
                 {
@@ -74,6 +68,19 @@ namespace Ferrete
                 //formPersInt.Show();
 
             }
+        }
+        private PersonalInterno ObtenerUsuarioLogueado(string user, string pass, List<Persona> arrayPersona)
+        {
+            PersonalInterno personaLogueada = new PersonalInterno();
+            foreach ( PersonalInterno personaUno in arrayPersona)
+            {
+                if (personaUno.Nombre == user && personaUno.Contrasenia == pass)
+                {                    
+                    personaLogueada = personaUno;
+                }
+
+            }
+            return personaLogueada;
         }
 
         private static bool ValidarCamposLogin(string user, string pass)

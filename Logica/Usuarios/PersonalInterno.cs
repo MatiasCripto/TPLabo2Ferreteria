@@ -27,6 +27,10 @@ namespace Logica.Usuarios
 
         public PersonalInterno(int id, string nombre, string usuario, string contrasenia, Role role) : base(id, nombre, usuario, contrasenia, role)
         {
-        }            
+        }
+        public PersonalInterno()
+        {
+
+        }
     }
 }

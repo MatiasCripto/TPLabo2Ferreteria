@@ -35,5 +35,9 @@ namespace Logica.Usuarios
         {
             return (this._usuario == usuario && this._contrasenia == contrasenia);
         }
+        public Persona()
+        {
+
+        }
     }
 }

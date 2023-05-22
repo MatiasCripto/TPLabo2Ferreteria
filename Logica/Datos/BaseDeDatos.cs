@@ -20,15 +20,15 @@ namespace Logica.Datos
         {
             _baseDatosPersonas = new List<Persona>();
             _baseDatosProductos = new List<Articulo>();
-            HarcodeoPersonas();
+            //HarcodeoPersonas();
         }
-        private static void HarcodeoPersonas()
-        {
-            _baseDatosPersonas.Add(new Cliente(Persona.NexId, "Ana", "nava12", "1234", Enumerados.Role.Cliente));
-            _baseDatosPersonas.Add(new Cliente(Persona.NexId, "Kiara", "kiara22", "1234", Enumerados.Role.Cliente));
-            _baseDatosPersonas.Add(new PersonalInterno(Persona.NexId, "Jonatan", "Johnny87", "1234", Enumerados.Role.Administrador));
-            _baseDatosPersonas.Add(new PersonalInterno(Persona.NexId, "Alejandro", "Ale22", "1234", Enumerados.Role.Empleado));
-        }
+        //private static void HarcodeoPersonas()
+        //{
+        //    _baseDatosPersonas.Add(new Cliente(Persona.NexId, "Ana", "nava12", "1234", Enumerados.Role.Cliente));
+        //    _baseDatosPersonas.Add(new Cliente(Persona.NexId, "Kiara", "kiara22", "1234", Enumerados.Role.Cliente));
+        //    _baseDatosPersonas.Add(new PersonalInterno(Persona.NexId, "Jonatan", "Johnny87", "1234", Enumerados.Role.Administrador));
+        //    _baseDatosPersonas.Add(new PersonalInterno(Persona.NexId, "Alejandro", "Ale22", "1234", Enumerados.Role.Empleado));
+        //}
 
         public static Persona ObtenerUsuario(string usuario, string contrasenia)
         {
