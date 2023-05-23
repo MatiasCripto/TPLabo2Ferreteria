@@ -7,6 +7,10 @@ namespace Logica.Usuarios
     /// </summary>
     public abstract class Persona
     {
+        public string NombreUsuario { get; set; }
+
+        public abstract string Saludar(string mensaje);
+
         private int _id;
         static int nexId = 1;
         private string _nombre;
@@ -91,35 +95,4 @@ namespace Logica.Usuarios
 
         }
     }
-
-    //OLIMORFISMO
-    /*
-     * public abstract class Persona
-{
-public string Nombre { get; set; }
-
-public abstract void Saludar();
-}
-
-public class PersonalInterno : Persona
-{
-public string Departamento { get; set; }
-
-public override void Saludar()
-{
-    Console.WriteLine($"¡Hola! Soy {Nombre} y trabajo en el departamento de {Departamento}.");
-}
-}
-
-public class Cliente : Persona
-{
-public string NumeroCliente { get; set; }
-
-public override void Saludar()
-{
-    Console.WriteLine($"¡Hola! Soy {Nombre} y soy cliente con número {NumeroCliente}.");
-}
-}
-
-     */
-}
+    }

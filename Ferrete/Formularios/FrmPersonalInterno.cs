@@ -28,6 +28,8 @@ namespace Vista
         private PersonalInterno usuarioLogeado;
         private string userLog;
 
+        
+
         /// <summary>
         /// Constructor de la clase FrmPersonalInterno.
         /// </summary>
@@ -44,6 +46,12 @@ namespace Vista
         /// </summary>
         private void FrmPersonalInterno_Load(object sender, EventArgs e)
         {
+
+            // Cambia el color del borderStyle del formulario
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.BackColor = Color.Red;
+            this.ForeColor = Color.White;
+
             dgv_principal.DataSource = ParserProductos.LeerProductos();
 
             if (usuarioLogeado.Role != Logica.Enumerados.Role.Administrador)
@@ -150,7 +158,7 @@ namespace Vista
             {
                 MessageBox.Show("No se ha seleccionado ningún artículo para eliminar.");
             }
-        }
+        }        
 
         /// <summary>
         /// Evento del botón "Nuevo" para habilitar los campos de ingreso de datos.

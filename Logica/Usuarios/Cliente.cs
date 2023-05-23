@@ -18,6 +18,13 @@ namespace Logica.Usuarios
         string usuario;
         string contrasenia;
 
+        public string NumeroCliente { get; set; }
+
+        public override string Saludar(string mensaje)
+        {
+            return mensaje;
+        }
+
         /// <summary>
         /// Crea una nueva instancia de la clase Cliente.
         /// </summary>

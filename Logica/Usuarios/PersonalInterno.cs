@@ -12,12 +12,19 @@ namespace Logica.Usuarios
     /// Clase que representa a un personal interno de la empresa.
     /// </summary>
     public class PersonalInterno : Persona
-    {
+    {        
         private int id;
         static int nexId = 1;
         private string nombre;
         private string usuario;
         private string contrasenia;
+
+        public string Funciones { get; set; }
+
+        public override string Saludar(string mensaje)
+        {
+            return mensaje;
+        }
 
         /// <summary>
         /// Crea una nueva instancia de la clase PersonalInterno.
@@ -52,6 +59,9 @@ namespace Logica.Usuarios
         {
 
         }
+
+        
+
     }
 
 }
