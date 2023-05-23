@@ -165,9 +165,15 @@ namespace Vista.Formularios
         /// Evento que se ejecuta al hacer clic en el botón "Finalizar venta".
         /// Cierra el formulario y devuelve DialogResult.OK.
         /// </summary>
-        private void button1_Click_1(object sender, EventArgs e)
+       
+        private void button2_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
+        }
+
+        private void btn_salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

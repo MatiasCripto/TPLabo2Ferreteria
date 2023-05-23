@@ -121,6 +121,11 @@ namespace Vista.Formularios
                 MessageBox.Show($"Error al eliminar el usuario: {ex.Message}");
             }
         }
+
+        private void btn_Cancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 
 

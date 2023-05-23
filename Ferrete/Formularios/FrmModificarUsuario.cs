@@ -25,6 +25,9 @@ namespace Vista.Formularios
             DialogResult = DialogResult.OK;
         }
 
-
+        private void btn_Cancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -80,6 +80,7 @@
             this.btn_Finalizar.Text = "Finalizar";
             this.btn_Finalizar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Finalizar.UseVisualStyleBackColor = false;
+            this.btn_Finalizar.Click += new System.EventHandler(this.btn_Finalizar_Click);
             // 
             // FrmMostrarUsuarios
             // 

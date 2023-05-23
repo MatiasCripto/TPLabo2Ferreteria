@@ -35,7 +35,7 @@
             this.lbl_Stock = new System.Windows.Forms.Label();
             this.txb_Precio = new System.Windows.Forms.TextBox();
             this.txb_Stock = new System.Windows.Forms.TextBox();
-            this.btn_Agrergar = new System.Windows.Forms.Button();
+            this.btn_Guardar = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -90,24 +90,24 @@
             this.txb_Stock.Size = new System.Drawing.Size(100, 23);
             this.txb_Stock.TabIndex = 6;
             // 
-            // btn_Agrergar
+            // btn_Guardar
             // 
-            this.btn_Agrergar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.btn_Agrergar.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
-            this.btn_Agrergar.FlatAppearance.BorderSize = 2;
-            this.btn_Agrergar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Agrergar.ForeColor = System.Drawing.Color.White;
-            this.btn_Agrergar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Agrergar.Image")));
-            this.btn_Agrergar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Agrergar.Location = new System.Drawing.Point(65, 276);
-            this.btn_Agrergar.Name = "btn_Agrergar";
-            this.btn_Agrergar.Padding = new System.Windows.Forms.Padding(1);
-            this.btn_Agrergar.Size = new System.Drawing.Size(94, 43);
-            this.btn_Agrergar.TabIndex = 24;
-            this.btn_Agrergar.Text = "Agregar";
-            this.btn_Agrergar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Agrergar.UseVisualStyleBackColor = false;
-            this.btn_Agrergar.Click += new System.EventHandler(this.btn_Agrergar_Click);
+            this.btn_Guardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btn_Guardar.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
+            this.btn_Guardar.FlatAppearance.BorderSize = 2;
+            this.btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Guardar.ForeColor = System.Drawing.Color.White;
+            this.btn_Guardar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Guardar.Image")));
+            this.btn_Guardar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_Guardar.Location = new System.Drawing.Point(65, 276);
+            this.btn_Guardar.Name = "btn_Guardar";
+            this.btn_Guardar.Padding = new System.Windows.Forms.Padding(1);
+            this.btn_Guardar.Size = new System.Drawing.Size(94, 43);
+            this.btn_Guardar.TabIndex = 24;
+            this.btn_Guardar.Text = "Guardar";
+            this.btn_Guardar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Guardar.UseVisualStyleBackColor = false;
+            this.btn_Guardar.Click += new System.EventHandler(this.btn_Agrergar_Click);
             // 
             // btn_Cancelar
             // 
@@ -126,7 +126,7 @@
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Cancelar.UseVisualStyleBackColor = false;
-            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click_1);
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
             // FrmModificarProducto
             // 
@@ -135,7 +135,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
             this.ClientSize = new System.Drawing.Size(384, 375);
             this.Controls.Add(this.btn_Cancelar);
-            this.Controls.Add(this.btn_Agrergar);
+            this.Controls.Add(this.btn_Guardar);
             this.Controls.Add(this.txb_Stock);
             this.Controls.Add(this.txb_Precio);
             this.Controls.Add(this.lbl_Stock);
@@ -158,7 +158,7 @@
         private Label lbl_Stock;
         private TextBox txb_Precio;
         private TextBox txb_Stock;
-        private Button btn_Agrergar;
+        private Button btn_Guardar;
         private Button btn_Cancelar;
     }
 }

@@ -38,7 +38,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_Eliminar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_confirmar = new System.Windows.Forms.Button();
+            this.btn_salir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_stock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_venta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -163,23 +164,52 @@
             this.btn_Eliminar.UseVisualStyleBackColor = false;
             this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click);
             // 
-            // button1
+            // btn_confirmar
             // 
-            this.button1.Location = new System.Drawing.Point(102, 405);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.btn_confirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btn_confirmar.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
+            this.btn_confirmar.FlatAppearance.BorderSize = 2;
+            this.btn_confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_confirmar.ForeColor = System.Drawing.Color.White;
+            this.btn_confirmar.Image = ((System.Drawing.Image)(resources.GetObject("btn_confirmar.Image")));
+            this.btn_confirmar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_confirmar.Location = new System.Drawing.Point(413, 429);
+            this.btn_confirmar.Name = "btn_confirmar";
+            this.btn_confirmar.Padding = new System.Windows.Forms.Padding(1);
+            this.btn_confirmar.Size = new System.Drawing.Size(147, 43);
+            this.btn_confirmar.TabIndex = 30;
+            this.btn_confirmar.Text = "Confirmar";
+            this.btn_confirmar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_confirmar.UseVisualStyleBackColor = false;
+            this.btn_confirmar.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btn_salir
+            // 
+            this.btn_salir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btn_salir.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
+            this.btn_salir.FlatAppearance.BorderSize = 2;
+            this.btn_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_salir.ForeColor = System.Drawing.Color.White;
+            this.btn_salir.Image = ((System.Drawing.Image)(resources.GetObject("btn_salir.Image")));
+            this.btn_salir.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_salir.Location = new System.Drawing.Point(588, 429);
+            this.btn_salir.Name = "btn_salir";
+            this.btn_salir.Padding = new System.Windows.Forms.Padding(1);
+            this.btn_salir.Size = new System.Drawing.Size(79, 43);
+            this.btn_salir.TabIndex = 31;
+            this.btn_salir.Text = "Salir";
+            this.btn_salir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_salir.UseVisualStyleBackColor = false;
+            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // FrmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(800, 478);
+            this.Controls.Add(this.btn_salir);
+            this.Controls.Add(this.btn_confirmar);
             this.Controls.Add(this.btn_Eliminar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -211,6 +241,7 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Button btn_Eliminar;
-        private Button button1;
+        private Button btn_confirmar;
+        private Button btn_salir;
     }
 }

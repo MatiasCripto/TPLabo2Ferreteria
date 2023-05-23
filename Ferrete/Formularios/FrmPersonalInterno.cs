@@ -54,7 +54,7 @@ namespace Vista
                 personalInternoToolStripMenuItem.Visible = false;
                 btn_Actualizar.Enabled = false;
                 btn_Agrergar.Enabled = false;
-                btn_Buscar.Enabled = false;
+                //btn_Buscar.Enabled = false;
                 btn_Cancelar.Enabled = false;
                 btn_Eliminar.Enabled = false;
                 btn_Informe.Enabled = false;
@@ -62,7 +62,7 @@ namespace Vista
                 txb_Descripcion.Enabled = false;
                 txb_Precio.Enabled = false;
                 txb_stock.Enabled = false;
-                txb_PrecioDolar.Enabled = false;
+                //txb_PrecioDolar.Enabled = false;
             }
             else
             {
@@ -70,7 +70,7 @@ namespace Vista
                 
                 btn_Actualizar.Enabled = false;
                 btn_Agrergar.Enabled = false;
-                btn_Buscar.Enabled = false;
+                //btn_Buscar.Enabled = false;
                 btn_Cancelar.Enabled = false;
                 btn_Eliminar.Enabled = false;
                 btn_Informe.Enabled = false;
@@ -78,7 +78,7 @@ namespace Vista
                 txb_Descripcion.Enabled = false;
                 txb_Precio.Enabled = false;
                 txb_stock.Enabled = false;
-                txb_PrecioDolar.Enabled = false;
+                //txb_PrecioDolar.Enabled = false;
             }
         }
 
@@ -172,7 +172,7 @@ namespace Vista
         {
             btn_Actualizar.Enabled = true;
             btn_Agrergar.Enabled = true;
-            btn_Buscar.Enabled = true;
+            //btn_Buscar.Enabled = true;
             btn_Cancelar.Enabled = true;
             btn_Eliminar.Enabled = true;
             btn_Informe.Enabled = true;
@@ -180,7 +180,7 @@ namespace Vista
             txb_Descripcion.Enabled = true;
             txb_Precio.Enabled = true;
             txb_stock.Enabled = true;
-            txb_PrecioDolar.Enabled = true;
+            //txb_PrecioDolar.Enabled = true;
         }
 
         /// <summary>
@@ -271,12 +271,17 @@ namespace Vista
         /// <summary>
         /// Evento del botón "Aumento Masivo" para aplicar un aumento a todos los productos.
         /// </summary>
-        private void btn_aumentoMasivo_Click(object sender, EventArgs e)
-        {
-            List<Articulo> listaProductos = ParserProductos.LeerProductos(); // Obtener la lista de productos desde algún lugar
-            decimal factorAumento = decimal.Parse(txb_PrecioDolar.Text); // Obtener el factor de aumento desde un TextBox
+        //private void btn_aumentoMasivo_Click(object sender, EventArgs e)
+        //{
+        //    List<Articulo> listaProductos = ParserProductos.LeerProductos(); // Obtener la lista de productos desde algún lugar
+        //    decimal factorAumento = decimal.Parse(txb_PrecioDolar.Text); // Obtener el factor de aumento desde un TextBox
 
-            Sistema.AplicarAumentoMasivo(listaProductos, factorAumento); // Llamar al método para aplicar el aumento a la lista de productos
+        //    Sistema.AplicarAumentoMasivo(listaProductos, factorAumento); // Llamar al método para aplicar el aumento a la lista de productos
+        //}
+
+        private void btn_Salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 

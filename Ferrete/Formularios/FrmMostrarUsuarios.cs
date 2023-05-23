@@ -53,6 +53,11 @@ namespace Vista.Formularios
                 LeerUsuarios();
             }
         }
+
+        private void btn_Finalizar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 
 }
