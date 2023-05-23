@@ -11,7 +11,10 @@ namespace Logica.Datos
 {
     public static class ParserProductos
     {
-
+        /// <summary>
+        /// Lee los productos desde el archivo "productos.txt".
+        /// </summary>
+        /// <returns>Lista de productos leída desde el archivo.</returns>
         public static List<Articulo> LeerProductos()
         {
             List<Articulo> productos = new List<Articulo>();
@@ -26,7 +29,8 @@ namespace Logica.Datos
                 {
                     // Dividimos la línea en campos utilizando la coma como separador
                     string[] campos = linea.Split(',');
-                    // Verifica que la línea tenga exactamente 3 campos
+
+                    // Verifica que la línea tenga exactamente 5 campos
                     if (campos.Length == 5)
                     {
                         bool auxBaja;
@@ -38,102 +42,108 @@ namespace Logica.Datos
                         {
                             auxBaja = true;
                         }
-                        // Creamos un objeto Usuario con los campos leídos y lo agrega a la lista de usuarios
+
+                        // Creamos un objeto Articulo con los campos leídos y lo agregamos a la lista de productos
                         Articulo producto = new Articulo(int.Parse(campos[0]), campos[1], decimal.Parse(campos[2],
                             System.Globalization.CultureInfo.InvariantCulture), int.Parse(campos[3]), auxBaja);
                         productos.Add(producto);
                     }
-                }// al momento de leer la lsta del archivo, pregunto por el estado si esta en true o en false, si esta en true no lo agrego, solo agrego los que estan el false. 
+                }
+
+                // Establecemos el próximo ID disponible para los productos
                 Articulo.NexId = productos[productos.Count - 1].Id;
             }
             catch (Exception error)
             {
                 // Si ocurre algún error al leer el archivo, se lanza una excepción
-                throw new Exception("Error al leer el archivo de usuarios: " + error.Message);
+                throw new Exception("Error al leer el archivo de productos: " + error.Message);
             }
-            // Retornamos la lista de usuarios leída desde el archivo
 
+            // Retornamos la lista de productos leída desde el archivo
             return productos;
         }
 
+        /// <summary>
+        /// Escribe la lista de productos en el archivo "productos.txt".
+        /// </summary>
+        /// <param name="productos">Lista de productos a escribir en el archivo.</param>
         public static void EscribirArchivo(List<Articulo> productos)
         {
-
             try
             {
-                //Para obtener el directorio actual del programa, debes usar la propiedad AppDomain.CurrentDomain.BaseDirectory. Esta propiedad devuelve una cadena que representa el directorio base de la aplicación.
+                // Obtenemos el directorio actual del programa
                 string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "productos.txt");
 
-                //valido si el directorio esta creado o no.(Es decir si es valida).
+                // Validamos si el directorio está creado o no
                 if (!Directory.Exists(Path.GetDirectoryName(filePath)))
                 {
                     Directory.CreateDirectory(Path.GetDirectoryName(filePath));
                 }
+
                 foreach (var producto in productos)
                 {
-                    //agregar alidacion de usuario si es admin o otro
-                    // Escribir los datos del usuario en el archivo.
-                    using (StreamWriter sw = new StreamWriter("productos.txt", true))
+                    // Escribir los datos del producto en el archivo
+                    using (StreamWriter sw = new StreamWriter(filePath, true))
                     {
                         sw.WriteLine("{0},{1},{2},{3},{4}", producto.Id, producto.Nombre, producto.Precio.ToString("0.00", CultureInfo.InvariantCulture), producto.Stock, producto.Baja);
                     }
                 }
-                
             }
-
             catch (IOException ex)
             {
                 throw new Exception($"Error de archivo al guardar el archivo: {ex.Message}");
             }
-
             catch (UnauthorizedAccessException ex)
             {
                 throw new Exception($"Acceso no autorizado al archivo: {ex.Message}");
             }
             catch (Exception ex)
             {
-                throw new Exception($"Error desconocido al guardar el usuario: {ex.Message}");
+                throw new Exception($"Error desconocido al guardar el producto: {ex.Message}");
             }
+        }
 
-
-        } public static void EscribirProducto(Articulo producto)
+        /// <summary>
+        /// Escribe un producto en el archivo "productos.txt".
+        /// </summary>
+        /// <param name="producto">Producto a escribir en el archivo.</param>
+        public static void EscribirProducto(Articulo producto)
         {
-
             try
             {
-                //Para obtener el directorio actual del programa, debes usar la propiedad AppDomain.CurrentDomain.BaseDirectory. Esta propiedad devuelve una cadena que representa el directorio base de la aplicación.
+                // Obtenemos el directorio actual del programa
                 string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "productos.txt");
 
-                //valido si el directorio esta creado o no.(Es decir si es valida).
+                // Validamos si el directorio está creado o no
                 if (!Directory.Exists(Path.GetDirectoryName(filePath)))
                 {
                     Directory.CreateDirectory(Path.GetDirectoryName(filePath));
-                }                
-                    //agregar alidacion de usuario si es admin o otro
-                    // Escribir los datos del usuario en el archivo.
-                    using (StreamWriter sw = new StreamWriter("productos.txt", true))
-                    {
-                        sw.WriteLine("{0},{1},{2},{3},{4}", producto.Id, producto.Nombre, producto.Precio.ToString("0.00", CultureInfo.InvariantCulture), producto.Stock, producto.Baja);
-                    }               
-                
-            }
+                }
 
+                // Escribir los datos del producto en el archivo
+                using (StreamWriter sw = new StreamWriter(filePath, true))
+                {
+                    sw.WriteLine("{0},{1},{2},{3},{4}", producto.Id, producto.Nombre, producto.Precio.ToString("0.00", CultureInfo.InvariantCulture), producto.Stock, producto.Baja);
+                }
+            }
             catch (IOException ex)
             {
                 throw new Exception($"Error de archivo al guardar el archivo: {ex.Message}");
             }
-
             catch (UnauthorizedAccessException ex)
             {
                 throw new Exception($"Acceso no autorizado al archivo: {ex.Message}");
             }
             catch (Exception ex)
             {
-                throw new Exception($"Error desconocido al guardar el usuario: {ex.Message}");
+                throw new Exception($"Error desconocido al guardar el producto: {ex.Message}");
             }
-
-
         }
+
+        /// <summary>
+        /// Actualiza los datos de un artículo en el archivo "productos.txt".
+        /// </summary>
+        /// <param name="articulo">Artículo con los datos actualizados.</param>
         public static void ActualizarArticulo(Articulo articulo)
         {
             try
@@ -164,6 +174,10 @@ namespace Logica.Datos
             }
         }
 
+        /// <summary>
+        /// Actualiza el stock de un artículo en el archivo "productos.txt".
+        /// </summary>
+        /// <param name="articulo">Artículo con el stock actualizado.</param>
         public static void ActualizarStock(Articulo articulo)
         {
             try
@@ -191,4 +205,6 @@ namespace Logica.Datos
             }
         }
     }
+
 }
+

@@ -29,7 +29,10 @@ namespace Vista
             LeerUsuarios();
         }
 
-        // Evento que se ejecuta al hacer clic en el botón "Agregar"
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en el botón "Agregar".
+        /// Agrega un nuevo usuario con los datos ingresados por el usuario.
+        /// </summary>
         private void btn_Agrergar_Click(object sender, EventArgs e)
         {
             // Obtener los valores ingresados por el usuario
@@ -57,9 +60,6 @@ namespace Vista
                     // Crear un nuevo objeto de usuario
                     Logica.Usuarios.Persona nuevoUsuario = new Logica.Usuarios.PersonalInterno(Persona.NexId, nombreInput, nombreUsuarioInput, contraseniaInput, Enum.Parse<Role>(roleInput));
                     ParserUsuarios.EscribirUsuario(nuevoUsuario);
-                    // Llamar a métodos para dar de alta y guardar el nuevo usuario
-                    //Sistema.AltaUsuario(nuevoUsuario);
-                    //Sistema.GuardarUsuario(nuevoUsuario);
                 }
             }
             catch (Exception ex)
@@ -70,7 +70,9 @@ namespace Vista
             LeerUsuarios(); // Actualizar la lista de usuarios mostrada en el DataGridView
         }
 
-        // Método para leer y mostrar los usuarios en el DataGridView
+        /// <summary>
+        /// Método para leer y mostrar los usuarios en el DataGridView.
+        /// </summary>
         public void LeerUsuarios()
         {
             try
@@ -93,7 +95,10 @@ namespace Vista
             }
         }
 
-        // Evento que se ejecuta al hacer clic en el botón "Eliminar"
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en el botón "Eliminar".
+        /// Elimina el usuario seleccionado en el DataGridView.
+        /// </summary>
         private void btn_Eliminar_Click(object sender, EventArgs e)
         {
             try
@@ -115,7 +120,8 @@ namespace Vista
                 MessageBox.Show($"Error al eliminar el usuario: {ex.Message}");
             }
         }
-
     }
-   
+
 }
+   
+

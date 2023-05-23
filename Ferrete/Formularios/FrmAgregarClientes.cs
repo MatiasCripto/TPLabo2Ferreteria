@@ -27,14 +27,18 @@ namespace Vista.Formularios
             InitializeComponent();
             LeerClientes();
         }
-        // Evento que se ejecuta al hacer clic en el botón "Agregar"
+
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en el botón "Agregar".
+        /// Agrega un nuevo cliente con los datos ingresados por el usuario.
+        /// </summary>
         private void btn_Agrergar_Click(object sender, EventArgs e)
         {
             // Obtener los valores ingresados por el usuario
             nombreInput = txb_nombreCliente.Text;
             nombreUsuarioInput = txb_nombreUsuario.Text;
 
-            // Verificar si las contraseñas coinciden
+            
             if (txb_contrasenia.Text == txb_confirmarContra.Text)
             {
                 contraseniaInput = txb_contrasenia.Text;
@@ -56,8 +60,7 @@ namespace Vista.Formularios
                     Logica.Usuarios.Persona nuevoUsuario = new Logica.Usuarios.Cliente(Persona.NexId, nombreInput, nombreUsuarioInput, contraseniaInput, Enum.Parse<Role>(roleInput));
                     ParserUsuarios.EscribirCliente(nuevoUsuario);
                     // Llamar a métodos para dar de alta y guardar el nuevo usuario
-                    //Sistema.AltaUsuario(nuevoUsuario);
-                    //Sistema.GuardarUsuario(nuevoUsuario);
+                 
                 }
             }
             catch (Exception ex)
@@ -68,7 +71,9 @@ namespace Vista.Formularios
             LeerClientes(); // Actualizar la lista de usuarios mostrada en el DataGridView
         }
 
-        // Método para leer y mostrar los usuarios en el DataGridView
+        /// <summary>
+        /// Lee y muestra los clientes en el DataGridView.
+        /// </summary>
         public void LeerClientes()
         {
             try
@@ -78,7 +83,7 @@ namespace Vista.Formularios
                 // Leer la lista de usuarios desde el archivo
                 List<Persona> usuarios = ParserUsuarios.LeerCliente();
 
-                // Filtrar la lista para mostrar solo los usuarios que no son clientes
+                // Filtrar la lista para mostrar solo los usuarios que son clientes
                 List<Persona> usuariosFiltrados = usuarios.Where(u => u.Role == Role.Cliente).ToList();
 
                 // Asignar la lista filtrada como origen de datos para el DataGridView
@@ -91,7 +96,10 @@ namespace Vista.Formularios
             }
         }
 
-        // Evento que se ejecuta al hacer clic en el botón "Eliminar"
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en el botón "Eliminar".
+        /// Elimina el cliente seleccionado en el DataGridView.
+        /// </summary>
         private void btn_Eliminar_Click(object sender, EventArgs e)
         {
             try
@@ -113,8 +121,9 @@ namespace Vista.Formularios
                 MessageBox.Show($"Error al eliminar el usuario: {ex.Message}");
             }
         }
-
-
-
     }
+
+
+
+
 }

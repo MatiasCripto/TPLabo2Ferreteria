@@ -21,6 +21,8 @@ namespace Vista.Formularios
             CargarUsuarios();
             LeerUsuarios();
         }
+
+        // Método para cargar los usuarios en el DataGridView
         public void CargarUsuarios()
         {
             dgv_mostrarUsuarios.DataSource = null;
@@ -28,24 +30,29 @@ namespace Vista.Formularios
             dgv_mostrarUsuarios.DataSource = usuarios;
             dgv_mostrarUsuarios.Refresh();
         }
+
+        // Método para leer y mostrar los usuarios que no son clientes en el DataGridView
         public void LeerUsuarios()
         {
             dgv_mostrarUsuarios.DataSource = null;
             List<Persona> usuarios = ParserUsuarios.LeerUsuario();
-            List<Persona> usuariosFiltrados = usuarios.Where(u => u.Role != Role.Cliente ).ToList();
+            List<Persona> usuariosFiltrados = usuarios.Where(u => u.Role != Role.Cliente).ToList();
             dgv_mostrarUsuarios.DataSource = usuariosFiltrados;
             dgv_mostrarUsuarios.Refresh();
-
         }
 
+        // Evento que se ejecuta al hacer clic en el botón "Actualizar"
         private void btn_Actualizar_Click(object sender, EventArgs e)
         {
+            // Abrir el formulario FrmModificarUsuario para modificar un usuario
             FrmModificarUsuario frmModificarUser = new FrmModificarUsuario();
             var resultado = frmModificarUser.ShowDialog();
             if (resultado == DialogResult.OK)
             {
+                // Si se guarda el usuario modificado, se vuelven a leer los usuarios y actualizar el DataGridView
                 LeerUsuarios();
             }
-        }        
+        }
     }
+
 }

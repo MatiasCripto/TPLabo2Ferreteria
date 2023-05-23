@@ -16,15 +16,19 @@ namespace Vista.Formularios
 {
     public partial class FrmVentas : Form
     {
-        List<Articulo> Carrito;        
+        List<Articulo> Carrito;
 
         public FrmVentas()
         {
             InitializeComponent();
             ActualizarProductosDgv();
-            Carrito= new List<Articulo>();
+            Carrito = new List<Articulo>();
         }
 
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en el botón "Agregar al carrito".
+        /// Agrega un artículo seleccionado al carrito y disminuye su stock en uno.
+        /// </summary>
         private void button1_Click(object sender, EventArgs e)
         {
             var itemSeleccionado = dgv_stock.SelectedRows[0].DataBoundItem as DataRowView;
@@ -40,30 +44,34 @@ namespace Vista.Formularios
                 Carrito.Add(producto);
                 ActualizarDgvVentas();
                 ActualizarProductosDgv();
-                
+
             }
             else
             {
                 MessageBox.Show("No hay stock disponible para este artículo.", "Stock agotado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
+
+        /// <summary>
+        /// Actualiza el DataGridView "dgv_venta" con los artículos en el carrito.
+        /// </summary>
         private void ActualizarDgvVentas()
         {
-           dgv_venta.DataSource = null;
-           dgv_venta.DataSource = Carrito;
+            dgv_venta.DataSource = null;
+            dgv_venta.DataSource = Carrito;
         }
-       
 
+        /// <summary>
+        /// Actualiza el DataGridView "dgv_stock" con la lista de productos disponibles.
+        /// </summary>
         private void ActualizarProductosDgv()
         {
-
             var dt = new DataTable();
 
             dt.Columns.Add("Id", typeof(int));
             dt.Columns.Add("Articulo", typeof(string));
             dt.Columns.Add("Precio", typeof(decimal));
-            dt.Columns.Add("Stock", typeof(int));           
+            dt.Columns.Add("Stock", typeof(int));
             dt.Columns.Add("Baja", typeof(bool));
 
             foreach (var item in Sistema.ObtenerProductos())
@@ -89,20 +97,27 @@ namespace Vista.Formularios
             {
                 dgv_stock.Rows[selectedIndex].Selected = true;
             }
+        }
 
-        }       
-
+        /// <summary>
+        /// Filtra los productos en el DataGridView "dgv_stock" según el texto ingresado en el cuadro de búsqueda.
+        /// </summary>
         private void txb_buscar_TextChanged(object sender, EventArgs e)
-        {            
+        {
             try
             {
-                ((DataTable)dgv_stock.DataSource).DefaultView.RowFilter = string.Format("Articulo like '%{0}%'", txb_buscar.Text.Trim().Replace("'", "''")); ;
+                ((DataTable)dgv_stock.DataSource).DefaultView.RowFilter = string.Format("Articulo like '%{0}%'", txb_buscar.Text.Trim().Replace("'", "''"));
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Error al filtrar los productos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
+
+        /// <summary>
+        /// Calcula el total de la venta sumando los precios de los artículos en el carrito.
+        /// </summary>
         private decimal CalcularTotal()
         {
             decimal total = 0;
@@ -119,12 +134,18 @@ namespace Vista.Formularios
             return total;
         }
 
+        /// <summary>
+        /// Muestra el importe total de la venta en el cuadro de texto "lbl_total".
+        /// </summary>
         private void btn_ImporteTotal_Click(object sender, EventArgs e)
         {
             decimal total = CalcularTotal();
             lbl_total.Text = "Total: $" + total.ToString();
         }
 
+        /// <summary>
+        /// Elimina el artículo seleccionado del carrito.
+        /// </summary>
         private void btn_Eliminar_Click(object sender, EventArgs e)
         {
             if (dgv_venta.SelectedRows.Count > 0)
@@ -138,41 +159,47 @@ namespace Vista.Formularios
                 // Actualizar el DataGridView "dgv_venta"
                 ActualizarDgvVentas();
             }
-        }  
+        }
 
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en el botón "Finalizar venta".
+        /// Cierra el formulario y devuelve DialogResult.OK.
+        /// </summary>
         private void button1_Click_1(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
         }
-
-
-
-
-
-
-
-
-        //private void TotalPrecio()
-        //{
-        //    lbl_total.Text = "Total";
-        //    decimal total = 0;
-
-        //    foreach (DataGridViewRow row in dgv_venta.Rows)
-        //    {
-        //        if (row.Selected)
-        //        {
-        //            // Obtener el valor de la columna que contiene el precio
-        //            decimal precio = Convert.ToDecimal(row.Cells["Precio"].Value);
-
-        //            // Sumar el precio al total
-        //            total += precio;
-        //        }
-        //    }
-
-        //    lbl_total.Text = total.ToString();
-
-        //    // Ahora, la variable 'total' contiene la suma de los precios de los artículos seleccionados
-
-        //}
     }
+
+
+
+
+
+
+
+
+
+    //private void TotalPrecio()
+    //{
+    //    lbl_total.Text = "Total";
+    //    decimal total = 0;
+
+    //    foreach (DataGridViewRow row in dgv_venta.Rows)
+    //    {
+    //        if (row.Selected)
+    //        {
+    //            // Obtener el valor de la columna que contiene el precio
+    //            decimal precio = Convert.ToDecimal(row.Cells["Precio"].Value);
+
+    //            // Sumar el precio al total
+    //            total += precio;
+    //        }
+    //    }
+
+    //    lbl_total.Text = total.ToString();
+
+    //    // Ahora, la variable 'total' contiene la suma de los precios de los artículos seleccionados
+
+    //}
 }
+

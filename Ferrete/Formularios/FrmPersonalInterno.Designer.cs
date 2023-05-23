@@ -55,6 +55,9 @@
             this.verEmpleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txb_stock = new System.Windows.Forms.TextBox();
             this.lbl_stock = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txb_PrecioDolar = new System.Windows.Forms.TextBox();
+            this.btn_aumentoMasivo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_principal)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -319,14 +322,14 @@
             // nuevoClienteToolStripMenuItem
             // 
             this.nuevoClienteToolStripMenuItem.Name = "nuevoClienteToolStripMenuItem";
-            this.nuevoClienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nuevoClienteToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.nuevoClienteToolStripMenuItem.Text = "Nuevo cliente";
             this.nuevoClienteToolStripMenuItem.Click += new System.EventHandler(this.nuevoClienteToolStripMenuItem_Click);
             // 
             // verClientesToolStripMenuItem
             // 
             this.verClientesToolStripMenuItem.Name = "verClientesToolStripMenuItem";
-            this.verClientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.verClientesToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.verClientesToolStripMenuItem.Text = "Ver clientes";
             this.verClientesToolStripMenuItem.Click += new System.EventHandler(this.verClientesToolStripMenuItem_Click);
             // 
@@ -342,14 +345,14 @@
             // nuevoEmpleadoToolStripMenuItem
             // 
             this.nuevoEmpleadoToolStripMenuItem.Name = "nuevoEmpleadoToolStripMenuItem";
-            this.nuevoEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nuevoEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.nuevoEmpleadoToolStripMenuItem.Text = "Nuevo empleado";
             this.nuevoEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.nuevoEmpleadoToolStripMenuItem_Click);
             // 
             // verEmpleadosToolStripMenuItem
             // 
             this.verEmpleadosToolStripMenuItem.Name = "verEmpleadosToolStripMenuItem";
-            this.verEmpleadosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.verEmpleadosToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.verEmpleadosToolStripMenuItem.Text = "Ver empleados";
             this.verEmpleadosToolStripMenuItem.Click += new System.EventHandler(this.verEmpleadosToolStripMenuItem_Click);
             // 
@@ -370,12 +373,50 @@
             this.lbl_stock.TabIndex = 42;
             this.lbl_stock.Text = "Stock";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label2.Location = new System.Drawing.Point(50, 286);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 15);
+            this.label2.TabIndex = 44;
+            this.label2.Text = "Precio del Dolar";
+            // 
+            // txb_PrecioDolar
+            // 
+            this.txb_PrecioDolar.Location = new System.Drawing.Point(152, 278);
+            this.txb_PrecioDolar.Name = "txb_PrecioDolar";
+            this.txb_PrecioDolar.Size = new System.Drawing.Size(94, 23);
+            this.txb_PrecioDolar.TabIndex = 45;
+            // 
+            // btn_aumentoMasivo
+            // 
+            this.btn_aumentoMasivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.btn_aumentoMasivo.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
+            this.btn_aumentoMasivo.FlatAppearance.BorderSize = 2;
+            this.btn_aumentoMasivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_aumentoMasivo.ForeColor = System.Drawing.Color.White;
+            this.btn_aumentoMasivo.Image = ((System.Drawing.Image)(resources.GetObject("btn_aumentoMasivo.Image")));
+            this.btn_aumentoMasivo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_aumentoMasivo.Location = new System.Drawing.Point(280, 259);
+            this.btn_aumentoMasivo.Name = "btn_aumentoMasivo";
+            this.btn_aumentoMasivo.Size = new System.Drawing.Size(102, 96);
+            this.btn_aumentoMasivo.TabIndex = 46;
+            this.btn_aumentoMasivo.Text = "Actualizar precios";
+            this.btn_aumentoMasivo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_aumentoMasivo.UseVisualStyleBackColor = false;
+            this.btn_aumentoMasivo.Click += new System.EventHandler(this.btn_aumentoMasivo_Click);
+            // 
             // FrmPersonalInterno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
             this.ClientSize = new System.Drawing.Size(1170, 596);
+            this.Controls.Add(this.btn_aumentoMasivo);
+            this.Controls.Add(this.txb_PrecioDolar);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.txb_stock);
             this.Controls.Add(this.lbl_stock);
             this.Controls.Add(this.dgv_principal);
@@ -436,5 +477,8 @@
         private ToolStripMenuItem verEmpleadosToolStripMenuItem;
         private TextBox txb_stock;
         private Label lbl_stock;
+        private Label label2;
+        private TextBox txb_PrecioDolar;
+        private Button btn_aumentoMasivo;
     }
 }

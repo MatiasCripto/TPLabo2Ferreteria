@@ -22,6 +22,7 @@ namespace Vista.Formularios
             CargarClientes();
         }
 
+        // Método para cargar los clientes en el DataGridView
         public void CargarClientes()
         {
             dgv_mostrarClientes.DataSource = null;
@@ -29,6 +30,8 @@ namespace Vista.Formularios
             dgv_mostrarClientes.DataSource = clientes;
             dgv_mostrarClientes.Refresh();
         }
+
+        // Método para leer y mostrar los usuarios que no son clientes en el DataGridView
         public void LeerCliente()
         {
             dgv_mostrarClientes.DataSource = null;
@@ -36,8 +39,9 @@ namespace Vista.Formularios
             List<Persona> usuariosFiltrados = usuarios.Where(u => u.Role != Role.Cliente).ToList();
             dgv_mostrarClientes.DataSource = usuariosFiltrados;
             dgv_mostrarClientes.Refresh();
-
         }
-
     }
+
+
 }
+
