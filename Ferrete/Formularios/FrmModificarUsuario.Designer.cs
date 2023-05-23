@@ -145,8 +145,9 @@
             this.Controls.Add(this.lbl_Precio);
             this.Controls.Add(this.txb_Nombre);
             this.Controls.Add(this.lbl_Nombre);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmModificarUsuario";
-            this.Text = "FrmModificarUsuario";
+            this.Text = "Modificar usuario";
             this.ResumeLayout(false);
             this.PerformLayout();
 

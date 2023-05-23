@@ -206,8 +206,9 @@
             this.Controls.Add(this.txb_nombre);
             this.Controls.Add(this.btn_Agrergar);
             this.Controls.Add(this.dgv_usuarios);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAgregarUsuarios";
-            this.Text = "Usuarios";
+            this.Text = "Agregar usuario";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_usuarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

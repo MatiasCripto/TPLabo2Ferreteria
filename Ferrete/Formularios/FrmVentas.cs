@@ -170,36 +170,5 @@ namespace Vista.Formularios
             DialogResult = DialogResult.OK;
         }
     }
-
-
-
-
-
-
-
-
-
-    //private void TotalPrecio()
-    //{
-    //    lbl_total.Text = "Total";
-    //    decimal total = 0;
-
-    //    foreach (DataGridViewRow row in dgv_venta.Rows)
-    //    {
-    //        if (row.Selected)
-    //        {
-    //            // Obtener el valor de la columna que contiene el precio
-    //            decimal precio = Convert.ToDecimal(row.Cells["Precio"].Value);
-
-    //            // Sumar el precio al total
-    //            total += precio;
-    //        }
-    //    }
-
-    //    lbl_total.Text = total.ToString();
-
-    //    // Ahora, la variable 'total' contiene la suma de los precios de los artículos seleccionados
-
-    //}
 }
 

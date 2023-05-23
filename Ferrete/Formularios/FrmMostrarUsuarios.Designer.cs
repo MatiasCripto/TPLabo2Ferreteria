@@ -90,8 +90,9 @@
             this.Controls.Add(this.btn_Finalizar);
             this.Controls.Add(this.btn_Actualizar);
             this.Controls.Add(this.dgv_mostrarUsuarios);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMostrarUsuarios";
-            this.Text = "FrmMostrarUsuarios";
+            this.Text = "Mostrar usuarios";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_mostrarUsuarios)).EndInit();
             this.ResumeLayout(false);
 

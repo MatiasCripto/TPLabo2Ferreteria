@@ -180,8 +180,9 @@
             this.Controls.Add(this.txb_nombreCliente);
             this.Controls.Add(this.btn_Agrergar);
             this.Controls.Add(this.dgv_cliente);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAgregarClientes";
-            this.Text = "Clientes";
+            this.Text = "Agregar cliente";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

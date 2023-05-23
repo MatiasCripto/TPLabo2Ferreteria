@@ -437,9 +437,10 @@
             this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.btn_Agrergar);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmPersonalInterno";
-            this.Text = "PersonalInterno";
+            this.Text = "Menu principal";
             this.Load += new System.EventHandler(this.FrmPersonalInterno_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_principal)).EndInit();
             this.menuStrip1.ResumeLayout(false);

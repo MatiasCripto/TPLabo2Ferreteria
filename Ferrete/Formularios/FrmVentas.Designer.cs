@@ -56,7 +56,6 @@
             this.dgv_stock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_stock.Size = new System.Drawing.Size(374, 250);
             this.dgv_stock.TabIndex = 0;
-           
             // 
             // btn_AgregarArticulo
             // 
@@ -190,6 +189,7 @@
             this.Controls.Add(this.txb_buscar);
             this.Controls.Add(this.btn_AgregarArticulo);
             this.Controls.Add(this.dgv_stock);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmVentas";
             this.Text = "Ventas";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_stock)).EndInit();

@@ -45,13 +45,7 @@ namespace Vista
         /// Evento de carga del formulario FrmPersonalInterno.
         /// </summary>
         private void FrmPersonalInterno_Load(object sender, EventArgs e)
-        {
-
-            // Cambia el color del borderStyle del formulario
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.BackColor = Color.Red;
-            this.ForeColor = Color.White;
-
+        { 
             dgv_principal.DataSource = ParserProductos.LeerProductos();
 
             if (usuarioLogeado.Role != Logica.Enumerados.Role.Administrador)
@@ -73,7 +67,18 @@ namespace Vista
             else
             {
                 // Mostrar elementos de la interfaz para usuarios administradores
+                
+                btn_Actualizar.Enabled = false;
+                btn_Agrergar.Enabled = false;
+                btn_Buscar.Enabled = false;
+                btn_Cancelar.Enabled = false;
+                btn_Eliminar.Enabled = false;
+                btn_Informe.Enabled = false;
                 btn_Nuevo.Enabled = true;
+                txb_Descripcion.Enabled = false;
+                txb_Precio.Enabled = false;
+                txb_stock.Enabled = false;
+                txb_PrecioDolar.Enabled = false;
             }
         }
 
@@ -243,7 +248,7 @@ namespace Vista
                         articuloAModificar.Precio = frmModificar.PrecioModificado;
                         articuloAModificar.Stock = frmModificar.StockModificado;
 
-                        ParserProductos.EscribirArchivo(productos); // Guardar los productos actualizados en el archivo
+                        ParserProductos.EscribirProducto(articuloAModificar); // Guardar los productos actualizados en el archivo
                         ActualizarDgv();
                     }
                 }
