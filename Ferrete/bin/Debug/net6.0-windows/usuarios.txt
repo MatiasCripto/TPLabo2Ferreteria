@@ -1,3 +1,0 @@
-2,matias,matti,1234,Administrador
-3,Johnny87,jonatan,1234,Administrador
-4,Ale22,alejandro,1234,Empleado

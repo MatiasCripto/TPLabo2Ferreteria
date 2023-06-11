@@ -1,0 +1,15 @@
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Datos\obj\Debug\net6.0\Datos.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Datos\obj\Debug\net6.0\Datos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Datos\obj\Debug\net6.0\Datos.AssemblyInfoInputs.cache
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Datos\obj\Debug\net6.0\Datos.AssemblyInfo.cs
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Datos\obj\Debug\net6.0\Datos.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Datos\bin\Debug\net6.0\Datos.deps.json
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Datos\bin\Debug\net6.0\Datos.dll
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Datos\bin\Debug\net6.0\Datos.pdb
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Datos\bin\Debug\net6.0\Entidades.dll
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Datos\bin\Debug\net6.0\Entidades.pdb
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Datos\obj\Debug\net6.0\Datos.csproj.CopyComplete
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Datos\obj\Debug\net6.0\Datos.dll
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Datos\obj\Debug\net6.0\refint\Datos.dll
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Datos\obj\Debug\net6.0\Datos.pdb
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Datos\obj\Debug\net6.0\ref\Datos.dll

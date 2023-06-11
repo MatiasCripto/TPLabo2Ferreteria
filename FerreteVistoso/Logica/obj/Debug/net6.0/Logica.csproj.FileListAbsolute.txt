@@ -1,0 +1,17 @@
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\bin\Debug\net6.0\Logica.deps.json
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\bin\Debug\net6.0\Logica.dll
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\bin\Debug\net6.0\Logica.pdb
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\obj\Debug\net6.0\Logica.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\obj\Debug\net6.0\Logica.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\obj\Debug\net6.0\Logica.AssemblyInfoInputs.cache
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\obj\Debug\net6.0\Logica.AssemblyInfo.cs
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\obj\Debug\net6.0\Logica.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\obj\Debug\net6.0\Logica.dll
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\obj\Debug\net6.0\refint\Logica.dll
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\obj\Debug\net6.0\Logica.pdb
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\obj\Debug\net6.0\ref\Logica.dll
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\bin\Debug\net6.0\Datos.dll
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\bin\Debug\net6.0\Entidades.dll
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\bin\Debug\net6.0\Datos.pdb
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\bin\Debug\net6.0\Entidades.pdb
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\obj\Debug\net6.0\Logica.csproj.CopyComplete
