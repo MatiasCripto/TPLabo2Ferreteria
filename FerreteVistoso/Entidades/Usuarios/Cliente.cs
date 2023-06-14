@@ -41,6 +41,7 @@ namespace Logica.Usuarios
         public Cliente(string nombre, string usuario, string contrasenia, Enumerados.Role role) : base(nombre, usuario, contrasenia, role)
         {
             this.nombre = nombre;
+            
             this.usuario = usuario;
             this.contrasenia = contrasenia;
         }
@@ -56,7 +57,7 @@ namespace Logica.Usuarios
         public Cliente(int id, string nombre, string usuario, string contrasenia, Role role) : base(id, nombre, usuario, contrasenia, role)
         {
             this.id = id;
-            this.nombre = nombre;
+            this.nombre = nombre;           
             this.usuario = usuario;
             this.contrasenia = contrasenia;
         }

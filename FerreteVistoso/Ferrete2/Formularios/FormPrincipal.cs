@@ -1,5 +1,13 @@
 using Ferrete2.Formularios;
 using System.Runtime.InteropServices;
+
+
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
+using System.IO;
+
+
 namespace Ferrete2
 {
     public partial class FormPrincipal : Form
@@ -97,6 +105,11 @@ namespace Ferrete2
         private void btn_Usuarios_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new FormUsuario());
+        }
+
+        private void btn_Clientes_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new FormCliente());
         }
     }
 }

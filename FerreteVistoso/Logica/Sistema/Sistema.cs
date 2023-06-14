@@ -8,11 +8,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Org.BouncyCastle.Security;
 
 namespace Logica.Sistema
 {
     public class Sistema
     {
+
+        public event Action<decimal> PrecioDolarCambio;
+
+        public event Func<decimal, string> PrecioActual; 
+            
+
+        public void Comenzar()
+        {
+            while (true)
+            {
+                Thread.Sleep(1000); // 10 segundos
+                decimal cambio = new Random().Next(500, 1000);
+                PrecioDolarCambio?.Invoke(cambio);
+                PrecioActual?.Invoke(cambio);
+            }
+        }
+
+        
+
+
+
+
+
+
         // private static List<Articulo> _productos = new List<Articulo>();
         /// <summary>
         /// Obtiene la lista de productos.
@@ -30,6 +55,7 @@ namespace Logica.Sistema
             return usuarios.ObtenerTodos();
 
         }
+       
 
         public static void AgregarProducto(string nombre, decimal precio, int stock, int baja)
         {
@@ -44,6 +70,12 @@ namespace Logica.Sistema
         {
             var db = new ArticuloDB();
             db.Modificar(articulo);
+        }
+        
+        public static void ModificarUsuario(Persona usuario)
+        {
+            var db = new UsuarioDB<Persona>();
+            db.Modificar(usuario);
         }
 
 
@@ -70,6 +102,23 @@ namespace Logica.Sistema
                 throw new Exception($"Error al guardar los productos en la base de datos: {ex.Message}");
             }
         }
+        public static void GuardarUsuariosEnDB(List<Persona> usuarios)
+        {
+            try
+            {
+                UsuarioDB<Persona> personas = new UsuarioDB<Persona>();
+               
+
+                foreach (var usuario in usuarios)
+                {                   
+                    personas.Agregar(usuario);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al guardar los usuarios en la base de datos: {ex.Message}");
+            }
+        }
         public static void GuardarProductoEnDB(Articulo producto)
         {
             try
@@ -81,6 +130,19 @@ namespace Logica.Sistema
             catch (Exception ex)
             {
                 throw new Exception($"Error al guardar el producto en la base de datos: {ex.Message}");
+            }
+        }
+        public static void GuardarUsuarioEnDB(Persona usuario)
+        {
+            try
+            {
+                UsuarioDB<Persona> personas = new UsuarioDB<Persona>();
+                
+                personas.Agregar(usuario);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al guardar el usuario en la base de datos: {ex.Message}");
             }
         }
         public static void ActualizarStock(Articulo articulo)
@@ -99,6 +161,12 @@ namespace Logica.Sistema
         public static Articulo ObtenerProductoPorId(int id)
         {
             var db = new ArticuloDB();
+            return db.ObtenerPorId(id);
+        }
+        
+        public static Persona? ObtenerUsuarioPorId(int id)
+        {
+            var db = new UsuarioDB<Persona>();
             return db.ObtenerPorId(id);
         }
 

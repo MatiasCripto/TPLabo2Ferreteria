@@ -20,11 +20,47 @@ namespace Ferrete2.Formularios
         private string articuloInput = string.Empty;
         private string precioInput = string.Empty;
         private string stockInput = string.Empty;
+        private Task _tarea;
+        private Sistema _sistema;
+        private DataTable _dt;
+
 
         public FormProductos()
         {
             InitializeComponent();
             ActualizarProductosDgv();
+
+            _sistema = new Sistema();
+            _tarea = new Task(_sistema.Comenzar);
+            _tarea.Start();
+            _sistema.PrecioDolarCambio += ActualizarPrecioDolar;
+            _sistema.PrecioActual += MostrarDolarBlue;
+            
+        }
+
+        private void ActualizarPrecioDolar(decimal valorDolar)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(ActualizarPrecioDolar, valorDolar);
+            }
+            else
+            {
+                foreach (DataRow fila in _dt.Rows)
+                {
+                    fila["Precio Dolar"] = Convert.ToDecimal(fila["Precio"]) * valorDolar;
+                }
+            }
+        }
+
+        private string MostrarDolarBlue(decimal valorActual)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(MostrarDolarBlue, valorActual);
+            }
+                this.lbl_PrecioDolar.Text = valorActual.ToString();
+                return valorActual.ToString();
         }
 
         private void lbl_cerrar_Click(object sender, EventArgs e)
@@ -33,29 +69,30 @@ namespace Ferrete2.Formularios
         }
         private void ActualizarProductosDgv()
         {
-            var dt = new DataTable();
+            _dt = new DataTable();
 
-            dt.Columns.Add("Id", typeof(int));
-            dt.Columns.Add("Articulo", typeof(string));
-            dt.Columns.Add("Precio", typeof(decimal));
-            dt.Columns.Add("Stock", typeof(int));
+            _dt.Columns.Add("Id", typeof(int));
+            _dt.Columns.Add("Articulo", typeof(string));
+            _dt.Columns.Add("Precio", typeof(decimal));
+            _dt.Columns.Add("Precio Dolar", typeof(decimal));
+            _dt.Columns.Add("Stock", typeof(int));
 
             foreach (var item in Sistema.ObtenerProductos())
             {
-                var row = dt.NewRow();
+                var row = _dt.NewRow();
 
                 row["Id"] = item.Id;
                 row["Articulo"] = item.Nombre;
                 row["Precio"] = item.Precio;
                 row["Stock"] = item.Stock;
 
-                dt.Rows.Add(row);
+                _dt.Rows.Add(row);
             }
 
             // Mantener la selección actual en el DataGridView de stock
             int selectedIndex = dgv_Principal.SelectedRows.Count > 0 ? dgv_Principal.SelectedRows[0].Index : -1;
 
-            dgv_Principal.DataSource = dt;
+            dgv_Principal.DataSource = _dt;
 
             // Restaurar la selección anterior si existe
             if (selectedIndex >= 0 && selectedIndex < dgv_Principal.Rows.Count)

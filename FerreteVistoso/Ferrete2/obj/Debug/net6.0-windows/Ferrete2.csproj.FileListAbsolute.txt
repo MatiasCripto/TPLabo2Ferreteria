@@ -33,3 +33,7 @@ C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Ferrete2\bin\Debug\net6.0-window
 C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Ferrete2\bin\Debug\net6.0-windows\Datos.pdb
 C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Ferrete2\bin\Debug\net6.0-windows\Entidades.pdb
 C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Ferrete2\obj\Debug\net6.0-windows\Ferrete2.Formularios.FormUsuario.resources
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Ferrete2\obj\Debug\net6.0-windows\Ferrete2.Formularios.FormCliente.resources
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Ferrete2\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Ferrete2\bin\Debug\net6.0-windows\itextsharp.dll
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Ferrete2\bin\Debug\net6.0-windows\itextsharp.xmlworker.dll

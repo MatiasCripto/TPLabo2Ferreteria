@@ -141,6 +141,7 @@
             this.btn_Clientes.TabIndex = 3;
             this.btn_Clientes.Text = "Clientes";
             this.btn_Clientes.UseVisualStyleBackColor = true;
+            this.btn_Clientes.Click += new System.EventHandler(this.btn_Clientes_Click);
             // 
             // btn_ventas
             // 
@@ -179,9 +180,9 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(0, 3);
+            this.pictureBox2.Location = new System.Drawing.Point(-21, 3);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(249, 62);
+            this.pictureBox2.Size = new System.Drawing.Size(293, 62);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
@@ -284,7 +285,7 @@
             this.lbl_Fecha.AutoSize = true;
             this.lbl_Fecha.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl_Fecha.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lbl_Fecha.Location = new System.Drawing.Point(885, 562);
+            this.lbl_Fecha.Location = new System.Drawing.Point(885, 538);
             this.lbl_Fecha.Name = "lbl_Fecha";
             this.lbl_Fecha.Size = new System.Drawing.Size(65, 28);
             this.lbl_Fecha.TabIndex = 2;
@@ -296,7 +297,7 @@
             this.lbl_Hora.AutoSize = true;
             this.lbl_Hora.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl_Hora.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbl_Hora.Location = new System.Drawing.Point(862, 508);
+            this.lbl_Hora.Location = new System.Drawing.Point(862, 484);
             this.lbl_Hora.Name = "lbl_Hora";
             this.lbl_Hora.Size = new System.Drawing.Size(130, 54);
             this.lbl_Hora.TabIndex = 1;
@@ -309,7 +310,7 @@
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(305, 156);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(427, 265);
+            this.pictureBox3.Size = new System.Drawing.Size(427, 241);
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 

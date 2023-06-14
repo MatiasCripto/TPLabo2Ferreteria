@@ -1,4 +1,6 @@
-﻿using Logica.Sistema;
+﻿using Logica.Productos;
+using Logica.Sistema;
+using Logica.Usuarios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -95,6 +97,49 @@ namespace Ferrete2.Formularios
             dgv_Usuarios.DataSource = null;
             dgv_Usuarios.DataSource = Sistema.ObtenerUsuarios();
                 
+        }
+
+        private void btn_GuardarGb_Click(object sender, EventArgs e)
+        {
+            if (dgv_Usuarios.SelectedRows.Count > 0)
+            {
+                DataGridViewRow filaSeleccionada = dgv_Usuarios.SelectedRows[0];
+                string valorId = filaSeleccionada.Cells["id"].Value.ToString();
+
+                // Obtener el índice de la fila seleccionada
+                int rowIndex = dgv_Usuarios.CurrentRow.Index;
+
+                // Obtener el nombre del producto en la primera columna
+                string nombreProducto = dgv_Usuarios.Rows[rowIndex].Cells[0].Value.ToString();
+
+                // Mostrar un mensaje de advertencia antes de eliminar
+                DialogResult resultado = MessageBox.Show("¿Estás seguro de que deseas eliminar el usuario " + nombreProducto + "?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (resultado == DialogResult.Yes)
+                {
+
+                    // Sobrescribir el archivo con el contenido actualizado
+                    //File.WriteAllText("productos.txt", sb.ToString());
+                    Sistema.EliminarProducto(int.Parse(valorId));
+
+                    // Eliminar el artículo del origen de datos
+                    List<Persona> usuarios = Sistema.ObtenerUsuarios();
+                    Persona UsuarioAEliminar = usuarios.FirstOrDefault(a => a.Id == int.Parse(valorId));
+
+                    if (UsuarioAEliminar != null)
+                    {
+                        usuarios.Remove(UsuarioAEliminar);
+                        Sistema.GuardarUsuariosEnDB(usuarios); // Guardar los productos actualizados en el archivo
+                    }
+                    // Eliminar la fila del DataGridView                
+                    ActualizarDgv();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("No se ha seleccionado ningún usuario para eliminar.");
+            }
+
         }
     }
 }

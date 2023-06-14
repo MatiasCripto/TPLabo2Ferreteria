@@ -271,7 +271,7 @@
             this.grpbx_AgregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.grpbx_AgregarProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpbx_AgregarProducto.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.grpbx_AgregarProducto.Location = new System.Drawing.Point(253, 12);
+            this.grpbx_AgregarProducto.Location = new System.Drawing.Point(721, 3);
             this.grpbx_AgregarProducto.Name = "grpbx_AgregarProducto";
             this.grpbx_AgregarProducto.Size = new System.Drawing.Size(277, 157);
             this.grpbx_AgregarProducto.TabIndex = 9;
