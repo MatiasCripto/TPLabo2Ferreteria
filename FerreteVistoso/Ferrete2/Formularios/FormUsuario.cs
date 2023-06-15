@@ -1,4 +1,5 @@
-﻿using Logica.Productos;
+﻿using Logica.Enumerados;
+using Logica.Productos;
 using Logica.Sistema;
 using Logica.Usuarios;
 using System;
@@ -15,10 +16,16 @@ namespace Ferrete2.Formularios
 {
     public partial class FormUsuario : Form
     {
+        private string nombre;
+        private string usuario;
+        private string contra;
+        private string newContra;
+        string roleInput;        
+        private const string vacio = "";
         public FormUsuario()
         {
             InitializeComponent();
-            ActualizarProductosDgv();
+            ActualizarUsuariosDgv();
         }
 
         private void FormUsuario_Load(object sender, EventArgs e)
@@ -55,13 +62,14 @@ namespace Ferrete2.Formularios
         {
             this.Close();
         }
-        private void ActualizarProductosDgv()
+        private void ActualizarUsuariosDgv()
         {
             var dt = new DataTable();
 
             dt.Columns.Add("Id", typeof(int));
             dt.Columns.Add("Nombre", typeof(string));
-            dt.Columns.Add("Usuario", typeof(string));
+            dt.Columns.Add("Usuario", typeof(string)); 
+            dt.Columns.Add("Contraseña", typeof(string));
             dt.Columns.Add("Role", typeof(string));
 
             foreach (var item in Sistema.ObtenerUsuarios())
@@ -71,6 +79,7 @@ namespace Ferrete2.Formularios
                 row["Id"] = item.Id;
                 row["Usuario"] = item.Nombre;
                 row["Nombre"] = item.Usuario;
+                row["Contraseña"] = item.Contrasenia;
                 row["Role"] = item.Role;
 
                 dt.Rows.Add(row);
@@ -100,6 +109,70 @@ namespace Ferrete2.Formularios
         }
 
         private void btn_GuardarGb_Click(object sender, EventArgs e)
+        {
+            nombre = txb_Nombre.Text;
+            usuario = txb_Usuario.Text;
+            //contra = txb_Cointrasenia.Text;
+            newContra = txb_Confirmar.Text;
+
+            if (txb_Cointrasenia.Text == txb_Confirmar.Text)
+            {
+                contra = txb_Cointrasenia.Text;
+            }
+            else
+            {
+                MessageBox.Show("Las contraseñas no coinciden");
+                return; // Salir del método si las contraseñas no coinciden
+            }
+
+            roleInput = cbx_AsignarRole.Text;
+
+            try
+            {
+                // Verificar que los campos no estén vacíos
+                if (nombre != vacio && usuario != vacio && contra != vacio)
+                {
+                    // Crear un nuevo objeto de usuario
+                    Persona nuevoUsuario = new PersonalInterno(nombre, usuario, contra, Enum.Parse<Role>(roleInput));
+                    Sistema.GuardarUsuarioEnDB(nuevoUsuario);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error desconocido al guardar el usuario: {ex.Message}");
+            }
+
+           ActualizarDgv(); // Actualizar la
+
+            //string mensajeError = Sistema.ValidarCamposUsuario(nombre, usuario, contra);
+            //if (mensajeError == null)
+            //{
+            //    if (contra == newContra)
+            //    {
+            //        try
+            //        {
+            //            Persona nuevoUsuario = new PersonalInterno(nombre, usuario, contra, role);
+            //            Sistema.GuardarUsuarioEnDB(nuevoUsuario);
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            throw new Exception($"Error desconocido al guardar el usuario: {ex.Message}");
+            //        }
+            //        ActualizarDgv();
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Las contraseñas no coinciden");
+            //    }
+
+            //}
+            //else
+            //{
+            //    MessageBox.Show(mensajeError);
+            //}
+        }
+
+        private void btn_Eliminar_Click(object sender, EventArgs e)
         {
             if (dgv_Usuarios.SelectedRows.Count > 0)
             {

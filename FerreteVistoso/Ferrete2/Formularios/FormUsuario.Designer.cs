@@ -117,6 +117,7 @@
             this.btn_Eliminar.TabIndex = 3;
             this.btn_Eliminar.Text = "Eliminar";
             this.btn_Eliminar.UseVisualStyleBackColor = true;
+            this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click);
             // 
             // btn_Modificar
             // 
@@ -163,8 +164,7 @@
             // 
             // gpbx_modificarUsuario
             // 
-            this.gpbx_modificarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gpbx_modificarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gpbx_modificarUsuario.Controls.Add(this.cbx_ModificarRole);
             this.gpbx_modificarUsuario.Controls.Add(this.label3);
             this.gpbx_modificarUsuario.Controls.Add(this.txb_contraseniaModificar);
@@ -294,8 +294,7 @@
             // 
             // grpbx_AgregarUsuario
             // 
-            this.grpbx_AgregarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpbx_AgregarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.grpbx_AgregarUsuario.Controls.Add(this.cbx_AsignarRole);
             this.grpbx_AgregarUsuario.Controls.Add(this.label4);
             this.grpbx_AgregarUsuario.Controls.Add(this.label5);

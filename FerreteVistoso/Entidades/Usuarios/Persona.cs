@@ -11,8 +11,7 @@ namespace Logica.Usuarios
 
         public abstract string Saludar(string mensaje);
 
-        private int _id;
-        static int nexId = 1;
+        private int _id;        
         private string _nombre;
         private string _usuario;
         private string _contrasenia;
@@ -36,12 +35,7 @@ namespace Logica.Usuarios
         /// <summary>
         /// Obtiene la contraseña de la persona.
         /// </summary>
-        public string Contrasenia { get => _contrasenia; }
-
-        /// <summary>
-        /// Obtiene o establece el siguiente ID disponible para una nueva persona.
-        /// </summary>
-        public static int NexId { get => ++nexId; set => nexId = value; }
+        public string Contrasenia { get => _contrasenia; }       
 
         /// <summary>
         /// Obtiene o establece el rol de la persona.

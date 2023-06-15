@@ -18,8 +18,7 @@ namespace Logica.Usuarios
     /// </summary>
     public class PersonalInterno : Persona
     {
-        private int id;
-        static int nexId = 1;
+        private int id;       
         private string nombre;
         private string usuario;
         private string contrasenia;

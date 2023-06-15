@@ -285,7 +285,7 @@
             this.lbl_Fecha.AutoSize = true;
             this.lbl_Fecha.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl_Fecha.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lbl_Fecha.Location = new System.Drawing.Point(885, 538);
+            this.lbl_Fecha.Location = new System.Drawing.Point(756, 500);
             this.lbl_Fecha.Name = "lbl_Fecha";
             this.lbl_Fecha.Size = new System.Drawing.Size(65, 28);
             this.lbl_Fecha.TabIndex = 2;
@@ -297,7 +297,7 @@
             this.lbl_Hora.AutoSize = true;
             this.lbl_Hora.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl_Hora.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbl_Hora.Location = new System.Drawing.Point(862, 484);
+            this.lbl_Hora.Location = new System.Drawing.Point(733, 446);
             this.lbl_Hora.Name = "lbl_Hora";
             this.lbl_Hora.Size = new System.Drawing.Size(130, 54);
             this.lbl_Hora.TabIndex = 1;

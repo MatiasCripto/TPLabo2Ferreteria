@@ -182,7 +182,7 @@ namespace Logica.Sistema
         /// <param name="precioInput">El precio del artículo ingresado.</param>
         /// <param name="stockInput">El stock del artículo ingresado.</param>
         /// <returns>Un mensaje de error si los campos no son válidos, o null si no hay errores.</returns>
-        public static string ValidarCamposAgregar(string articuloInput, string precioInput, string stockInput)
+        public static string ValidarCamposProducto(string articuloInput, string precioInput, string stockInput)
         {
             if (string.IsNullOrEmpty(articuloInput) || string.IsNullOrEmpty(precioInput) || string.IsNullOrEmpty(stockInput))
             {
@@ -200,6 +200,15 @@ namespace Logica.Sistema
             {
                 return "El valor ingresado para el stock no es válido. Debe ser un número entero.";
             }
+
+            return null; // No hay errores de validación
+        }
+        public static string ValidarCamposUsuario(string articuloInput, string precioInput, string stockInput)
+        {
+            if (string.IsNullOrEmpty(articuloInput) || string.IsNullOrEmpty(precioInput) || string.IsNullOrEmpty(stockInput))
+            {
+                return "Todos los campos deben ser completados.";
+            }          
 
             return null; // No hay errores de validación
         }
@@ -227,7 +236,7 @@ namespace Logica.Sistema
         public static PersonalInterno ObtenerUsuarioLogueado(string user, string pass, List<Persona> arrayPersona)
         {
             PersonalInterno personaLogueada = null;
-            foreach (PersonalInterno personaUno in arrayPersona)
+            foreach (PersonalInterno personaUno in arrayPersona.Cast<PersonalInterno>())
             {
                 if (personaUno.Nombre == user && personaUno.Contrasenia == pass)
                 {
@@ -268,7 +277,7 @@ namespace Logica.Sistema
         /// <returns>true si el ingreso es válido, false de lo contrario</returns>
         public static bool VerificarIngreso(string usuario, string contrasenia)
         {
-            foreach (PersonalInterno p in Sistema.ObtenerUsuarios())
+            foreach (PersonalInterno p in ObtenerUsuarios().Cast<PersonalInterno>())
             {
                 if (p.Nombre == usuario || p.Contrasenia == contrasenia)
                 {

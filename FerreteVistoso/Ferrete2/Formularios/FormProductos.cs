@@ -73,8 +73,8 @@ namespace Ferrete2.Formularios
 
             _dt.Columns.Add("Id", typeof(int));
             _dt.Columns.Add("Articulo", typeof(string));
+            _dt.Columns.Add("Precio dolar", typeof(decimal));
             _dt.Columns.Add("Precio", typeof(decimal));
-            _dt.Columns.Add("Precio Dolar", typeof(decimal));
             _dt.Columns.Add("Stock", typeof(int));
 
             foreach (var item in Sistema.ObtenerProductos())
@@ -172,7 +172,7 @@ namespace Ferrete2.Formularios
             precioInput = txb_Precio.Text;
             stockInput = txb_Stock.Text;
 
-            string mensajeError = Sistema.ValidarCamposAgregar(articuloInput, precioInput, stockInput);
+            string mensajeError = Sistema.ValidarCamposProducto(articuloInput, precioInput, stockInput);
             if (mensajeError == null)
             {
                 try
@@ -232,7 +232,7 @@ namespace Ferrete2.Formularios
                 string precioInput = txb_precioAModificar.Text;
                 string stockInput = txb_stockAModificar.Text;
 
-                string mensajeError = Sistema.ValidarCamposAgregar(articuloInput, precioInput, stockInput);
+                string mensajeError = Sistema.ValidarCamposProducto(articuloInput, precioInput, stockInput);
                 if (mensajeError == null)
                 {
                     try
@@ -279,5 +279,6 @@ namespace Ferrete2.Formularios
             grpbx_AgregarProducto.Visible = false;
             gpbx_modificarProducto.Visible = true;
         }
+
     }
 }
