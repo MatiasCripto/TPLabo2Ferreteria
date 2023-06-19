@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ferrete2", "Ferrete2\Ferret
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logica", "Logica\Logica.csproj", "{360D87B4-43C6-4815-8738-B4FAFE20B296}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datos", "Datos\Datos.csproj", "{5E9B866B-B1A2-4EF5-8541-26213F954A39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Datos", "Datos\Datos.csproj", "{5E9B866B-B1A2-4EF5-8541-26213F954A39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{2AE68417-A7C2-4826-8688-C68F5CF82581}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entidades", "Entidades\Entidades.csproj", "{2AE68417-A7C2-4826-8688-C68F5CF82581}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pruebas", "Pruebas\Pruebas.csproj", "{350278E1-2EC8-4E34-B37B-71ED82090246}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{2AE68417-A7C2-4826-8688-C68F5CF82581}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AE68417-A7C2-4826-8688-C68F5CF82581}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AE68417-A7C2-4826-8688-C68F5CF82581}.Release|Any CPU.Build.0 = Release|Any CPU
+		{350278E1-2EC8-4E34-B37B-71ED82090246}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{350278E1-2EC8-4E34-B37B-71ED82090246}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{350278E1-2EC8-4E34-B37B-71ED82090246}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{350278E1-2EC8-4E34-B37B-71ED82090246}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

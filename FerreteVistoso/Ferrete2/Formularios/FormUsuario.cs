@@ -1,7 +1,9 @@
-﻿using Logica.Enumerados;
+﻿using Datos;
+using Logica.Enumerados;
 using Logica.Productos;
 using Logica.Sistema;
 using Logica.Usuarios;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +13,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Text.Json;
 
 namespace Ferrete2.Formularios
 {
@@ -79,7 +83,7 @@ namespace Ferrete2.Formularios
                 row["Id"] = item.Id;
                 row["Usuario"] = item.Nombre;
                 row["Nombre"] = item.Usuario;
-                row["Contraseña"] = item.Contrasenia;
+                row["Contraseña"] = item.Contrasenia; 
                 row["Role"] = item.Role;
 
                 dt.Rows.Add(row);
@@ -132,8 +136,11 @@ namespace Ferrete2.Formularios
                 // Verificar que los campos no estén vacíos
                 if (nombre != vacio && usuario != vacio && contra != vacio)
                 {
+                    Sistema.RegistrarMovimientos("Agrego un usuario");
                     // Crear un nuevo objeto de usuario
-                    Persona nuevoUsuario = new PersonalInterno(nombre, usuario, contra, Enum.Parse<Role>(roleInput));
+                    //Sistema.AsignarRole(roleInput);
+                    Persona nuevoUsuario = new PersonalInterno(nombre, usuario, contra, (Role)Enum.Parse(typeof(Role), roleInput));
+                    MessageBox.Show($"{nuevoUsuario.Nombre}, {nuevoUsuario.Usuario}, {nuevoUsuario.Contrasenia}, {nuevoUsuario.Role}");
                     Sistema.GuardarUsuarioEnDB(nuevoUsuario);
                 }
             }
@@ -183,16 +190,16 @@ namespace Ferrete2.Formularios
                 int rowIndex = dgv_Usuarios.CurrentRow.Index;
 
                 // Obtener el nombre del producto en la primera columna
-                string nombreProducto = dgv_Usuarios.Rows[rowIndex].Cells[0].Value.ToString();
+                string nombreUsuario = dgv_Usuarios.Rows[rowIndex].Cells[0].Value.ToString();
 
                 // Mostrar un mensaje de advertencia antes de eliminar
-                DialogResult resultado = MessageBox.Show("¿Estás seguro de que deseas eliminar el usuario " + nombreProducto + "?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult resultado = MessageBox.Show("¿Estás seguro de que deseas eliminar el usuario " + nombreUsuario + "?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (resultado == DialogResult.Yes)
                 {
-
+                    Sistema.RegistrarMovimientos("Elimino un usuario");
                     // Sobrescribir el archivo con el contenido actualizado
                     //File.WriteAllText("productos.txt", sb.ToString());
-                    Sistema.EliminarProducto(int.Parse(valorId));
+                    Sistema.EliminarUsuario(int.Parse(valorId));
 
                     // Eliminar el artículo del origen de datos
                     List<Persona> usuarios = Sistema.ObtenerUsuarios();
@@ -213,6 +220,67 @@ namespace Ferrete2.Formularios
                 MessageBox.Show("No se ha seleccionado ningún usuario para eliminar.");
             }
 
+        }
+
+        private void btn_GuardarModificado_Click(object sender, EventArgs e)
+        {
+            if (dgv_Usuarios.SelectedRows.Count > 0)
+            {
+                DataGridViewRow filaSeleccionada = dgv_Usuarios.SelectedRows[0];
+                string valorId = filaSeleccionada.Cells["Id"].Value.ToString();
+
+                string roleModificado = cbx_ModificarRole.Text;
+
+                try
+                {
+                    
+                    // Obtener el usuario a modificar de la base de datos
+                    Persona usuarioAModificar = Sistema.ObtenerUsuarioPorId(int.Parse(valorId));
+                    if (usuarioAModificar != null)
+                    {
+                        
+                        // Actualizar los campos del usuario
+                        usuarioAModificar.Role = usuarioAModificar.Role = (Role)Enum.Parse(typeof(Role), roleModificado);
+
+                        // Convertir a entero antes de asignar
+
+                        // Guardar el usuario modificado en la base de datos
+                        Sistema.ModificarUsuario(usuarioAModificar);
+
+                        // Actualizar el DataGridView
+                        ActualizarDgv();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error desconocido al guardar el usuario: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se ha seleccionado ningún usuario para modificar.");
+            }
+          
+        }
+
+        private void btn_Guardar_Click(object sender, EventArgs e)
+        {
+            List<Persona> listaPersonas = Sistema.ObtenerUsuarios(); // Obtienes la lista de personas desde tu lógica
+           
+            string jsonFilePath = "C:\\Users\\Pablo\\Desktop\\formLindo\\FerreteVistoso\\Entidades\\Archivos\\archivo.json";
+            
+            Sistema.ExportarListaPersonas(listaPersonas, jsonFilePath);
+
+            string jsonData = JsonSerializer.Serialize(listaPersonas, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(jsonFilePath, jsonData);
+
+        }
+
+        private void btn_ExportarCsv_Click(object sender, EventArgs e)
+        {
+            List<Persona> listaPersonas = Sistema.ObtenerUsuarios(); // Obtienes la lista de personas desde tu lógica
+            string filePathCsv = "C:\\Users\\Pablo\\Desktop\\formLindo\\FerreteVistoso\\Entidades\\Archivos\\archivo.csv"; // Ruta de archivo deseada
+            Sistema.ExportarListaPersonas(listaPersonas, filePathCsv);
         }
     }
 }

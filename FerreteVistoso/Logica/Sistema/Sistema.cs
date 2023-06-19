@@ -9,16 +9,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Org.BouncyCastle.Security;
+using Entidades.Registro;
 
 namespace Logica.Sistema
 {
     public class Sistema
     {
+        public static string UsuarioLogeado { get; set; }
 
         public event Action<decimal> PrecioDolarCambio;
 
-        public event Func<decimal, string> PrecioActual; 
-            
+        public event Func<decimal, string> PrecioActual;
+
+        private static PersonalInterno usuarioLogueado;
+
+        public static void UsuarioActual(PersonalInterno usuario)
+        {
+            // Realizar la lógica de inicio de sesión y asignar el usuario logueado
+            usuarioLogueado = usuario;
+        }
+
+        public static PersonalInterno ObtenerUsuarioLogueado()
+        {
+            return usuarioLogueado;
+        }
+
 
         public void Comenzar()
         {
@@ -30,13 +45,28 @@ namespace Logica.Sistema
                 PrecioActual?.Invoke(cambio);
             }
         }
+        private UsuarioDB<Persona> usuarioDB;
 
-        
+        public Sistema()
+        {
+            usuarioDB = new UsuarioDB<Persona>();
+        }
 
+        public static bool IniciarSesion(string usuario, string contraseña)
+        {
+            List<Persona> usuarios = Sistema.ObtenerUsuarios();
 
+            Persona usuarioEncontrado = usuarios.FirstOrDefault(u => u.Usuario == usuario && u.Contrasenia == contraseña);
 
+            if (usuarioEncontrado != null)
+            {
+                Console.WriteLine("Inicio de sesión exitoso");
+                return true;
+            }
 
-
+            Console.WriteLine("Nombre de usuario o contraseña incorrectos");
+            return false;
+        }
 
         // private static List<Articulo> _productos = new List<Articulo>();
         /// <summary>
@@ -55,7 +85,34 @@ namespace Logica.Sistema
             return usuarios.ObtenerTodos();
 
         }
-       
+
+        public static List<Persona> ObtenerClientes()
+        {
+            ClienteDB usuarios = new ClienteDB();
+            return usuarios.ObtenerTodos();
+
+        }
+        public static void ExportarListaPersonas(List<Persona> listaPersonas, string filePath)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            // Obtener los encabezados de las columnas
+            string headerLine = "Nombre,Usuario,Role"; // Ajusta los encabezados según tus propiedades de Persona
+            sb.AppendLine(headerLine);
+
+            // Obtener los datos de las personas
+            foreach (Persona persona in listaPersonas)
+            {
+                string dataLine = $"{persona.Nombre},{persona.Usuario},{persona.Role}"; // Ajusta las propiedades según tus propiedades de Persona
+                sb.AppendLine(dataLine);
+            }
+
+            // Guardar el contenido en el archivo
+            File.WriteAllText(filePath, sb.ToString());
+
+            Console.WriteLine("Datos exportados exitosamente.");
+        }
+
 
         public static void AgregarProducto(string nombre, decimal precio, int stock, int baja)
         {
@@ -78,11 +135,28 @@ namespace Logica.Sistema
             db.Modificar(usuario);
         }
 
+        public static void ModificarCliente(Persona usuario)
+        {
+            var db = new ClienteDB();
+            db.Modificar(usuario);
+        }
+
 
         public static void EliminarProducto(int id)
         {
             ArticuloDB articulos = new ArticuloDB();
             articulos.Eliminar(id);
+        }
+
+        public static void EliminarCliente(int id)
+        {
+            ClienteDB clientes = new ClienteDB();
+            clientes.Eliminar(id);
+        }
+        public static void EliminarUsuario(int id)
+        {
+            UsuarioDB<Persona> usuario = new UsuarioDB<Persona>();
+            usuario.Eliminar(id);
         }
 
         public static void GuardarProductosEnDB(List<Articulo> productos)
@@ -102,6 +176,24 @@ namespace Logica.Sistema
                 throw new Exception($"Error al guardar los productos en la base de datos: {ex.Message}");
             }
         }
+
+        public static void GuardarClientesEnDB(List<Persona> clientes)
+        {
+            try
+            {
+                ClienteDB personas = new ClienteDB();
+
+
+                foreach (var cliente in clientes)
+                {
+                    personas.Agregar(cliente);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al guardar los clientes en la base de datos: {ex.Message}");
+            }
+        }
         public static void GuardarUsuariosEnDB(List<Persona> usuarios)
         {
             try
@@ -119,6 +211,23 @@ namespace Logica.Sistema
                 throw new Exception($"Error al guardar los usuarios en la base de datos: {ex.Message}");
             }
         }
+        public static void GuardarRegistroEnDB(List<Registro> registros)
+        {
+            try
+            {
+                RegistroDB reg = new RegistroDB();
+
+
+                foreach (var registro in registros)
+                {
+                    reg.Agregar(registro);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al guardar los registros en la base de datos: {ex.Message}");
+            }
+        }
         public static void GuardarProductoEnDB(Articulo producto)
         {
             try
@@ -130,6 +239,20 @@ namespace Logica.Sistema
             catch (Exception ex)
             {
                 throw new Exception($"Error al guardar el producto en la base de datos: {ex.Message}");
+            }
+        }
+
+        public static void GuardarClienteEnDB(Persona cliente)
+        {
+            try
+            {
+                ClienteDB clientes = new ClienteDB();
+
+                clientes.Agregar(cliente);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al guardar el cliente en la base de datos: {ex.Message}");
             }
         }
         public static void GuardarUsuarioEnDB(Persona usuario)
@@ -170,7 +293,29 @@ namespace Logica.Sistema
             return db.ObtenerPorId(id);
         }
 
-
+        public static Persona? ObtenerClientePorId(int id)
+        {
+            var db = new ClienteDB();
+            return db.ObtenerPorId(id);
+        }
+        public static int AsignarRole(string roleInput)
+        {
+            if (roleInput.Equals(Role.Administrador))
+            {
+                return 0;
+            }
+            else if (roleInput.Equals(Role.Empleado))
+            {
+                return 1;
+            }
+            else 
+            {
+                return 2;
+            }
+            
+                
+            
+        }
 
 
 
@@ -233,7 +378,7 @@ namespace Logica.Sistema
         /// <param name="pass">Contraseña</param>
         /// <param name="arrayPersona">Lista de personas</param>
         /// <returns>Objeto PersonalInterno del usuario logueado o null si no se encuentra</returns>
-        public static PersonalInterno ObtenerUsuarioLogueado(string user, string pass, List<Persona> arrayPersona)
+        public static PersonalInterno ValidadrUsuarioLogueado(string user, string pass,List<Persona> arrayPersona)
         {
             PersonalInterno personaLogueada = null;
             foreach (PersonalInterno personaUno in arrayPersona.Cast<PersonalInterno>())
@@ -246,6 +391,9 @@ namespace Logica.Sistema
             }
             return personaLogueada;
         }
+
+       
+
         public static bool StringEsInvalido(string auxDato)
         {
             auxDato = auxDato.Trim();
@@ -268,6 +416,21 @@ namespace Logica.Sistema
                      
             return true;
         }
+
+        public static void RegistrarMovimientos( string accion)
+        {
+            PersonalInterno usuario = ObtenerUsuarioLogueado();
+
+            Registro registro = new Registro();
+            registro.FechaHora = DateTime.Now;
+            registro.Usuario = usuario != null ? usuario.Nombre : "Desconocido"; ;
+            registro.Accion = accion;
+
+            // Agregas el registro a la base de datos
+            RegistroDB registroDB = new RegistroDB();
+            registroDB.Agregar(registro);
+        }
+
         /// <summary>
         /// Verifica el ingreso del usuario comparando el nombre de usuario y contraseña
         /// con los datos almacenados en la lista de personas.

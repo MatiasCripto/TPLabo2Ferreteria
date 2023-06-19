@@ -77,7 +77,7 @@ namespace Ferrete2.Formularios
             dt.Columns.Add("Articulo", typeof(string));
             dt.Columns.Add("Precio", typeof(decimal));
             dt.Columns.Add("Stock", typeof(int));
-            dt.Columns.Add("Baja", typeof(bool));
+            dt.Columns.Add("Baja", typeof(int));
 
             foreach (var item in Sistema.ObtenerProductos())
             {

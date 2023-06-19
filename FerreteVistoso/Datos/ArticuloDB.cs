@@ -12,8 +12,29 @@ namespace Datos
 {
     public class ArticuloDB : ConsultasSQL, IRepositorio<Articulo>
     {
-        
-       public List<Articulo> ObtenerTodos()
+        public ArticuloDB(string connectionString, decimal v1, int v2, int v3) : base(connectionString)
+        {
+        }
+
+        public ArticuloDB()
+        {
+        }
+
+
+        public bool VerificarExistenciaProductoEnDB(string nombre)
+        {
+            string query = $"SELECT COUNT(*) FROM productos WHERE Articulo = '{nombre}'";
+            var dt = this.EjecutarConsulta(query);
+
+            if (dt.Rows.Count > 0)
+            {
+                int count = Convert.ToInt32(dt.Rows[0][0]);
+                return count > 0;
+            }
+
+            return false;
+        }
+        public List<Articulo> ObtenerTodos()
         {
             List<Articulo> Lista = new List<Articulo>();
             var dt = this.EjecutarConsulta("select * from productos");

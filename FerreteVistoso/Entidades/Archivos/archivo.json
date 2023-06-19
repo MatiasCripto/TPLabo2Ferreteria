@@ -1,0 +1,50 @@
+[
+  {
+    "NombreUsuario": null,
+    "Id": 12,
+    "Nombre": "ana",
+    "Usuario": "Aninav22",
+    "Contrasenia": "1234",
+    "Role": 1
+  },
+  {
+    "NombreUsuario": null,
+    "Id": 13,
+    "Nombre": "matti",
+    "Usuario": "matias",
+    "Contrasenia": "1234",
+    "Role": 0
+  },
+  {
+    "NombreUsuario": null,
+    "Id": 14,
+    "Nombre": "jonatan",
+    "Usuario": "Johnny87",
+    "Contrasenia": "1234",
+    "Role": 0
+  },
+  {
+    "NombreUsuario": null,
+    "Id": 15,
+    "Nombre": "alejandro",
+    "Usuario": "Ale22",
+    "Contrasenia": "1234",
+    "Role": 1
+  },
+  {
+    "NombreUsuario": null,
+    "Id": 17,
+    "Nombre": "juli",
+    "Usuario": "julian",
+    "Contrasenia": "1234",
+    "Role": 0
+  },
+  {
+    "NombreUsuario": null,
+    "Id": 18,
+    "Nombre": "josecito",
+    "Usuario": "jose",
+    "Contrasenia": "1234",
+    "Role": 1
+  }
+]

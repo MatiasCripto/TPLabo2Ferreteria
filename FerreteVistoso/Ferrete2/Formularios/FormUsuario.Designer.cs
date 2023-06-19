@@ -33,20 +33,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_menuVertical = new System.Windows.Forms.Panel();
-            this.btn_Guardar = new System.Windows.Forms.Button();
+            this.btn_ExportarCsv = new System.Windows.Forms.Button();
+            this.btn_ExportarJson = new System.Windows.Forms.Button();
             this.btn_Eliminar = new System.Windows.Forms.Button();
             this.btn_Modificar = new System.Windows.Forms.Button();
             this.btn_agregar = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.gpbx_modificarUsuario = new System.Windows.Forms.GroupBox();
             this.cbx_ModificarRole = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txb_contraseniaModificar = new System.Windows.Forms.TextBox();
             this.btn_CancelarModificado = new System.Windows.Forms.Button();
             this.btn_GuardarModificado = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txb_confirmarPassModificada = new System.Windows.Forms.TextBox();
             this.txb_Buscar = new System.Windows.Forms.TextBox();
             this.lbl_Buscar = new System.Windows.Forms.Label();
             this.grpbx_AgregarUsuario = new System.Windows.Forms.GroupBox();
@@ -75,7 +72,8 @@
             // pnl_menuVertical
             // 
             this.pnl_menuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
-            this.pnl_menuVertical.Controls.Add(this.btn_Guardar);
+            this.pnl_menuVertical.Controls.Add(this.btn_ExportarCsv);
+            this.pnl_menuVertical.Controls.Add(this.btn_ExportarJson);
             this.pnl_menuVertical.Controls.Add(this.btn_Eliminar);
             this.pnl_menuVertical.Controls.Add(this.btn_Modificar);
             this.pnl_menuVertical.Controls.Add(this.btn_agregar);
@@ -86,21 +84,39 @@
             this.pnl_menuVertical.Size = new System.Drawing.Size(250, 450);
             this.pnl_menuVertical.TabIndex = 5;
             // 
-            // btn_Guardar
+            // btn_ExportarCsv
             // 
-            this.btn_Guardar.FlatAppearance.BorderSize = 0;
-            this.btn_Guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Guardar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Guardar.ForeColor = System.Drawing.Color.White;
-            this.btn_Guardar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Guardar.Image")));
-            this.btn_Guardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Guardar.Location = new System.Drawing.Point(0, 262);
-            this.btn_Guardar.Name = "btn_Guardar";
-            this.btn_Guardar.Size = new System.Drawing.Size(250, 49);
-            this.btn_Guardar.TabIndex = 4;
-            this.btn_Guardar.Text = "Guardar";
-            this.btn_Guardar.UseVisualStyleBackColor = true;
+            this.btn_ExportarCsv.FlatAppearance.BorderSize = 0;
+            this.btn_ExportarCsv.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_ExportarCsv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ExportarCsv.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_ExportarCsv.ForeColor = System.Drawing.Color.White;
+            this.btn_ExportarCsv.Image = ((System.Drawing.Image)(resources.GetObject("btn_ExportarCsv.Image")));
+            this.btn_ExportarCsv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_ExportarCsv.Location = new System.Drawing.Point(0, 317);
+            this.btn_ExportarCsv.Name = "btn_ExportarCsv";
+            this.btn_ExportarCsv.Size = new System.Drawing.Size(250, 49);
+            this.btn_ExportarCsv.TabIndex = 5;
+            this.btn_ExportarCsv.Text = "Exportar csv";
+            this.btn_ExportarCsv.UseVisualStyleBackColor = true;
+            this.btn_ExportarCsv.Click += new System.EventHandler(this.btn_ExportarCsv_Click);
+            // 
+            // btn_ExportarJson
+            // 
+            this.btn_ExportarJson.FlatAppearance.BorderSize = 0;
+            this.btn_ExportarJson.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_ExportarJson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ExportarJson.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_ExportarJson.ForeColor = System.Drawing.Color.White;
+            this.btn_ExportarJson.Image = ((System.Drawing.Image)(resources.GetObject("btn_ExportarJson.Image")));
+            this.btn_ExportarJson.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_ExportarJson.Location = new System.Drawing.Point(0, 262);
+            this.btn_ExportarJson.Name = "btn_ExportarJson";
+            this.btn_ExportarJson.Size = new System.Drawing.Size(250, 49);
+            this.btn_ExportarJson.TabIndex = 4;
+            this.btn_ExportarJson.Text = "Exportar json";
+            this.btn_ExportarJson.UseVisualStyleBackColor = true;
+            this.btn_ExportarJson.Click += new System.EventHandler(this.btn_Guardar_Click);
             // 
             // btn_Eliminar
             // 
@@ -166,19 +182,15 @@
             // 
             this.gpbx_modificarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gpbx_modificarUsuario.Controls.Add(this.cbx_ModificarRole);
-            this.gpbx_modificarUsuario.Controls.Add(this.label3);
-            this.gpbx_modificarUsuario.Controls.Add(this.txb_contraseniaModificar);
             this.gpbx_modificarUsuario.Controls.Add(this.btn_CancelarModificado);
             this.gpbx_modificarUsuario.Controls.Add(this.btn_GuardarModificado);
             this.gpbx_modificarUsuario.Controls.Add(this.label1);
-            this.gpbx_modificarUsuario.Controls.Add(this.label2);
-            this.gpbx_modificarUsuario.Controls.Add(this.txb_confirmarPassModificada);
             this.gpbx_modificarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gpbx_modificarUsuario.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gpbx_modificarUsuario.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.gpbx_modificarUsuario.Location = new System.Drawing.Point(723, 94);
+            this.gpbx_modificarUsuario.Location = new System.Drawing.Point(708, 58);
             this.gpbx_modificarUsuario.Name = "gpbx_modificarUsuario";
-            this.gpbx_modificarUsuario.Size = new System.Drawing.Size(277, 217);
+            this.gpbx_modificarUsuario.Size = new System.Drawing.Size(277, 120);
             this.gpbx_modificarUsuario.TabIndex = 14;
             this.gpbx_modificarUsuario.TabStop = false;
             this.gpbx_modificarUsuario.Text = "Modificar usuario";
@@ -189,26 +201,10 @@
             this.cbx_ModificarRole.Items.AddRange(new object[] {
             "Administrador",
             "Empleado"});
-            this.cbx_ModificarRole.Location = new System.Drawing.Point(89, 107);
+            this.cbx_ModificarRole.Location = new System.Drawing.Point(89, 18);
             this.cbx_ModificarRole.Name = "cbx_ModificarRole";
             this.cbx_ModificarRole.Size = new System.Drawing.Size(160, 25);
             this.cbx_ModificarRole.TabIndex = 11;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 26);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 17);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Contraseña";
-            // 
-            // txb_contraseniaModificar
-            // 
-            this.txb_contraseniaModificar.Location = new System.Drawing.Point(89, 21);
-            this.txb_contraseniaModificar.Name = "txb_contraseniaModificar";
-            this.txb_contraseniaModificar.Size = new System.Drawing.Size(160, 22);
-            this.txb_contraseniaModificar.TabIndex = 8;
             // 
             // btn_CancelarModificado
             // 
@@ -219,7 +215,7 @@
             this.btn_CancelarModificado.ForeColor = System.Drawing.Color.White;
             this.btn_CancelarModificado.Image = ((System.Drawing.Image)(resources.GetObject("btn_CancelarModificado.Image")));
             this.btn_CancelarModificado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_CancelarModificado.Location = new System.Drawing.Point(144, 149);
+            this.btn_CancelarModificado.Location = new System.Drawing.Point(144, 60);
             this.btn_CancelarModificado.Name = "btn_CancelarModificado";
             this.btn_CancelarModificado.Size = new System.Drawing.Size(124, 49);
             this.btn_CancelarModificado.TabIndex = 7;
@@ -236,38 +232,23 @@
             this.btn_GuardarModificado.ForeColor = System.Drawing.Color.White;
             this.btn_GuardarModificado.Image = ((System.Drawing.Image)(resources.GetObject("btn_GuardarModificado.Image")));
             this.btn_GuardarModificado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_GuardarModificado.Location = new System.Drawing.Point(6, 149);
+            this.btn_GuardarModificado.Location = new System.Drawing.Point(6, 60);
             this.btn_GuardarModificado.Name = "btn_GuardarModificado";
             this.btn_GuardarModificado.Size = new System.Drawing.Size(124, 49);
             this.btn_GuardarModificado.TabIndex = 6;
             this.btn_GuardarModificado.Text = "Guardar";
             this.btn_GuardarModificado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_GuardarModificado.UseVisualStyleBackColor = true;
+            this.btn_GuardarModificado.Click += new System.EventHandler(this.btn_GuardarModificado_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 114);
+            this.label1.Location = new System.Drawing.Point(6, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 17);
             this.label1.TabIndex = 5;
             this.label1.Text = "Role";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 69);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 17);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Confirmar";
-            // 
-            // txb_confirmarPassModificada
-            // 
-            this.txb_confirmarPassModificada.Location = new System.Drawing.Point(89, 64);
-            this.txb_confirmarPassModificada.Name = "txb_confirmarPassModificada";
-            this.txb_confirmarPassModificada.Size = new System.Drawing.Size(160, 22);
-            this.txb_confirmarPassModificada.TabIndex = 1;
             // 
             // txb_Buscar
             // 
@@ -540,19 +521,15 @@
         #endregion
 
         private Panel pnl_menuVertical;
-        private Button btn_Guardar;
+        private Button btn_ExportarJson;
         private Button btn_Eliminar;
         private Button btn_Modificar;
         private Button btn_agregar;
         private PictureBox pictureBox2;
         private GroupBox gpbx_modificarUsuario;
-        private Label label3;
-        private TextBox txb_contraseniaModificar;
         private Button btn_CancelarModificado;
         private Button btn_GuardarModificado;
         private Label label1;
-        private Label label2;
-        private TextBox txb_confirmarPassModificada;
         private TextBox txb_Buscar;
         private Label lbl_Buscar;
         private GroupBox grpbx_AgregarUsuario;
@@ -572,5 +549,6 @@
         private TextBox txb_Nombre;
         private ComboBox cbx_ModificarRole;
         private ComboBox cbx_AsignarRole;
+        private Button btn_ExportarCsv;
     }
 }

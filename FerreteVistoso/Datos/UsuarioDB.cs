@@ -1,7 +1,9 @@
-﻿using Datos.SQL;
+﻿using Datos;
+using Datos.SQL;
 using Logica.Enumerados;
 using Logica.Productos;
 using Logica.Usuarios;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,7 +19,7 @@ namespace Datos
     {
         public void Agregar(Persona entidad)
         {
-            string query = $"insert into usuarios (Nombre, Usuario, Contraseña, Role) values ('{entidad.Nombre}', {entidad.Usuario}, {entidad.Role})";
+            string query = $"insert into usuarios (Nombre, Usuario, Contraseña, Role) values ('{entidad.Nombre}', '{entidad.Usuario}', '{entidad.Contrasenia}',{(int)entidad.Role})";
             this.EjecutarConsulta(query);
         }
 
@@ -30,29 +32,8 @@ namespace Datos
 
         public void Modificar(Persona entidad)
         {
-            string query = $"update usuarios set Nombre = '{entidad.Nombre}', Usuario = {entidad.Usuario}, Contraseña = {entidad.Contrasenia}, Role = {entidad.Role} where Id = {entidad.Id}";
+            string query = $"update usuarios set Nombre ='{entidad.Nombre}', Usuario = '{entidad.Usuario}', Contraseña = '{entidad.Contrasenia}', Role = {(int)entidad.Role} where Id = {entidad.Id}";
             this.EjecutarConsulta(query);
-        }
-
-        public Persona? ObtenerPorId(int id)
-        {
-            string query = $"SELECT * FROM usuarios WHERE Id = {id}";
-            var dt = this.EjecutarConsulta(query);
-
-            if (dt.Rows.Count > 0)
-            {
-                DataRow row = dt.Rows[0];
-                Persona persona = new PersonalInterno(
-                    Convert.ToInt32(row["Id"]),
-                    row["Nombre"].ToString(),
-                   row["Usuario"].ToString(),
-                    row["Contraseña"].ToString(),
-                   Enum.Parse<Role>((string)row["Role"])
-                );
-                return persona;
-            }
-
-            return null;
         }
 
         public List<Persona> ObtenerTodos()
@@ -68,3 +49,6 @@ namespace Datos
         }
     }
 }
+
+
+

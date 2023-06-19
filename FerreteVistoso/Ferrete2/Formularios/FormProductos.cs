@@ -22,13 +22,13 @@ namespace Ferrete2.Formularios
         private string stockInput = string.Empty;
         private Task _tarea;
         private Sistema _sistema;
-        private DataTable _dt;
-
+        private DataTable _dt;       
 
         public FormProductos()
         {
             InitializeComponent();
             ActualizarProductosDgv();
+
 
             _sistema = new Sistema();
             _tarea = new Task(_sistema.Comenzar);
@@ -65,7 +65,8 @@ namespace Ferrete2.Formularios
 
         private void lbl_cerrar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close();            
+            
         }
         private void ActualizarProductosDgv()
         {
@@ -130,8 +131,8 @@ namespace Ferrete2.Formularios
                 // Mostrar un mensaje de advertencia antes de eliminar
                 DialogResult resultado = MessageBox.Show("¿Estás seguro de que deseas eliminar el producto " + nombreProducto + "?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (resultado == DialogResult.Yes)
-                {                   
-
+                {
+                    Sistema.RegistrarMovimientos("Elimino un producto");
                     // Sobrescribir el archivo con el contenido actualizado
                     //File.WriteAllText("productos.txt", sb.ToString());
                     Sistema.EliminarProducto(int.Parse(valorId));
@@ -177,6 +178,7 @@ namespace Ferrete2.Formularios
             {
                 try
                 {
+                    Sistema.RegistrarMovimientos("Agrego un producto");
                     Articulo nuevoArticulo = new Articulo(articuloInput, decimal.Parse(precioInput), int.Parse(stockInput), 0);
                     Sistema.GuardarProductoEnDB(nuevoArticulo);
                 }
@@ -237,6 +239,7 @@ namespace Ferrete2.Formularios
                 {
                     try
                     {
+                        Sistema.RegistrarMovimientos("Modifico un producto");
                         // Obtener el producto a modificar de la base de datos
                         Articulo articuloAModificar = Sistema.ObtenerProductoPorId(int.Parse(valorId));
                         if (articuloAModificar != null)

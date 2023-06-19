@@ -13,8 +13,7 @@ namespace Logica.Usuarios
     /// </summary>
     public class Cliente : Persona
     {
-        int id;
-        static int nexId = 1;
+        int id;        
         string nombre;
         string usuario;
         string contrasenia;
@@ -40,8 +39,7 @@ namespace Logica.Usuarios
         /// <param name="role">El rol del cliente.</param>
         public Cliente(string nombre, string usuario, string contrasenia, Enumerados.Role role) : base(nombre, usuario, contrasenia, role)
         {
-            this.nombre = nombre;
-            
+            this.nombre = nombre;            
             this.usuario = usuario;
             this.contrasenia = contrasenia;
         }

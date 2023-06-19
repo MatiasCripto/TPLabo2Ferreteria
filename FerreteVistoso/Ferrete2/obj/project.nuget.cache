@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2zriajDY4HCDWBpeds8e+fKYylHN2OZ+wsmVzu4R1JkgUA6m9OfDjlkhC4IQJxkDy8Goe0tfoN1WL+sPdblqkg==",
+  "dgSpecHash": "OgbhtERYO2WxPqncTQuYgBGnWKs2YFSzrljHcw4525HhzVRgRKQ01ea76Oj4Iyf/zvywCDkSoPQLju1r82XiZw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Pablo\\Desktop\\formLindo\\FerreteVistoso\\Ferrete2\\Ferrete2.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,8 @@
     "C:\\Users\\Pablo\\.nuget\\packages\\itextsharp.xmlworker\\5.5.13.3\\itextsharp.xmlworker.5.5.13.3.nupkg.sha512",
     "C:\\Users\\Pablo\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Pablo\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\Pablo\\.nuget\\packages\\mstest.testadapter\\3.0.4\\mstest.testadapter.3.0.4.nupkg.sha512",
+    "C:\\Users\\Pablo\\.nuget\\packages\\mstest.testframework\\3.0.4\\mstest.testframework.3.0.4.nupkg.sha512",
     "C:\\Users\\Pablo\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\Pablo\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Pablo\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

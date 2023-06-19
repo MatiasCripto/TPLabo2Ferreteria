@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "T29XgWT1O3SVMXKZl9s+LYH4isGoaNVswa+L5ERe+gtigIurl7YfsQnIgnQ1SM9mFCdKCapYfg/y6GIwOxz9dw==",
+  "dgSpecHash": "iVzdpxnrkCebeIb5dwwo38VZwmKkCVyNpgzxp3kNi49+Ws0zMXYMP7lOf5P9Xd/Q/hbwfsweeGhlRTFYpyHiBg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Pablo\\Desktop\\formLindo\\FerreteVistoso\\Entidades\\Entidades.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Pablo\\.nuget\\packages\\bouncycastle\\1.8.9\\bouncycastle.1.8.9.nupkg.sha512",
     "C:\\Users\\Pablo\\.nuget\\packages\\itextsharp\\5.5.13.3\\itextsharp.5.5.13.3.nupkg.sha512",
-    "C:\\Users\\Pablo\\.nuget\\packages\\itextsharp.xmlworker\\5.5.13.3\\itextsharp.xmlworker.5.5.13.3.nupkg.sha512"
+    "C:\\Users\\Pablo\\.nuget\\packages\\itextsharp.xmlworker\\5.5.13.3\\itextsharp.xmlworker.5.5.13.3.nupkg.sha512",
+    "C:\\Users\\Pablo\\.nuget\\packages\\mstest.testadapter\\3.0.4\\mstest.testadapter.3.0.4.nupkg.sha512",
+    "C:\\Users\\Pablo\\.nuget\\packages\\mstest.testframework\\3.0.4\\mstest.testframework.3.0.4.nupkg.sha512"
   ],
   "logs": [
     {

@@ -1,4 +1,6 @@
 ﻿
+using Datos;
+using Entidades.Registro;
 using Logica.Datos;
 using Logica.Enumerados;
 using Logica.Sistema;
@@ -44,18 +46,23 @@ namespace Ferrete2.Formularios
             string user = txb_Usuario.Text;
             string pass = txb_contrasenia.Text;            
 
+                Sistema.IniciarSesion(user, pass);
             if (Sistema.ValidarCamposLogin(user, pass) == false || (Sistema.VerificarIngreso(user, pass) == false))
             {             
                 MensajeError("Error, campos no coinsiden o incompletos");
             }
             else
             {
-                PersonalInterno usuario = Sistema.ObtenerUsuarioLogueado(user, pass, personaList);
+                PersonalInterno usuario = Sistema.ValidadrUsuarioLogueado(user, pass, personaList);
+                Sistema.UsuarioActual(usuario);
 
                 if (usuario != null)
                 {
                     if (usuario.GetType() == typeof(PersonalInterno))
                     {
+                        usuario = Sistema.ObtenerUsuarioLogueado();
+                        Sistema.UsuarioLogeado = usuario.Nombre;
+                        Sistema.RegistrarMovimientos("Inicio sesion");
                         FormPrincipal frmPrincipal = new FormPrincipal();
                         frmPrincipal.Show();
                     }
@@ -164,7 +171,7 @@ namespace Ferrete2.Formularios
         /// </summary>
         private void btn_RellenarVendedor_Click(object sender, EventArgs e)
         {
-            txb_Usuario.Text = "Ale22";
+            txb_Usuario.Text = "alejandro";
             txb_contrasenia.Text = "1234";
             txb_contrasenia.UseSystemPasswordChar = true;
         }
@@ -179,7 +186,7 @@ namespace Ferrete2.Formularios
 
         private void btn_Rellenar_Click(object sender, EventArgs e)
         {
-            txb_Usuario.Text = "Johnny87";
+            txb_Usuario.Text = "jonatan";
             txb_contrasenia.Text = "1234";
             txb_contrasenia.UseSystemPasswordChar = true;
         }

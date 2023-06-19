@@ -25,7 +25,7 @@ namespace Logica.Usuarios
         /// <summary>
         /// Obtiene el nombre de la persona.
         /// </summary>
-        public string Nombre { get => _nombre; }
+        public string Nombre { get => _nombre; set => _nombre = value; }
 
         /// <summary>
         /// Obtiene el nombre de usuario de la persona.

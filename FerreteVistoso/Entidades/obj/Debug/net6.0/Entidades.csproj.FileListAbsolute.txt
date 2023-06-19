@@ -10,3 +10,9 @@ C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Entidades\obj\Debug\net6.0\Entid
 C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Entidades\obj\Debug\net6.0\refint\Entidades.dll
 C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Entidades\obj\Debug\net6.0\Entidades.pdb
 C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Entidades\obj\Debug\net6.0\ref\Entidades.dll
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Entidades\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Entidades\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Entidades\bin\Debug\net6.0\Microsoft.TestPlatform.AdapterUtilities.dll
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Entidades\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Entidades\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Entidades\obj\Debug\net6.0\Entidades.csproj.CopyComplete

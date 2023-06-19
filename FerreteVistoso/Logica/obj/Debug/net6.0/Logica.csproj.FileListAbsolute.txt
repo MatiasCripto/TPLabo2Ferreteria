@@ -15,3 +15,8 @@ C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\bin\Debug\net6.0\Entidade
 C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\bin\Debug\net6.0\Datos.pdb
 C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\bin\Debug\net6.0\Entidades.pdb
 C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\obj\Debug\net6.0\Logica.csproj.CopyComplete
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\bin\Debug\net6.0\Microsoft.TestPlatform.AdapterUtilities.dll
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Logica\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
