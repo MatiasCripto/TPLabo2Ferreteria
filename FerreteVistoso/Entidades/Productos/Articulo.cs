@@ -17,6 +17,10 @@ namespace Logica.Productos
         private int stock;
         private int baja;
 
+        public Articulo()
+        {
+        }
+
         /// <summary>
         /// Crea una nueva instancia de la clase Articulo.
         /// </summary>

@@ -1,15 +1,11 @@
-﻿using Logica.Datos;
-using Logica.Enumerados;
+﻿using Logica.Enumerados;
 using Logica.Productos;
 using Logica.Usuarios;
 using Datos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Org.BouncyCastle.Security;
 using Entidades.Registro;
+using System.Text.Json;
+
 
 namespace Logica.Sistema
 {
@@ -19,9 +15,15 @@ namespace Logica.Sistema
 
         public event Action<decimal> PrecioDolarCambio;
 
+        public event Action<decimal[]> UltimosValores;
+
         public event Func<decimal, string> PrecioActual;
 
         private static PersonalInterno usuarioLogueado;
+
+        private List<decimal> ultimosValores = new List<decimal>();
+
+        // List <decimal> valoresVeinte = new List<decimal>();
 
         public static void UsuarioActual(PersonalInterno usuario)
         {
@@ -39,8 +41,22 @@ namespace Logica.Sistema
         {
             while (true)
             {
-                Thread.Sleep(1000); // 10 segundos
+                Thread.Sleep(2000); // Esperar 2 segundo
                 decimal cambio = new Random().Next(500, 1000);
+
+                if (ultimosValores.Count < 20)
+                {
+                    ultimosValores.Add(cambio);
+                }
+                else
+                {
+                    ultimosValores.RemoveAt(0); // Eliminar el primer valor
+                    ultimosValores.Add(cambio);
+                }
+
+                // Invocar el evento UltimosValores con los valores actualizados
+                UltimosValores?.Invoke(ultimosValores.ToArray());
+
                 PrecioDolarCambio?.Invoke(cambio);
                 PrecioActual?.Invoke(cambio);
             }
@@ -67,7 +83,11 @@ namespace Logica.Sistema
             Console.WriteLine("Nombre de usuario o contraseña incorrectos");
             return false;
         }
-
+        public static void RegistrarMovimientos(string accion)
+        {
+            IRegistradorMovimiento registrar = new RegistrarMovimiento();
+            registrar.RegistrarMovimientos(accion, ObtenerUsuarioLogueado());
+        }
         // private static List<Articulo> _productos = new List<Articulo>();
         /// <summary>
         /// Obtiene la lista de productos.
@@ -85,6 +105,8 @@ namespace Logica.Sistema
             return usuarios.ObtenerTodos();
 
         }
+       
+        
 
         public static List<Persona> ObtenerClientes()
         {
@@ -92,26 +114,69 @@ namespace Logica.Sistema
             return usuarios.ObtenerTodos();
 
         }
-        public static void ExportarListaPersonas(List<Persona> listaPersonas, string filePath)
+
+        public static List<Registro> ObtenerRegistros()
         {
-            StringBuilder sb = new StringBuilder();
+            RegistroDB registros = new RegistroDB();
+            return registros.ObtenerTodos();
 
-            // Obtener los encabezados de las columnas
-            string headerLine = "Nombre,Usuario,Role"; // Ajusta los encabezados según tus propiedades de Persona
-            sb.AppendLine(headerLine);
-
-            // Obtener los datos de las personas
-            foreach (Persona persona in listaPersonas)
-            {
-                string dataLine = $"{persona.Nombre},{persona.Usuario},{persona.Role}"; // Ajusta las propiedades según tus propiedades de Persona
-                sb.AppendLine(dataLine);
-            }
-
-            // Guardar el contenido en el archivo
-            File.WriteAllText(filePath, sb.ToString());
-
-            Console.WriteLine("Datos exportados exitosamente.");
         }
+
+        public enum ExportFormat
+        {
+            JSON,
+            CSV
+        }
+
+        public static void ExportarListaPersonas(List<Persona> listaPersonas, string filePath, ExportFormat formato)
+        {
+            if (formato == ExportFormat.JSON)
+            {
+                string jsonData = JsonSerializer.Serialize(listaPersonas, new JsonSerializerOptions { WriteIndented = true });
+                File.WriteAllText(filePath, jsonData);
+            }
+            else if (formato == ExportFormat.CSV)
+            {
+                StringBuilder sb = new StringBuilder();
+
+                // Agregar encabezados de columna al archivo CSV
+                sb.AppendLine("Id,Nombre,Usuario,Role");
+
+                foreach (var persona in listaPersonas)
+                {
+                    // Agregar datos de cada artículo al archivo CSV
+                    sb.AppendLine($"{persona.Id},{persona.Nombre},{persona.Usuario},{persona.Role}");
+                }
+
+                File.WriteAllText(filePath, sb.ToString());
+            }
+        }
+
+       
+        public static void ExportarListaArticulos(List<Articulo> listaArticulos, string filePath, ExportFormat formato)
+        {
+            if (formato == ExportFormat.JSON)
+            {
+                string jsonData = JsonSerializer.Serialize(listaArticulos, new JsonSerializerOptions { WriteIndented = true });
+                File.WriteAllText(filePath, jsonData);
+            }
+            else if (formato == ExportFormat.CSV)
+            {
+                StringBuilder sb = new StringBuilder();
+
+                // Agregar encabezados de columna al archivo CSV
+                sb.AppendLine("Id,Articulo,Precio,Stock");
+
+                foreach (var articulo in listaArticulos)
+                {
+                    // Agregar datos de cada artículo al archivo CSV
+                    sb.AppendLine($"{articulo.Id},{articulo.Nombre},{articulo.Precio},{articulo.Stock}");
+                }
+
+                File.WriteAllText(filePath, sb.ToString());
+            }
+        }
+
 
 
         public static void AgregarProducto(string nombre, decimal precio, int stock, int baja)
@@ -417,19 +482,7 @@ namespace Logica.Sistema
             return true;
         }
 
-        public static void RegistrarMovimientos( string accion)
-        {
-            PersonalInterno usuario = ObtenerUsuarioLogueado();
-
-            Registro registro = new Registro();
-            registro.FechaHora = DateTime.Now;
-            registro.Usuario = usuario != null ? usuario.Nombre : "Desconocido"; ;
-            registro.Accion = accion;
-
-            // Agregas el registro a la base de datos
-            RegistroDB registroDB = new RegistroDB();
-            registroDB.Agregar(registro);
-        }
+       
 
         /// <summary>
         /// Verifica el ingreso del usuario comparando el nombre de usuario y contraseña

@@ -1,0 +1,373 @@
+[
+  {
+    "Id": 1,
+    "Nombre": "Martillo",
+    "Precio": 11,
+    "Stock": 44,
+    "Baja": 0
+  },
+  {
+    "Id": 2,
+    "Nombre": "Destornillador",
+    "Precio": 5,
+    "Stock": 97,
+    "Baja": 0
+  },
+  {
+    "Id": 3,
+    "Nombre": "Sierra el\u00E9ctrica",
+    "Precio": 90,
+    "Stock": 12,
+    "Baja": 0
+  },
+  {
+    "Id": 4,
+    "Nombre": "Clavos (paquete de 100)",
+    "Precio": 2,
+    "Stock": 498,
+    "Baja": 0
+  },
+  {
+    "Id": 5,
+    "Nombre": "Llave ajustable",
+    "Precio": 7,
+    "Stock": 74,
+    "Baja": 0
+  },
+  {
+    "Id": 7,
+    "Nombre": "Tornillos (paquete de 50)",
+    "Precio": 1,
+    "Stock": 297,
+    "Baja": 0
+  },
+  {
+    "Id": 8,
+    "Nombre": "Taladro inal\u00E1mbrico",
+    "Precio": 80,
+    "Stock": 14,
+    "Baja": 0
+  },
+  {
+    "Id": 9,
+    "Nombre": "Alicates",
+    "Precio": 6,
+    "Stock": 100,
+    "Baja": 0
+  },
+  {
+    "Id": 10,
+    "Nombre": "Sierra de mano",
+    "Precio": 9,
+    "Stock": 40,
+    "Baja": 0
+  },
+  {
+    "Id": 11,
+    "Nombre": "Cepillo de carpintero",
+    "Precio": 6,
+    "Stock": 60,
+    "Baja": 0
+  },
+  {
+    "Id": 12,
+    "Nombre": "Grapadora manual",
+    "Precio": 3,
+    "Stock": 150,
+    "Baja": 0
+  },
+  {
+    "Id": 13,
+    "Nombre": "Escalera plegable",
+    "Precio": 40,
+    "Stock": 10,
+    "Baja": 0
+  },
+  {
+    "Id": 14,
+    "Nombre": "Brocas (juego de 10)",
+    "Precio": 10,
+    "Stock": 100,
+    "Baja": 0
+  },
+  {
+    "Id": 15,
+    "Nombre": "Llave de tubo",
+    "Precio": 4,
+    "Stock": 80,
+    "Baja": 0
+  },
+  {
+    "Id": 16,
+    "Nombre": "Nivel de burbuja",
+    "Precio": 3,
+    "Stock": 150,
+    "Baja": 0
+  },
+  {
+    "Id": 17,
+    "Nombre": "Serrucho",
+    "Precio": 7,
+    "Stock": 30,
+    "Baja": 0
+  },
+  {
+    "Id": 18,
+    "Nombre": "Cajas de almacenamiento (juego de 3)",
+    "Precio": 13,
+    "Stock": 50,
+    "Baja": 0
+  },
+  {
+    "Id": 19,
+    "Nombre": "Cincel",
+    "Precio": 5,
+    "Stock": 70,
+    "Baja": 0
+  },
+  {
+    "Id": 20,
+    "Nombre": "Pistola de pegamento",
+    "Precio": 8,
+    "Stock": 25,
+    "Baja": 0
+  },
+  {
+    "Id": 21,
+    "Nombre": "Guantes de trabajo",
+    "Precio": 4,
+    "Stock": 200,
+    "Baja": 0
+  },
+  {
+    "Id": 22,
+    "Nombre": "Brocha",
+    "Precio": 2,
+    "Stock": 120,
+    "Baja": 0
+  },
+  {
+    "Id": 23,
+    "Nombre": "Tornillos autorroscantes (paquete de 50)",
+    "Precio": 1,
+    "Stock": 250,
+    "Baja": 0
+  },
+  {
+    "Id": 24,
+    "Nombre": "Cerradura de puerta",
+    "Precio": 15,
+    "Stock": 30,
+    "Baja": 0
+  },
+  {
+    "Id": 25,
+    "Nombre": "Pala de jard\u00EDn",
+    "Precio": 10,
+    "Stock": 40,
+    "Baja": 0
+  },
+  {
+    "Id": 26,
+    "Nombre": "Sargentos (juego de 4)",
+    "Precio": 17,
+    "Stock": 20,
+    "Baja": 0
+  },
+  {
+    "Id": 27,
+    "Nombre": "Destornillador de estrella",
+    "Precio": 3,
+    "Stock": 100,
+    "Baja": 0
+  },
+  {
+    "Id": 28,
+    "Nombre": "Lijadora orbital",
+    "Precio": 50,
+    "Stock": 15,
+    "Baja": 0
+  },
+  {
+    "Id": 29,
+    "Nombre": "Clavijas de madera (paquete de 50)",
+    "Precio": 3,
+    "Stock": 200,
+    "Baja": 0
+  },
+  {
+    "Id": 30,
+    "Nombre": "Gafas de seguridad",
+    "Precio": 5,
+    "Stock": 80,
+    "Baja": 0
+  },
+  {
+    "Id": 31,
+    "Nombre": "Esp\u00E1tula",
+    "Precio": 2,
+    "Stock": 90,
+    "Baja": 0
+  },
+  {
+    "Id": 32,
+    "Nombre": "Caja de herramientas",
+    "Precio": 20,
+    "Stock": 25,
+    "Baja": 0
+  },
+  {
+    "Id": 33,
+    "Nombre": "Cuerda de nylon (rollo de 50 metros)",
+    "Precio": 9,
+    "Stock": 60,
+    "Baja": 0
+  },
+  {
+    "Id": 34,
+    "Nombre": "Limas (juego de 3)",
+    "Precio": 7,
+    "Stock": 70,
+    "Baja": 0
+  },
+  {
+    "Id": 35,
+    "Nombre": "Cinta adhesiva",
+    "Precio": 2,
+    "Stock": 300,
+    "Baja": 0
+  },
+  {
+    "Id": 36,
+    "Nombre": "Tijeras de corte",
+    "Precio": 4,
+    "Stock": 120,
+    "Baja": 0
+  },
+  {
+    "Id": 37,
+    "Nombre": "Arco de sierra",
+    "Precio": 8,
+    "Stock": 40,
+    "Baja": 0
+  },
+  {
+    "Id": 38,
+    "Nombre": "Broca de madera",
+    "Precio": 2,
+    "Stock": 150,
+    "Baja": 0
+  },
+  {
+    "Id": 39,
+    "Nombre": "Escobilla de alambre",
+    "Precio": 1,
+    "Stock": 200,
+    "Baja": 0
+  },
+  {
+    "Id": 40,
+    "Nombre": "Soplete de gas",
+    "Precio": 13,
+    "Stock": 20,
+    "Baja": 0
+  },
+  {
+    "Id": 41,
+    "Nombre": "M\u00E1scara de protecci\u00F3n",
+    "Precio": 6,
+    "Stock": 100,
+    "Baja": 0
+  },
+  {
+    "Id": 42,
+    "Nombre": "Puntas de destornillador (juego de 6)",
+    "Precio": 3,
+    "Stock": 150,
+    "Baja": 0
+  },
+  {
+    "Id": 43,
+    "Nombre": "Gustavo",
+    "Precio": 1234,
+    "Stock": 321,
+    "Baja": 0
+  },
+  {
+    "Id": 2009,
+    "Nombre": "gfgfgf",
+    "Precio": 321,
+    "Stock": 21,
+    "Baja": 0
+  },
+  {
+    "Id": 2010,
+    "Nombre": "Producto de prueba",
+    "Precio": 1099,
+    "Stock": 5,
+    "Baja": 0
+  },
+  {
+    "Id": 2011,
+    "Nombre": "Producto de prueba",
+    "Precio": 1099,
+    "Stock": 5,
+    "Baja": 0
+  },
+  {
+    "Id": 2012,
+    "Nombre": "Producto de prueba",
+    "Precio": 1099,
+    "Stock": 5,
+    "Baja": 0
+  },
+  {
+    "Id": 2013,
+    "Nombre": "Producto de prueba",
+    "Precio": 1099,
+    "Stock": 5,
+    "Baja": 0
+  },
+  {
+    "Id": 2014,
+    "Nombre": "Producto de prueba",
+    "Precio": 1099,
+    "Stock": 5,
+    "Baja": 0
+  },
+  {
+    "Id": 2015,
+    "Nombre": "Producto de prueba",
+    "Precio": 1099,
+    "Stock": 5,
+    "Baja": 0
+  },
+  {
+    "Id": 2016,
+    "Nombre": "Producto de prueba",
+    "Precio": 1099,
+    "Stock": 5,
+    "Baja": 0
+  },
+  {
+    "Id": 2017,
+    "Nombre": "Producto de prueba",
+    "Precio": 1099,
+    "Stock": 5,
+    "Baja": 0
+  },
+  {
+    "Id": 2018,
+    "Nombre": "Producto de prueba",
+    "Precio": 1099,
+    "Stock": 5,
+    "Baja": 0
+  },
+  {
+    "Id": 2019,
+    "Nombre": "Producto de prueba",
+    "Precio": 1099,
+    "Stock": 5,
+    "Baja": 0
+  }
+]

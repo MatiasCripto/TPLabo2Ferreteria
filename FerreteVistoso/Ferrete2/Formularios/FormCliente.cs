@@ -33,8 +33,7 @@ namespace Ferrete2.Formularios
         }
 
         private void FormCliente_Load(object? sender, EventArgs e)
-        {
-            
+        {           
             grpbx_AgregarCliente.Visible = false;
         }
 
@@ -191,6 +190,9 @@ namespace Ferrete2.Formularios
 
         }
 
-      
+        private void lbl_cerrar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

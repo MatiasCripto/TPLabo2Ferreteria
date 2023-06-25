@@ -1,15 +1,14 @@
-﻿using Logica.Datos;
+﻿
 using Logica.Productos;
 using Logica.Sistema;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using Logica.Enumerados;
+using static Logica.Sistema.Sistema;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using System.IO;
+
+
 
 namespace Ferrete2.Formularios
 {
@@ -22,7 +21,7 @@ namespace Ferrete2.Formularios
         private string stockInput = string.Empty;
         private Task _tarea;
         private Sistema _sistema;
-        private DataTable _dt;       
+        private DataTable _dt;
 
         public FormProductos()
         {
@@ -35,7 +34,7 @@ namespace Ferrete2.Formularios
             _tarea.Start();
             _sistema.PrecioDolarCambio += ActualizarPrecioDolar;
             _sistema.PrecioActual += MostrarDolarBlue;
-            
+
         }
 
         private void ActualizarPrecioDolar(decimal valorDolar)
@@ -48,7 +47,7 @@ namespace Ferrete2.Formularios
             {
                 foreach (DataRow fila in _dt.Rows)
                 {
-                    fila["Precio Dolar"] = Convert.ToDecimal(fila["Precio"]) * valorDolar;
+                    fila["Precio pesos"] = Convert.ToDecimal(fila["Precio"]) * valorDolar;
                 }
             }
         }
@@ -59,14 +58,14 @@ namespace Ferrete2.Formularios
             {
                 Invoke(MostrarDolarBlue, valorActual);
             }
-                this.lbl_PrecioDolar.Text = valorActual.ToString();
-                return valorActual.ToString();
+            this.lbl_PrecioDolar.Text = valorActual.ToString();
+            return valorActual.ToString();
         }
 
         private void lbl_cerrar_Click(object sender, EventArgs e)
         {
-            this.Close();            
-            
+            this.Close();
+
         }
         private void ActualizarProductosDgv()
         {
@@ -74,7 +73,7 @@ namespace Ferrete2.Formularios
 
             _dt.Columns.Add("Id", typeof(int));
             _dt.Columns.Add("Articulo", typeof(string));
-            _dt.Columns.Add("Precio dolar", typeof(decimal));
+            _dt.Columns.Add("Precio pesos", typeof(decimal));
             _dt.Columns.Add("Precio", typeof(decimal));
             _dt.Columns.Add("Stock", typeof(int));
 
@@ -110,7 +109,7 @@ namespace Ferrete2.Formularios
         {
             dgv_Principal.DataSource = null;
             dgv_Principal.DataSource = Sistema.ObtenerProductos();
-        
+
         }
         /// <summary>
         /// Evento del botón "Eliminar" para eliminar un producto seleccionado.
@@ -165,6 +164,9 @@ namespace Ferrete2.Formularios
         {
             grpbx_AgregarProducto.Visible = true;
             gpbx_modificarProducto.Visible = false;
+            btn_ExportarCsv.Visible = false;
+            btn_ExportarJson.Visible = false;
+            btn_ExportarPDF.Visible = false;
         }
 
         private void btn_GuardarGb_Click(object sender, EventArgs e)
@@ -198,12 +200,29 @@ namespace Ferrete2.Formularios
         {
             grpbx_AgregarProducto.Visible = false;
             gpbx_modificarProducto.Visible = false;
+            btn_ExportarCsv.Visible = false;
+            btn_ExportarJson.Visible = false;
+            btn_ExportarPDF.Visible = false;
+            if (Sistema.ObtenerUsuarioLogueado().Role == Role.Administrador)
+            {
+                btn_agregar.Visible = true;
+                btn_Modificar.Visible = true;
+                btn_Eliminar.Visible = true;
+                btn_Guardar.Visible = true;
+            }
+            else
+            {
+                btn_agregar.Visible = false;
+                btn_Modificar.Visible = false;
+                btn_Eliminar.Visible = false;
+                btn_Guardar.Visible = false;
+            }
 
         }
 
         private void btn_CancelarGb_Click(object sender, EventArgs e)
         {
-            grpbx_AgregarProducto.Visible = false;            
+            grpbx_AgregarProducto.Visible = false;
         }
 
         /// <summary>
@@ -222,7 +241,7 @@ namespace Ferrete2.Formularios
 
         }
 
-      
+
         private void btn_GuardarModificado_Click(object sender, EventArgs e)
         {
             if (dgv_Principal.SelectedRows.Count > 0)
@@ -281,6 +300,159 @@ namespace Ferrete2.Formularios
         {
             grpbx_AgregarProducto.Visible = false;
             gpbx_modificarProducto.Visible = true;
+            btn_ExportarCsv.Visible = false;
+            btn_ExportarJson.Visible = false;
+            btn_ExportarPDF.Visible = false;
+        }
+
+        private void btn_ExportarJson_Click(object sender, EventArgs e)
+        {
+            List<Articulo> listaArticulos = Sistema.ObtenerProductos();
+
+            using (SaveFileDialog dialog = new SaveFileDialog())
+            {
+                dialog.Filter = "Archivos JSON (*.json)|*.json";
+                dialog.Title = "Guardar archivo JSON";
+                dialog.InitialDirectory = @"C:\Ruta\Inicial";
+
+                string fechaHoraActual = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+
+                dialog.FileName = $"productos_{fechaHoraActual}.json";
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = dialog.FileName;
+
+                    ExportarListaArticulos(listaArticulos, filePath, ExportFormat.JSON);
+
+                    MessageBox.Show("Datos exportados correctamente");
+                }
+
+                dialog.Dispose();
+            }
+        }
+
+        private void btn_ExportarCsv_Click(object sender, EventArgs e)
+        {
+            List<Articulo> listaArticulos = Sistema.ObtenerProductos();
+
+            using (SaveFileDialog dialog = new SaveFileDialog())
+            {
+                dialog.Filter = "Archivos CSV (*.csv)|*.csv";
+                dialog.Title = "Guardar archivo CSV";
+                dialog.InitialDirectory = @"C:\Ruta\Inicial";
+
+                string fechaHoraActual = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+
+                dialog.FileName = $"productos_{fechaHoraActual}.csv";
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = dialog.FileName;
+
+                    ExportarListaArticulos(listaArticulos, filePath, ExportFormat.CSV);
+
+                    MessageBox.Show("Datos exportados correctamente");
+                }
+
+                dialog.Dispose();
+            }
+        }
+
+        private void btn_Guardar_Click(object sender, EventArgs e)
+        {
+            btn_ExportarCsv.Visible = true;
+            btn_ExportarJson.Visible = true;
+            btn_ExportarPDF.Visible = true;
+        }
+
+
+       
+
+
+        private void btn_ExportarPDF_Click(object sender, EventArgs e)
+        {
+            List<Articulo> listaArticulos = ObtenerProductos();
+
+            using (SaveFileDialog dialog = new SaveFileDialog())
+            {
+                dialog.Filter = "Archivos PDF (*.pdf)|*.pdf";
+                dialog.Title = "Guardar archivo PDF";
+
+                string fechaHoraActual = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                dialog.FileName = $"productos_{fechaHoraActual}.pdf";
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    using (FileStream fs = new FileStream(dialog.FileName, FileMode.Create))
+                    {
+                        Document doc = new Document(PageSize.A4, 5, 5, 5, 5);
+                        PdfWriter pw = PdfWriter.GetInstance(doc, fs);
+
+                        doc.Open();
+
+                        // Título y Autor
+                        doc.AddAuthor("Jonatan Scarone");
+                        doc.AddTitle("Productos de Ferreteria");
+
+                        // Definir la fuente
+                        iTextSharp.text.Font standarFont = new iTextSharp.text.Font(
+                            iTextSharp.text.Font.FontFamily.HELVETICA, 8,
+                            iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
+
+                        // Definir la fuente para los encabezados
+                        iTextSharp.text.Font headerFont = new iTextSharp.text.Font(
+                            iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
+
+                        // Encabezado de columnas
+                        PdfPTable tabla = new PdfPTable(3);
+                        tabla.WidthPercentage = 100;
+
+                        // Configurar el título de las columnas con la fuente personalizada
+                        PdfPCell colId = new PdfPCell(new Phrase("Id", headerFont));
+                        colId.BorderWidth = 0.75f;
+                        colId.BorderColor = BaseColor.ORANGE;
+
+                        PdfPCell colNombre = new PdfPCell(new Phrase("Nombre", headerFont));
+                        colNombre.BorderWidth = 0.75f;
+                        colNombre.BorderColor = BaseColor.ORANGE;
+
+                        PdfPCell colStock = new PdfPCell(new Phrase("Stock", headerFont));
+                        colStock.BorderWidth = 0.75f;
+                        colStock.BorderColor = BaseColor.ORANGE;
+
+                        tabla.AddCell(colId);
+                        tabla.AddCell(colNombre);
+                        tabla.AddCell(colStock);
+
+                        // Agregar datos
+                        foreach (var producto in listaArticulos)
+                        {
+                            colId = new PdfPCell(new Phrase(producto.Id.ToString(), standarFont));
+                            colId.BorderWidth = 0.75f;
+                            colId.BorderColor = BaseColor.ORANGE;
+
+                            colNombre = new PdfPCell(new Phrase(producto.Nombre, standarFont));
+                            colNombre.BorderWidth = 0.75f;
+                            colNombre.BorderColor = BaseColor.ORANGE;
+
+                            colStock = new PdfPCell(new Phrase(producto.Stock.ToString(), standarFont));
+                            colStock.BorderWidth = 0.75f;
+                            colStock.BorderColor = BaseColor.ORANGE;
+
+                            tabla.AddCell(colId);
+                            tabla.AddCell(colNombre);
+                            tabla.AddCell(colStock);
+                        }
+
+                        doc.Add(tabla);
+                        doc.Close();
+                        pw.Close();
+                    }
+
+                    MessageBox.Show("Documento exportado", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
 
     }

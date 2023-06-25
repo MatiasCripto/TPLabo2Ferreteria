@@ -1,12 +1,4 @@
 using Ferrete2.Formularios;
-using System.Runtime.InteropServices;
-
-
-using iTextSharp.text;
-using iTextSharp.text.pdf;
-using iTextSharp.tool.xml;
-using System.IO;
-
 
 namespace Ferrete2
 {
@@ -72,16 +64,23 @@ namespace Ferrete2
         }
         private void AbrirFormEnPanel(object FormHijo)
         {
-            while (this.pnl_contenedor.Controls.Count > 0)
+            int largo = pnl_contenedor.Controls.Count;
+
+            for (int i = largo - 1; i >= 0; i--)
             {
-                this.pnl_contenedor.Controls.RemoveAt(0);
+                if (pnl_contenedor.Controls[i] is Form form )
+                {
+                    this.pnl_contenedor.Controls.RemoveAt(i);
+                    this.pictureBox3.Visible = true;
+                }
             }
+
             Form fh = FormHijo as Form;
             fh.TopLevel = false;
             fh.Dock = DockStyle.Fill;
             this.pnl_contenedor.Controls.Add(fh);
             this.pnl_contenedor.Tag = fh;
-            this.pictureBox3.Visible = false;
+            this.pictureBox3.SendToBack() ;
             fh.Show();
             fh.Activate();
         }
@@ -98,8 +97,8 @@ namespace Ferrete2
 
         private void btn_ventas_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new FormVenta());           
-           
+            AbrirFormEnPanel(new FormVenta());
+
         }
 
         private void btn_Usuarios_Click(object sender, EventArgs e)
@@ -110,6 +109,11 @@ namespace Ferrete2
         private void btn_Clientes_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new FormCliente());
+        }
+
+        private void btn_Logs_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new FormLogs());
         }
     }
 }

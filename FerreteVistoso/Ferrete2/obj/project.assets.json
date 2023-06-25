@@ -251,9 +251,7 @@
           "Entidades": "1.0.0",
           "MSTest.TestAdapter": "3.0.4",
           "MSTest.TestFramework": "3.0.4",
-          "System.Data.SqlClient": "4.8.5",
-          "iTextSharp": "5.5.13.3",
-          "itextsharp.xmlworker": "5.5.13.3"
+          "System.Data.SqlClient": "4.8.5"
         },
         "compile": {
           "bin/placeholder/Datos.dll": {}
@@ -267,9 +265,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "MSTest.TestAdapter": "3.0.4",
-          "MSTest.TestFramework": "3.0.4",
-          "iTextSharp": "5.5.13.3",
-          "itextsharp.xmlworker": "5.5.13.3"
+          "MSTest.TestFramework": "3.0.4"
         },
         "compile": {
           "bin/placeholder/Entidades.dll": {}
@@ -285,9 +281,7 @@
           "Datos": "1.0.0",
           "Entidades": "1.0.0",
           "MSTest.TestAdapter": "3.0.4",
-          "MSTest.TestFramework": "3.0.4",
-          "iTextSharp": "5.5.13.3",
-          "itextsharp.xmlworker": "5.5.13.3"
+          "MSTest.TestFramework": "3.0.4"
         },
         "compile": {
           "bin/placeholder/Logica.dll": {}

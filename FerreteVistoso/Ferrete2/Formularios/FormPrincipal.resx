@@ -68,7 +68,7 @@
         XjPzzLPIM3eRI6+ZeeZZ5Jm7yJHXzDzzLPI55/yEz+cPM3z4avCheuMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btn_Facturacion.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn_Logs.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAVFJREFUaEPtzjEKHEEQBMH7/6clJ0hLK6OgWWfDTIbq+X0+n//78zLf2Nl5jW/s
@@ -507,5 +507,8 @@
   </data>
   <metadata name="fechaHora.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>28</value>
   </metadata>
 </root>

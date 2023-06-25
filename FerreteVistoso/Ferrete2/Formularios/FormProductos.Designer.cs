@@ -40,6 +40,7 @@
             this.btn_agregar = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnl_menuVertical = new System.Windows.Forms.Panel();
+            this.btn_ExportarPDF = new System.Windows.Forms.Button();
             this.dgv_Principal = new System.Windows.Forms.DataGridView();
             this.grpbx_AgregarProducto = new System.Windows.Forms.GroupBox();
             this.btn_CancelarGb = new System.Windows.Forms.Button();
@@ -63,6 +64,8 @@
             this.lbl_Buscar = new System.Windows.Forms.Label();
             this.lbl_PrecioDolar = new System.Windows.Forms.Label();
             this.lbl_ValorDolar = new System.Windows.Forms.Label();
+            this.btn_ExportarCsv = new System.Windows.Forms.Button();
+            this.btn_ExportarJson = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnl_menuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Principal)).BeginInit();
@@ -108,8 +111,9 @@
             this.btn_Guardar.Name = "btn_Guardar";
             this.btn_Guardar.Size = new System.Drawing.Size(250, 49);
             this.btn_Guardar.TabIndex = 4;
-            this.btn_Guardar.Text = "Guardar";
+            this.btn_Guardar.Text = "Informes";
             this.btn_Guardar.UseVisualStyleBackColor = true;
+            this.btn_Guardar.Click += new System.EventHandler(this.btn_Guardar_Click);
             // 
             // btn_Eliminar
             // 
@@ -182,8 +186,27 @@
             this.pnl_menuVertical.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnl_menuVertical.Location = new System.Drawing.Point(0, 0);
             this.pnl_menuVertical.Name = "pnl_menuVertical";
-            this.pnl_menuVertical.Size = new System.Drawing.Size(250, 450);
+            this.pnl_menuVertical.Size = new System.Drawing.Size(250, 418);
             this.pnl_menuVertical.TabIndex = 4;
+            // 
+            // btn_ExportarPDF
+            // 
+            this.btn_ExportarPDF.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_ExportarPDF.FlatAppearance.BorderSize = 0;
+            this.btn_ExportarPDF.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_ExportarPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ExportarPDF.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_ExportarPDF.ForeColor = System.Drawing.Color.White;
+            this.btn_ExportarPDF.Image = ((System.Drawing.Image)(resources.GetObject("btn_ExportarPDF.Image")));
+            this.btn_ExportarPDF.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_ExportarPDF.Location = new System.Drawing.Point(693, 365);
+            this.btn_ExportarPDF.Name = "btn_ExportarPDF";
+            this.btn_ExportarPDF.Size = new System.Drawing.Size(250, 49);
+            this.btn_ExportarPDF.TabIndex = 5;
+            this.btn_ExportarPDF.Text = "Exportar PDF";
+            this.btn_ExportarPDF.UseVisualStyleBackColor = true;
+            this.btn_ExportarPDF.Click += new System.EventHandler(this.btn_ExportarPDF_Click);
             // 
             // dgv_Principal
             // 
@@ -192,7 +215,7 @@
             this.dgv_Principal.AllowUserToOrderColumns = true;
             this.dgv_Principal.AllowUserToResizeColumns = false;
             this.dgv_Principal.AllowUserToResizeRows = false;
-            this.dgv_Principal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dgv_Principal.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dgv_Principal.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Principal.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_Principal.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -228,7 +251,7 @@
             this.dgv_Principal.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_Principal.RowTemplate.Height = 25;
             this.dgv_Principal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Principal.Size = new System.Drawing.Size(381, 381);
+            this.dgv_Principal.Size = new System.Drawing.Size(381, 212);
             this.dgv_Principal.TabIndex = 5;
             // 
             // grpbx_AgregarProducto
@@ -487,12 +510,53 @@
             this.lbl_ValorDolar.TabIndex = 10;
             this.lbl_ValorDolar.Text = "Cambio del dolar";
             // 
+            // btn_ExportarCsv
+            // 
+            this.btn_ExportarCsv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_ExportarCsv.FlatAppearance.BorderSize = 0;
+            this.btn_ExportarCsv.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_ExportarCsv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ExportarCsv.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_ExportarCsv.ForeColor = System.Drawing.Color.White;
+            this.btn_ExportarCsv.Image = ((System.Drawing.Image)(resources.GetObject("btn_ExportarCsv.Image")));
+            this.btn_ExportarCsv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_ExportarCsv.Location = new System.Drawing.Point(487, 365);
+            this.btn_ExportarCsv.Name = "btn_ExportarCsv";
+            this.btn_ExportarCsv.Size = new System.Drawing.Size(190, 49);
+            this.btn_ExportarCsv.TabIndex = 12;
+            this.btn_ExportarCsv.Text = "Exportar CSV";
+            this.btn_ExportarCsv.UseVisualStyleBackColor = true;
+            this.btn_ExportarCsv.Click += new System.EventHandler(this.btn_ExportarCsv_Click);
+            // 
+            // btn_ExportarJson
+            // 
+            this.btn_ExportarJson.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_ExportarJson.FlatAppearance.BorderSize = 0;
+            this.btn_ExportarJson.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_ExportarJson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ExportarJson.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_ExportarJson.ForeColor = System.Drawing.Color.White;
+            this.btn_ExportarJson.Image = ((System.Drawing.Image)(resources.GetObject("btn_ExportarJson.Image")));
+            this.btn_ExportarJson.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_ExportarJson.Location = new System.Drawing.Point(256, 365);
+            this.btn_ExportarJson.Name = "btn_ExportarJson";
+            this.btn_ExportarJson.Size = new System.Drawing.Size(202, 49);
+            this.btn_ExportarJson.TabIndex = 11;
+            this.btn_ExportarJson.Text = "Exportar JSON";
+            this.btn_ExportarJson.UseVisualStyleBackColor = true;
+            this.btn_ExportarJson.Click += new System.EventHandler(this.btn_ExportarJson_Click);
+            // 
             // FormProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(200)))));
-            this.ClientSize = new System.Drawing.Size(1012, 450);
+            this.ClientSize = new System.Drawing.Size(1012, 418);
+            this.Controls.Add(this.btn_ExportarPDF);
+            this.Controls.Add(this.btn_ExportarCsv);
+            this.Controls.Add(this.btn_ExportarJson);
             this.Controls.Add(this.lbl_ValorDolar);
             this.Controls.Add(this.lbl_PrecioDolar);
             this.Controls.Add(this.gpbx_modificarProducto);
@@ -552,5 +616,8 @@
         private TextBox txb_productoAModificar;
         private Label lbl_PrecioDolar;
         private Label lbl_ValorDolar;
+        private Button btn_ExportarCsv;
+        private Button btn_ExportarJson;
+        private Button btn_ExportarPDF;
     }
 }

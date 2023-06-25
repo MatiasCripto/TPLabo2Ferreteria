@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCliente));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCliente));
             this.pnl_menuVertical = new System.Windows.Forms.Panel();
+            this.btn_Eliminar = new System.Windows.Forms.Button();
+            this.btn_agregar = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txb_Buscar = new System.Windows.Forms.TextBox();
             this.lbl_Buscar = new System.Windows.Forms.Label();
             this.grpbx_AgregarCliente = new System.Windows.Forms.GroupBox();
@@ -50,47 +53,78 @@
             this.txb_Confirmar = new System.Windows.Forms.TextBox();
             this.txb_Cointrasenia = new System.Windows.Forms.TextBox();
             this.dgv_Clientes = new System.Windows.Forms.DataGridView();
-            this.lbl_cerrar = new System.Windows.Forms.Label();
             this.lbl_TituloUsuario = new System.Windows.Forms.Label();
+            this.lbl_cerrar = new System.Windows.Forms.Label();
             this.btn_Guardar = new System.Windows.Forms.Button();
-            this.btn_Eliminar = new System.Windows.Forms.Button();
-            this.btn_Modificar = new System.Windows.Forms.Button();
-            this.btn_agregar = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnl_menuVertical.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.grpbx_AgregarCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Clientes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pnl_menuVertical
             // 
             this.pnl_menuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
-            this.pnl_menuVertical.Controls.Add(this.txb_Buscar);
-            this.pnl_menuVertical.Controls.Add(this.lbl_Buscar);
-            this.pnl_menuVertical.Controls.Add(this.grpbx_AgregarCliente);
-            this.pnl_menuVertical.Controls.Add(this.dgv_Clientes);
-            this.pnl_menuVertical.Controls.Add(this.lbl_cerrar);
-            this.pnl_menuVertical.Controls.Add(this.lbl_TituloUsuario);
             this.pnl_menuVertical.Controls.Add(this.btn_Guardar);
             this.pnl_menuVertical.Controls.Add(this.btn_Eliminar);
-            this.pnl_menuVertical.Controls.Add(this.btn_Modificar);
             this.pnl_menuVertical.Controls.Add(this.btn_agregar);
             this.pnl_menuVertical.Controls.Add(this.pictureBox2);
             this.pnl_menuVertical.Location = new System.Drawing.Point(0, 0);
             this.pnl_menuVertical.Name = "pnl_menuVertical";
-            this.pnl_menuVertical.Size = new System.Drawing.Size(1012, 450);
+            this.pnl_menuVertical.Size = new System.Drawing.Size(250, 621);
             this.pnl_menuVertical.TabIndex = 6;
+            // 
+            // btn_Eliminar
+            // 
+            this.btn_Eliminar.FlatAppearance.BorderSize = 0;
+            this.btn_Eliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Eliminar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Eliminar.ForeColor = System.Drawing.Color.White;
+            this.btn_Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Eliminar.Image")));
+            this.btn_Eliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Eliminar.Location = new System.Drawing.Point(0, 149);
+            this.btn_Eliminar.Name = "btn_Eliminar";
+            this.btn_Eliminar.Size = new System.Drawing.Size(250, 49);
+            this.btn_Eliminar.TabIndex = 3;
+            this.btn_Eliminar.Text = "Eliminar";
+            this.btn_Eliminar.UseVisualStyleBackColor = true;
+            this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click);
+            // 
+            // btn_agregar
+            // 
+            this.btn_agregar.FlatAppearance.BorderSize = 0;
+            this.btn_agregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_agregar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_agregar.ForeColor = System.Drawing.Color.White;
+            this.btn_agregar.Image = ((System.Drawing.Image)(resources.GetObject("btn_agregar.Image")));
+            this.btn_agregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_agregar.Location = new System.Drawing.Point(0, 94);
+            this.btn_agregar.Name = "btn_agregar";
+            this.btn_agregar.Size = new System.Drawing.Size(250, 49);
+            this.btn_agregar.TabIndex = 1;
+            this.btn_agregar.Text = "Agregar";
+            this.btn_agregar.UseVisualStyleBackColor = true;
+            this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(244, 60);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // txb_Buscar
             // 
             this.txb_Buscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txb_Buscar.Location = new System.Drawing.Point(734, 29);
+            this.txb_Buscar.Location = new System.Drawing.Point(719, 41);
             this.txb_Buscar.Name = "txb_Buscar";
             this.txb_Buscar.Size = new System.Drawing.Size(249, 23);
-            this.txb_Buscar.TabIndex = 22;
-            this.txb_Buscar.TextChanged += new System.EventHandler(this.txb_Buscar_TextChanged);
+            this.txb_Buscar.TabIndex = 32;
             // 
             // lbl_Buscar
             // 
@@ -99,10 +133,10 @@
             this.lbl_Buscar.AutoSize = true;
             this.lbl_Buscar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl_Buscar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbl_Buscar.Location = new System.Drawing.Point(673, 35);
+            this.lbl_Buscar.Location = new System.Drawing.Point(658, 47);
             this.lbl_Buscar.Name = "lbl_Buscar";
             this.lbl_Buscar.Size = new System.Drawing.Size(49, 17);
-            this.lbl_Buscar.TabIndex = 20;
+            this.lbl_Buscar.TabIndex = 31;
             this.lbl_Buscar.Text = "Buscar";
             // 
             // grpbx_AgregarCliente
@@ -125,10 +159,10 @@
             this.grpbx_AgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.grpbx_AgregarCliente.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpbx_AgregarCliente.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.grpbx_AgregarCliente.Location = new System.Drawing.Point(717, 94);
+            this.grpbx_AgregarCliente.Location = new System.Drawing.Point(702, 106);
             this.grpbx_AgregarCliente.Name = "grpbx_AgregarCliente";
             this.grpbx_AgregarCliente.Size = new System.Drawing.Size(277, 292);
-            this.grpbx_AgregarCliente.TabIndex = 19;
+            this.grpbx_AgregarCliente.TabIndex = 30;
             this.grpbx_AgregarCliente.TabStop = false;
             this.grpbx_AgregarCliente.Text = "Agregar cliente";
             // 
@@ -215,7 +249,6 @@
             this.btn_GuardarGb.Text = "Guardar";
             this.btn_GuardarGb.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_GuardarGb.UseVisualStyleBackColor = true;
-            this.btn_GuardarGb.Click += new System.EventHandler(this.btn_GuardarGb_Click);
             // 
             // lbl_Role
             // 
@@ -280,7 +313,7 @@
             this.dgv_Clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_Clientes.EnableHeadersVisualStyles = false;
             this.dgv_Clientes.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgv_Clientes.Location = new System.Drawing.Point(283, 57);
+            this.dgv_Clientes.Location = new System.Drawing.Point(268, 69);
             this.dgv_Clientes.Name = "dgv_Clientes";
             this.dgv_Clientes.ReadOnly = true;
             this.dgv_Clientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -301,8 +334,19 @@
             this.dgv_Clientes.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_Clientes.RowTemplate.Height = 25;
             this.dgv_Clientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Clientes.Size = new System.Drawing.Size(381, 381);
-            this.dgv_Clientes.TabIndex = 18;
+            this.dgv_Clientes.Size = new System.Drawing.Size(381, 522);
+            this.dgv_Clientes.TabIndex = 29;
+            // 
+            // lbl_TituloUsuario
+            // 
+            this.lbl_TituloUsuario.AutoSize = true;
+            this.lbl_TituloUsuario.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_TituloUsuario.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lbl_TituloUsuario.Location = new System.Drawing.Point(399, 21);
+            this.lbl_TituloUsuario.Name = "lbl_TituloUsuario";
+            this.lbl_TituloUsuario.Size = new System.Drawing.Size(165, 41);
+            this.lbl_TituloUsuario.TabIndex = 28;
+            this.lbl_TituloUsuario.Text = "CLIENTES";
             // 
             // lbl_cerrar
             // 
@@ -314,20 +358,9 @@
             this.lbl_cerrar.Location = new System.Drawing.Point(982, 9);
             this.lbl_cerrar.Name = "lbl_cerrar";
             this.lbl_cerrar.Size = new System.Drawing.Size(18, 20);
-            this.lbl_cerrar.TabIndex = 17;
+            this.lbl_cerrar.TabIndex = 33;
             this.lbl_cerrar.Text = "X";
-            this.lbl_cerrar.Click += new System.EventHandler(this.lbl_cerrar_Click);
-            // 
-            // lbl_TituloUsuario
-            // 
-            this.lbl_TituloUsuario.AutoSize = true;
-            this.lbl_TituloUsuario.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_TituloUsuario.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbl_TituloUsuario.Location = new System.Drawing.Point(414, 9);
-            this.lbl_TituloUsuario.Name = "lbl_TituloUsuario";
-            this.lbl_TituloUsuario.Size = new System.Drawing.Size(165, 41);
-            this.lbl_TituloUsuario.TabIndex = 16;
-            this.lbl_TituloUsuario.Text = "CLIENTES";
+            this.lbl_cerrar.Click += new System.EventHandler(this.lbl_cerrar_Click_1);
             // 
             // btn_Guardar
             // 
@@ -338,103 +371,50 @@
             this.btn_Guardar.ForeColor = System.Drawing.Color.White;
             this.btn_Guardar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Guardar.Image")));
             this.btn_Guardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Guardar.Location = new System.Drawing.Point(0, 262);
+            this.btn_Guardar.Location = new System.Drawing.Point(0, 204);
             this.btn_Guardar.Name = "btn_Guardar";
             this.btn_Guardar.Size = new System.Drawing.Size(250, 49);
-            this.btn_Guardar.TabIndex = 4;
-            this.btn_Guardar.Text = "Guardar";
+            this.btn_Guardar.TabIndex = 5;
+            this.btn_Guardar.Text = "Informes";
             this.btn_Guardar.UseVisualStyleBackColor = true;
-            // 
-            // btn_Eliminar
-            // 
-            this.btn_Eliminar.FlatAppearance.BorderSize = 0;
-            this.btn_Eliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btn_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Eliminar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Eliminar.ForeColor = System.Drawing.Color.White;
-            this.btn_Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Eliminar.Image")));
-            this.btn_Eliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Eliminar.Location = new System.Drawing.Point(0, 206);
-            this.btn_Eliminar.Name = "btn_Eliminar";
-            this.btn_Eliminar.Size = new System.Drawing.Size(250, 49);
-            this.btn_Eliminar.TabIndex = 3;
-            this.btn_Eliminar.Text = "Eliminar";
-            this.btn_Eliminar.UseVisualStyleBackColor = true;
-            this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click);
-            // 
-            // btn_Modificar
-            // 
-            this.btn_Modificar.FlatAppearance.BorderSize = 0;
-            this.btn_Modificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btn_Modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Modificar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Modificar.ForeColor = System.Drawing.Color.White;
-            this.btn_Modificar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Modificar.Image")));
-            this.btn_Modificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Modificar.Location = new System.Drawing.Point(0, 150);
-            this.btn_Modificar.Name = "btn_Modificar";
-            this.btn_Modificar.Size = new System.Drawing.Size(250, 49);
-            this.btn_Modificar.TabIndex = 2;
-            this.btn_Modificar.Text = "Modificar";
-            this.btn_Modificar.UseVisualStyleBackColor = true;
-            this.btn_Modificar.Click += new System.EventHandler(this.btn_Modificar_Click);
-            // 
-            // btn_agregar
-            // 
-            this.btn_agregar.FlatAppearance.BorderSize = 0;
-            this.btn_agregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btn_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_agregar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_agregar.ForeColor = System.Drawing.Color.White;
-            this.btn_agregar.Image = ((System.Drawing.Image)(resources.GetObject("btn_agregar.Image")));
-            this.btn_agregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_agregar.Location = new System.Drawing.Point(0, 94);
-            this.btn_agregar.Name = "btn_agregar";
-            this.btn_agregar.Size = new System.Drawing.Size(250, 49);
-            this.btn_agregar.TabIndex = 1;
-            this.btn_agregar.Text = "Agregar";
-            this.btn_agregar.UseVisualStyleBackColor = true;
-            this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(244, 60);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
             // 
             // FormCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1012, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(200)))));
+            this.ClientSize = new System.Drawing.Size(1012, 603);
+            this.Controls.Add(this.lbl_cerrar);
+            this.Controls.Add(this.txb_Buscar);
+            this.Controls.Add(this.lbl_Buscar);
+            this.Controls.Add(this.grpbx_AgregarCliente);
+            this.Controls.Add(this.dgv_Clientes);
+            this.Controls.Add(this.lbl_TituloUsuario);
             this.Controls.Add(this.pnl_menuVertical);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCliente";
             this.Text = "FormCliente";
             this.pnl_menuVertical.ResumeLayout(false);
-            this.pnl_menuVertical.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.grpbx_AgregarCliente.ResumeLayout(false);
             this.grpbx_AgregarCliente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Clientes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private Panel pnl_menuVertical;
-        private Button btn_Guardar;
         private Button btn_Eliminar;
-        private Button btn_Modificar;
         private Button btn_agregar;
         private PictureBox pictureBox2;
         private TextBox txb_Buscar;
         private Label lbl_Buscar;
         private GroupBox grpbx_AgregarCliente;
+        private Label lbl_Usuario;
+        private ComboBox cbx_AsignarRole;
         private Label label4;
         private Label lbl_Nombre;
         private TextBox txb_Usuario;
@@ -447,9 +427,8 @@
         private TextBox txb_Confirmar;
         private TextBox txb_Cointrasenia;
         private DataGridView dgv_Clientes;
-        private Label lbl_cerrar;
         private Label lbl_TituloUsuario;
-        private ComboBox cbx_AsignarRole;
-        private Label lbl_Usuario;
+        private Label lbl_cerrar;
+        private Button btn_Guardar;
     }
 }

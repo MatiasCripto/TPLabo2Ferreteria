@@ -1,20 +1,8 @@
-﻿using Datos;
-using Logica.Enumerados;
-using Logica.Productos;
+﻿using Logica.Enumerados;
 using Logica.Sistema;
 using Logica.Usuarios;
-using Microsoft.VisualBasic.ApplicationServices;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.IO;
-using System.Text.Json;
+using static Logica.Sistema.Sistema;
 
 namespace Ferrete2.Formularios
 {
@@ -24,7 +12,7 @@ namespace Ferrete2.Formularios
         private string usuario;
         private string contra;
         private string newContra;
-        string roleInput;        
+        string roleInput;
         private const string vacio = "";
         public FormUsuario()
         {
@@ -36,18 +24,38 @@ namespace Ferrete2.Formularios
         {
             gpbx_modificarUsuario.Visible = false;
             grpbx_AgregarUsuario.Visible = false;
+            btn_ExportarCsv.Visible = false;
+            btn_ExportarJson.Visible = false;
+            if (Sistema.ObtenerUsuarioLogueado().Role == Role.Administrador)
+            {
+                btn_agregar.Visible = true;
+                btn_Modificar.Visible = true;
+                btn_Eliminar.Visible = true;
+                btn_Guardar.Visible = true;
+            }
+            else
+            {
+                btn_agregar.Visible = false;
+                btn_Modificar.Visible = false;
+                btn_Eliminar.Visible = false;
+                btn_Guardar.Visible = false;
+            }
         }
 
         private void btn_agregar_Click(object sender, EventArgs e)
         {
             grpbx_AgregarUsuario.Visible = true;
             gpbx_modificarUsuario.Visible = false;
+            btn_ExportarCsv.Visible = false;
+            btn_ExportarJson.Visible = false;
         }
 
         private void btn_Modificar_Click(object sender, EventArgs e)
         {
             grpbx_AgregarUsuario.Visible = false;
             gpbx_modificarUsuario.Visible = true;
+            btn_ExportarCsv.Visible = false;
+            btn_ExportarJson.Visible = false;
         }
 
         private void txb_Buscar_TextChanged(object sender, EventArgs e)
@@ -72,18 +80,18 @@ namespace Ferrete2.Formularios
 
             dt.Columns.Add("Id", typeof(int));
             dt.Columns.Add("Nombre", typeof(string));
-            dt.Columns.Add("Usuario", typeof(string)); 
+            dt.Columns.Add("Usuario", typeof(string));
             dt.Columns.Add("Contraseña", typeof(string));
             dt.Columns.Add("Role", typeof(string));
 
-            foreach (var item in Sistema.ObtenerUsuarios())
+            foreach (var item in ObtenerUsuarios())
             {
                 var row = dt.NewRow();
 
                 row["Id"] = item.Id;
                 row["Usuario"] = item.Nombre;
                 row["Nombre"] = item.Usuario;
-                row["Contraseña"] = item.Contrasenia; 
+                row["Contraseña"] = item.Contrasenia;
                 row["Role"] = item.Role;
 
                 dt.Rows.Add(row);
@@ -109,7 +117,7 @@ namespace Ferrete2.Formularios
         {
             dgv_Usuarios.DataSource = null;
             dgv_Usuarios.DataSource = Sistema.ObtenerUsuarios();
-                
+
         }
 
         private void btn_GuardarGb_Click(object sender, EventArgs e)
@@ -149,34 +157,7 @@ namespace Ferrete2.Formularios
                 MessageBox.Show($"Error desconocido al guardar el usuario: {ex.Message}");
             }
 
-           ActualizarDgv(); // Actualizar la
-
-            //string mensajeError = Sistema.ValidarCamposUsuario(nombre, usuario, contra);
-            //if (mensajeError == null)
-            //{
-            //    if (contra == newContra)
-            //    {
-            //        try
-            //        {
-            //            Persona nuevoUsuario = new PersonalInterno(nombre, usuario, contra, role);
-            //            Sistema.GuardarUsuarioEnDB(nuevoUsuario);
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            throw new Exception($"Error desconocido al guardar el usuario: {ex.Message}");
-            //        }
-            //        ActualizarDgv();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Las contraseñas no coinciden");
-            //    }
-
-            //}
-            //else
-            //{
-            //    MessageBox.Show(mensajeError);
-            //}
+            ActualizarDgv();
         }
 
         private void btn_Eliminar_Click(object sender, EventArgs e)
@@ -184,7 +165,7 @@ namespace Ferrete2.Formularios
             if (dgv_Usuarios.SelectedRows.Count > 0)
             {
                 DataGridViewRow filaSeleccionada = dgv_Usuarios.SelectedRows[0];
-                string valorId = filaSeleccionada.Cells["id"].Value.ToString();
+                string valorId = filaSeleccionada.Cells["Id"].Value.ToString();
 
                 // Obtener el índice de la fila seleccionada
                 int rowIndex = dgv_Usuarios.CurrentRow.Index;
@@ -233,12 +214,12 @@ namespace Ferrete2.Formularios
 
                 try
                 {
-                    
+
                     // Obtener el usuario a modificar de la base de datos
                     Persona usuarioAModificar = Sistema.ObtenerUsuarioPorId(int.Parse(valorId));
                     if (usuarioAModificar != null)
                     {
-                        
+
                         // Actualizar los campos del usuario
                         usuarioAModificar.Role = usuarioAModificar.Role = (Role)Enum.Parse(typeof(Role), roleModificado);
 
@@ -260,27 +241,67 @@ namespace Ferrete2.Formularios
             {
                 MessageBox.Show("No se ha seleccionado ningún usuario para modificar.");
             }
-          
+
         }
 
-        private void btn_Guardar_Click(object sender, EventArgs e)
+        private void btn_ExportarJson_Click(object sender, EventArgs e)
         {
-            List<Persona> listaPersonas = Sistema.ObtenerUsuarios(); // Obtienes la lista de personas desde tu lógica
-           
-            string jsonFilePath = "C:\\Users\\Pablo\\Desktop\\formLindo\\FerreteVistoso\\Entidades\\Archivos\\archivo.json";
-            
-            Sistema.ExportarListaPersonas(listaPersonas, jsonFilePath);
+            List<Persona> listaPersonas = Sistema.ObtenerUsuarios();
 
-            string jsonData = JsonSerializer.Serialize(listaPersonas, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(jsonFilePath, jsonData);
+            using (SaveFileDialog dialog = new SaveFileDialog())
+            {
+                dialog.Filter = "Archivos JSON (*.json)|*.json";
+                dialog.Title = "Guardar archivo JSON";
+                dialog.InitialDirectory = @"C:\Ruta\Inicial";
 
+                string fechaHoraActual = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+
+                dialog.FileName = $"usuarios_{fechaHoraActual}.json";
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = dialog.FileName;
+
+                    ExportarListaPersonas(listaPersonas, filePath, ExportFormat.JSON);
+
+                    MessageBox.Show("Datos exportados correctamente");
+                }
+
+                dialog.Dispose();
+            }
         }
 
         private void btn_ExportarCsv_Click(object sender, EventArgs e)
         {
-            List<Persona> listaPersonas = Sistema.ObtenerUsuarios(); // Obtienes la lista de personas desde tu lógica
-            string filePathCsv = "C:\\Users\\Pablo\\Desktop\\formLindo\\FerreteVistoso\\Entidades\\Archivos\\archivo.csv"; // Ruta de archivo deseada
-            Sistema.ExportarListaPersonas(listaPersonas, filePathCsv);
+            List<Persona> listaPersonas = Sistema.ObtenerUsuarios();
+
+            using (SaveFileDialog dialog = new SaveFileDialog())
+            {
+                dialog.Filter = "Archivos CSV (*.csv)|*.csv";
+                dialog.Title = "Guardar archivo CSV";
+                dialog.InitialDirectory = @"C:\Ruta\Inicial";
+
+                string fechaHoraActual = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+
+                dialog.FileName = $"usurios_{fechaHoraActual}.csv";
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = dialog.FileName;
+
+                    ExportarListaPersonas(listaPersonas, filePath, ExportFormat.CSV);
+
+                    MessageBox.Show("Datos exportados correctamente");
+                }
+
+                dialog.Dispose();
+            }
+
+        }
+        private void btn_Informes_Click(object sender, EventArgs e)
+        {
+            btn_ExportarJson.Visible = true;
+            btn_ExportarCsv.Visible = true;
         }
     }
 }

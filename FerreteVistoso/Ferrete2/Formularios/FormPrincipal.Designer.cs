@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.pnl_menuVertical = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
-            this.btn_Facturacion = new System.Windows.Forms.Button();
+            this.btn_Logs = new System.Windows.Forms.Button();
             this.btn_Usuarios = new System.Windows.Forms.Button();
             this.btn_Clientes = new System.Windows.Forms.Button();
             this.btn_ventas = new System.Windows.Forms.Button();
@@ -65,7 +65,7 @@
             // 
             this.pnl_menuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.pnl_menuVertical.Controls.Add(this.button5);
-            this.pnl_menuVertical.Controls.Add(this.btn_Facturacion);
+            this.pnl_menuVertical.Controls.Add(this.btn_Logs);
             this.pnl_menuVertical.Controls.Add(this.btn_Usuarios);
             this.pnl_menuVertical.Controls.Add(this.btn_Clientes);
             this.pnl_menuVertical.Controls.Add(this.btn_ventas);
@@ -93,21 +93,22 @@
             this.button5.Text = "Etc";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // btn_Facturacion
+            // btn_Logs
             // 
-            this.btn_Facturacion.FlatAppearance.BorderSize = 0;
-            this.btn_Facturacion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btn_Facturacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Facturacion.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Facturacion.ForeColor = System.Drawing.Color.White;
-            this.btn_Facturacion.Image = ((System.Drawing.Image)(resources.GetObject("btn_Facturacion.Image")));
-            this.btn_Facturacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Facturacion.Location = new System.Drawing.Point(0, 318);
-            this.btn_Facturacion.Name = "btn_Facturacion";
-            this.btn_Facturacion.Size = new System.Drawing.Size(250, 49);
-            this.btn_Facturacion.TabIndex = 5;
-            this.btn_Facturacion.Text = "Facturacion";
-            this.btn_Facturacion.UseVisualStyleBackColor = true;
+            this.btn_Logs.FlatAppearance.BorderSize = 0;
+            this.btn_Logs.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_Logs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Logs.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Logs.ForeColor = System.Drawing.Color.White;
+            this.btn_Logs.Image = ((System.Drawing.Image)(resources.GetObject("btn_Logs.Image")));
+            this.btn_Logs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Logs.Location = new System.Drawing.Point(0, 318);
+            this.btn_Logs.Name = "btn_Logs";
+            this.btn_Logs.Size = new System.Drawing.Size(250, 49);
+            this.btn_Logs.TabIndex = 5;
+            this.btn_Logs.Text = "Logs";
+            this.btn_Logs.UseVisualStyleBackColor = true;
+            this.btn_Logs.Click += new System.EventHandler(this.btn_Logs_Click);
             // 
             // btn_Usuarios
             // 
@@ -358,7 +359,7 @@
         private Button btn_productos;
         private PictureBox pictureBox2;
         private Button button5;
-        private Button btn_Facturacion;
+        private Button btn_Logs;
         private Button btn_Usuarios;
         private Button btn_Clientes;
         private Button btn_ventas;

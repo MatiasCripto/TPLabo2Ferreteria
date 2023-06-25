@@ -58,6 +58,7 @@
             this.btn_ImporteTotal = new System.Windows.Forms.Button();
             this.btn_Salir = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lbl_cerrar = new System.Windows.Forms.Label();
             this.pnl_menuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_stock)).BeginInit();
@@ -77,7 +78,7 @@
             this.pnl_menuVertical.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnl_menuVertical.Location = new System.Drawing.Point(0, 0);
             this.pnl_menuVertical.Name = "pnl_menuVertical";
-            this.pnl_menuVertical.Size = new System.Drawing.Size(250, 707);
+            this.pnl_menuVertical.Size = new System.Drawing.Size(250, 450);
             this.pnl_menuVertical.TabIndex = 5;
             // 
             // btn_Guardar
@@ -176,7 +177,7 @@
             this.dgv_stock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_stock.EnableHeadersVisualStyles = false;
             this.dgv_stock.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgv_stock.Location = new System.Drawing.Point(255, 175);
+            this.dgv_stock.Location = new System.Drawing.Point(246, 113);
             this.dgv_stock.Name = "dgv_stock";
             this.dgv_stock.ReadOnly = true;
             this.dgv_stock.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -197,7 +198,7 @@
             this.dgv_stock.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_stock.RowTemplate.Height = 25;
             this.dgv_stock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_stock.Size = new System.Drawing.Size(381, 226);
+            this.dgv_stock.Size = new System.Drawing.Size(381, 86);
             this.dgv_stock.TabIndex = 7;
             // 
             // lbl_TituloProductos
@@ -233,7 +234,7 @@
             this.dgv_venta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_venta.EnableHeadersVisualStyles = false;
             this.dgv_venta.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgv_venta.Location = new System.Drawing.Point(642, 175);
+            this.dgv_venta.Location = new System.Drawing.Point(633, 166);
             this.dgv_venta.Name = "dgv_venta";
             this.dgv_venta.ReadOnly = true;
             this.dgv_venta.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -254,7 +255,7 @@
             this.dgv_venta.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_venta.RowTemplate.Height = 25;
             this.dgv_venta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_venta.Size = new System.Drawing.Size(381, 226);
+            this.dgv_venta.Size = new System.Drawing.Size(381, 99);
             this.dgv_venta.TabIndex = 8;
             this.dgv_venta.Visible = false;
             // 
@@ -273,7 +274,7 @@
             this.grpbx_AgregarProducto.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.grpbx_AgregarProducto.Location = new System.Drawing.Point(721, 3);
             this.grpbx_AgregarProducto.Name = "grpbx_AgregarProducto";
-            this.grpbx_AgregarProducto.Size = new System.Drawing.Size(277, 157);
+            this.grpbx_AgregarProducto.Size = new System.Drawing.Size(258, 157);
             this.grpbx_AgregarProducto.TabIndex = 9;
             this.grpbx_AgregarProducto.TabStop = false;
             this.grpbx_AgregarProducto.Text = "Agregar producto";
@@ -356,7 +357,7 @@
             this.lbl_total.AutoSize = true;
             this.lbl_total.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl_total.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbl_total.Location = new System.Drawing.Point(440, 648);
+            this.lbl_total.Location = new System.Drawing.Point(440, 391);
             this.lbl_total.Name = "lbl_total";
             this.lbl_total.Size = new System.Drawing.Size(0, 30);
             this.lbl_total.TabIndex = 10;
@@ -372,7 +373,7 @@
             this.btn_ImporteTotal.ForeColor = System.Drawing.Color.White;
             this.btn_ImporteTotal.Image = ((System.Drawing.Image)(resources.GetObject("btn_ImporteTotal.Image")));
             this.btn_ImporteTotal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ImporteTotal.Location = new System.Drawing.Point(253, 646);
+            this.btn_ImporteTotal.Location = new System.Drawing.Point(253, 389);
             this.btn_ImporteTotal.Name = "btn_ImporteTotal";
             this.btn_ImporteTotal.Size = new System.Drawing.Size(156, 49);
             this.btn_ImporteTotal.TabIndex = 11;
@@ -392,7 +393,7 @@
             this.btn_Salir.ForeColor = System.Drawing.Color.White;
             this.btn_Salir.Image = ((System.Drawing.Image)(resources.GetObject("btn_Salir.Image")));
             this.btn_Salir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Salir.Location = new System.Drawing.Point(586, 648);
+            this.btn_Salir.Location = new System.Drawing.Point(586, 391);
             this.btn_Salir.Name = "btn_Salir";
             this.btn_Salir.Size = new System.Drawing.Size(96, 49);
             this.btn_Salir.TabIndex = 12;
@@ -424,7 +425,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridView1.Location = new System.Drawing.Point(253, 407);
+            this.dataGridView1.Location = new System.Drawing.Point(266, 280);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -445,23 +446,38 @@
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(383, 233);
+            this.dataGridView1.Size = new System.Drawing.Size(383, 103);
             this.dataGridView1.TabIndex = 13;
             this.dataGridView1.Visible = false;
+            // 
+            // lbl_cerrar
+            // 
+            this.lbl_cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_cerrar.AutoSize = true;
+            this.lbl_cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_cerrar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_cerrar.ForeColor = System.Drawing.Color.Gray;
+            this.lbl_cerrar.Location = new System.Drawing.Point(986, 9);
+            this.lbl_cerrar.Name = "lbl_cerrar";
+            this.lbl_cerrar.Size = new System.Drawing.Size(18, 20);
+            this.lbl_cerrar.TabIndex = 11;
+            this.lbl_cerrar.Text = "X";
+            this.lbl_cerrar.Click += new System.EventHandler(this.lbl_cerrar_Click);
             // 
             // FormVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(200)))));
-            this.ClientSize = new System.Drawing.Size(1031, 707);
+            this.ClientSize = new System.Drawing.Size(1012, 450);
+            this.Controls.Add(this.dgv_venta);
+            this.Controls.Add(this.dgv_stock);
+            this.Controls.Add(this.lbl_cerrar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_Salir);
             this.Controls.Add(this.btn_ImporteTotal);
             this.Controls.Add(this.lbl_total);
             this.Controls.Add(this.grpbx_AgregarProducto);
-            this.Controls.Add(this.dgv_venta);
-            this.Controls.Add(this.dgv_stock);
             this.Controls.Add(this.lbl_TituloProductos);
             this.Controls.Add(this.pnl_menuVertical);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -502,5 +518,6 @@
         private Label lbl_fechaActual;
         private Label lbl_fecha;
         private DataGridView dataGridView1;
+        private Label lbl_cerrar;
     }
 }

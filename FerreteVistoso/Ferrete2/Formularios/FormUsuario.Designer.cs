@@ -33,12 +33,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_menuVertical = new System.Windows.Forms.Panel();
-            this.btn_ExportarCsv = new System.Windows.Forms.Button();
-            this.btn_ExportarJson = new System.Windows.Forms.Button();
+            this.btn_Guardar = new System.Windows.Forms.Button();
             this.btn_Eliminar = new System.Windows.Forms.Button();
             this.btn_Modificar = new System.Windows.Forms.Button();
             this.btn_agregar = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btn_ExportarCsv = new System.Windows.Forms.Button();
+            this.btn_ExportarJson = new System.Windows.Forms.Button();
             this.gpbx_modificarUsuario = new System.Windows.Forms.GroupBox();
             this.cbx_ModificarRole = new System.Windows.Forms.ComboBox();
             this.btn_CancelarModificado = new System.Windows.Forms.Button();
@@ -72,8 +73,7 @@
             // pnl_menuVertical
             // 
             this.pnl_menuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
-            this.pnl_menuVertical.Controls.Add(this.btn_ExportarCsv);
-            this.pnl_menuVertical.Controls.Add(this.btn_ExportarJson);
+            this.pnl_menuVertical.Controls.Add(this.btn_Guardar);
             this.pnl_menuVertical.Controls.Add(this.btn_Eliminar);
             this.pnl_menuVertical.Controls.Add(this.btn_Modificar);
             this.pnl_menuVertical.Controls.Add(this.btn_agregar);
@@ -84,39 +84,22 @@
             this.pnl_menuVertical.Size = new System.Drawing.Size(250, 450);
             this.pnl_menuVertical.TabIndex = 5;
             // 
-            // btn_ExportarCsv
+            // btn_Guardar
             // 
-            this.btn_ExportarCsv.FlatAppearance.BorderSize = 0;
-            this.btn_ExportarCsv.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btn_ExportarCsv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ExportarCsv.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_ExportarCsv.ForeColor = System.Drawing.Color.White;
-            this.btn_ExportarCsv.Image = ((System.Drawing.Image)(resources.GetObject("btn_ExportarCsv.Image")));
-            this.btn_ExportarCsv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ExportarCsv.Location = new System.Drawing.Point(0, 317);
-            this.btn_ExportarCsv.Name = "btn_ExportarCsv";
-            this.btn_ExportarCsv.Size = new System.Drawing.Size(250, 49);
-            this.btn_ExportarCsv.TabIndex = 5;
-            this.btn_ExportarCsv.Text = "Exportar csv";
-            this.btn_ExportarCsv.UseVisualStyleBackColor = true;
-            this.btn_ExportarCsv.Click += new System.EventHandler(this.btn_ExportarCsv_Click);
-            // 
-            // btn_ExportarJson
-            // 
-            this.btn_ExportarJson.FlatAppearance.BorderSize = 0;
-            this.btn_ExportarJson.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btn_ExportarJson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ExportarJson.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_ExportarJson.ForeColor = System.Drawing.Color.White;
-            this.btn_ExportarJson.Image = ((System.Drawing.Image)(resources.GetObject("btn_ExportarJson.Image")));
-            this.btn_ExportarJson.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ExportarJson.Location = new System.Drawing.Point(0, 262);
-            this.btn_ExportarJson.Name = "btn_ExportarJson";
-            this.btn_ExportarJson.Size = new System.Drawing.Size(250, 49);
-            this.btn_ExportarJson.TabIndex = 4;
-            this.btn_ExportarJson.Text = "Exportar json";
-            this.btn_ExportarJson.UseVisualStyleBackColor = true;
-            this.btn_ExportarJson.Click += new System.EventHandler(this.btn_Guardar_Click);
+            this.btn_Guardar.FlatAppearance.BorderSize = 0;
+            this.btn_Guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Guardar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Guardar.ForeColor = System.Drawing.Color.White;
+            this.btn_Guardar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Guardar.Image")));
+            this.btn_Guardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Guardar.Location = new System.Drawing.Point(-3, 261);
+            this.btn_Guardar.Name = "btn_Guardar";
+            this.btn_Guardar.Size = new System.Drawing.Size(250, 49);
+            this.btn_Guardar.TabIndex = 5;
+            this.btn_Guardar.Text = "Informes";
+            this.btn_Guardar.UseVisualStyleBackColor = true;
+            this.btn_Guardar.Click += new System.EventHandler(this.btn_Informes_Click);
             // 
             // btn_Eliminar
             // 
@@ -177,6 +160,40 @@
             this.pictureBox2.Size = new System.Drawing.Size(244, 60);
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
+            // 
+            // btn_ExportarCsv
+            // 
+            this.btn_ExportarCsv.FlatAppearance.BorderSize = 0;
+            this.btn_ExportarCsv.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_ExportarCsv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ExportarCsv.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_ExportarCsv.ForeColor = System.Drawing.Color.White;
+            this.btn_ExportarCsv.Image = ((System.Drawing.Image)(resources.GetObject("btn_ExportarCsv.Image")));
+            this.btn_ExportarCsv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_ExportarCsv.Location = new System.Drawing.Point(487, 415);
+            this.btn_ExportarCsv.Name = "btn_ExportarCsv";
+            this.btn_ExportarCsv.Size = new System.Drawing.Size(190, 49);
+            this.btn_ExportarCsv.TabIndex = 5;
+            this.btn_ExportarCsv.Text = "Exportar csv";
+            this.btn_ExportarCsv.UseVisualStyleBackColor = true;
+            this.btn_ExportarCsv.Click += new System.EventHandler(this.btn_ExportarCsv_Click);
+            // 
+            // btn_ExportarJson
+            // 
+            this.btn_ExportarJson.FlatAppearance.BorderSize = 0;
+            this.btn_ExportarJson.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_ExportarJson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ExportarJson.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_ExportarJson.ForeColor = System.Drawing.Color.White;
+            this.btn_ExportarJson.Image = ((System.Drawing.Image)(resources.GetObject("btn_ExportarJson.Image")));
+            this.btn_ExportarJson.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_ExportarJson.Location = new System.Drawing.Point(256, 415);
+            this.btn_ExportarJson.Name = "btn_ExportarJson";
+            this.btn_ExportarJson.Size = new System.Drawing.Size(202, 49);
+            this.btn_ExportarJson.TabIndex = 4;
+            this.btn_ExportarJson.Text = "Exportar json";
+            this.btn_ExportarJson.UseVisualStyleBackColor = true;
+            this.btn_ExportarJson.Click += new System.EventHandler(this.btn_ExportarJson_Click);
             // 
             // gpbx_modificarUsuario
             // 
@@ -460,7 +477,7 @@
             this.dgv_Usuarios.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_Usuarios.RowTemplate.Height = 25;
             this.dgv_Usuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Usuarios.Size = new System.Drawing.Size(381, 381);
+            this.dgv_Usuarios.Size = new System.Drawing.Size(381, 209);
             this.dgv_Usuarios.TabIndex = 11;
             // 
             // lbl_cerrar
@@ -494,6 +511,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(200)))));
             this.ClientSize = new System.Drawing.Size(1012, 450);
+            this.Controls.Add(this.btn_ExportarCsv);
+            this.Controls.Add(this.btn_ExportarJson);
             this.Controls.Add(this.gpbx_modificarUsuario);
             this.Controls.Add(this.txb_Buscar);
             this.Controls.Add(this.lbl_Buscar);
@@ -550,5 +569,6 @@
         private ComboBox cbx_ModificarRole;
         private ComboBox cbx_AsignarRole;
         private Button btn_ExportarCsv;
+        private Button btn_Guardar;
     }
 }
