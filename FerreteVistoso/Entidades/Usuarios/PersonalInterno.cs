@@ -53,7 +53,7 @@ namespace Logica.Usuarios
         /// <summary>
         /// Constructor por defecto de la clase PersonalInterno.
         /// </summary>
-        public PersonalInterno()
+        public PersonalInterno(string v)
         {
 
         }

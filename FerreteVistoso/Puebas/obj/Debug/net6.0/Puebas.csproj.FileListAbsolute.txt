@@ -8,9 +8,6 @@ C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Puebas\bin\Debug\net6.0\Puebas.d
 C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Puebas\bin\Debug\net6.0\Puebas.runtimeconfig.json
 C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Puebas\bin\Debug\net6.0\Puebas.dll
 C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Puebas\bin\Debug\net6.0\Puebas.pdb
-C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Puebas\bin\Debug\net6.0\BouncyCastle.Crypto.dll
-C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Puebas\bin\Debug\net6.0\itextsharp.dll
-C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Puebas\bin\Debug\net6.0\itextsharp.xmlworker.dll
 C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Puebas\bin\Debug\net6.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
 C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Puebas\bin\Debug\net6.0\Microsoft.TestPlatform.CoreUtilities.dll
 C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Puebas\bin\Debug\net6.0\Microsoft.TestPlatform.PlatformAbstractions.dll

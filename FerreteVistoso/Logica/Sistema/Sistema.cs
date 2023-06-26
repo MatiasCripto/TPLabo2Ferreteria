@@ -14,7 +14,7 @@ namespace Logica.Sistema
        /// <summary>
         /// Obtiene o establece el usuario actualmente logueado en el sistema.
         /// </summary>
-        public static string UsuarioLogeado { get; set; }
+        public static string UsuarioLogueado { get; set; }
 
         /// <summary>
         /// Evento que se dispara cuando el precio del dólar cambia.
@@ -36,10 +36,16 @@ namespace Logica.Sistema
         private List<decimal> ultimosValores = new List<decimal>();
 
         private UsuarioDB<Persona> usuarioDB;
+        private PersonalInterno usuarioLogueado1;
 
         public Sistema()
         {
             usuarioDB = new UsuarioDB<Persona>();
+        }
+
+        public Sistema(PersonalInterno usuarioLogueado1)
+        {
+            this.usuarioLogueado1 = usuarioLogueado1;
         }
 
         /// <summary>

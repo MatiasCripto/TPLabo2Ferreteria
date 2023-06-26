@@ -123,7 +123,7 @@ namespace Ferrete2.Formularios
             try
             {
                 Graphics g = e.Graphics;
-                int barHeight = (panel1.Height - 40) / 20; // Altura de las barras (ajustada para incluir los valores)
+                int barWidth = (panel1.Width - 40) / 20; // Ancho de las barras (ajustado para incluir los valores)
 
                 // Añadir verificación de null para ultimosValores
                 if (ultimosValores == null)
@@ -135,31 +135,31 @@ namespace Ferrete2.Formularios
 
                 Color[] colors = new Color[]
                 {
-                    Color.FromArgb(255, 255, 128, 128),
-                    Color.FromArgb(255, 128, 255, 128),
-                    Color.FromArgb(255, 128, 128, 255),
-                    Color.FromArgb(255, 255, 255, 128),
-                    Color.FromArgb(255, 255, 128, 255),
-                    Color.FromArgb(255, 128, 255, 255),
-                    Color.FromArgb(255, 192, 192, 192),
-                    Color.FromArgb(255, 128, 0, 0),
-                    Color.FromArgb(255, 0, 128, 0),
-                    Color.FromArgb(255, 0, 0, 128),
-                    Color.FromArgb(255, 128, 128, 0),
-                    Color.FromArgb(255, 128, 0, 128),
-                    Color.FromArgb(255, 0, 128, 128),
-                    Color.FromArgb(255, 255, 0, 0),
-                    Color.FromArgb(255, 0, 255, 0),
-                    Color.FromArgb(255, 0, 0, 255),
-                    Color.FromArgb(255, 128, 128, 255),
-                    Color.FromArgb(255, 255, 128, 128),
-                    Color.FromArgb(255, 128, 255, 128),
-                    Color.FromArgb(255, 128, 128, 128) // colores omitidos por brevedad
+            Color.FromArgb(255, 255, 128, 128),
+            Color.FromArgb(255, 128, 255, 128),
+            Color.FromArgb(255, 128, 128, 255),
+            Color.FromArgb(255, 255, 255, 128),
+            Color.FromArgb(255, 255, 128, 255),
+            Color.FromArgb(255, 128, 255, 255),
+            Color.FromArgb(255, 192, 192, 192),
+            Color.FromArgb(255, 128, 0, 0),
+            Color.FromArgb(255, 0, 128, 0),
+            Color.FromArgb(255, 0, 0, 128),
+            Color.FromArgb(255, 128, 128, 0),
+            Color.FromArgb(255, 128, 0, 128),
+            Color.FromArgb(255, 0, 128, 128),
+            Color.FromArgb(255, 255, 0, 0),
+            Color.FromArgb(255, 0, 255, 0),
+            Color.FromArgb(255, 0, 0, 255),
+            Color.FromArgb(255, 128, 128, 255),
+            Color.FromArgb(255, 255, 128, 128),
+            Color.FromArgb(255, 128, 255, 128),
+            Color.FromArgb(255, 128, 128, 128) // colores omitidos por brevedad
                 };
 
                 using (SolidBrush headerBrush = new SolidBrush(Color.White))
                 {
-                    g.DrawString("Valor Dólar", Font, headerBrush, 0, 10);
+                    g.DrawString("Valor Dólar", Font, headerBrush, 0, 15);
                 }
 
                 // Dibuja las barras del gráfico con colores pastel
@@ -168,9 +168,9 @@ namespace Ferrete2.Formularios
                     // Calcular el valor proporcional de la barra
                     decimal valor = ultimosValores[i];
                     decimal porcentaje = (valor - minDolar) / (maxDolar - minDolar);
-                    int barWidth = (int)(porcentaje * (panel1.Width - 100)); // Ancho de las barras (ajustado para incluir los valores)
-                    int barX = 80;
-                    int barY = ((ultimosValores.Length - i - 1) * (barHeight + 10));
+                    int barHeight = (int)(porcentaje * (panel1.Height - 100)); // Altura de las barras (ajustada para incluir los valores)
+                    int barX = ((i + 1) * (barWidth + 10));
+                    int barY = panel1.Height - 80 - barHeight;
 
                     using (SolidBrush brush = new SolidBrush(colors[i % colors.Length]))
                     {
@@ -181,29 +181,29 @@ namespace Ferrete2.Formularios
                 // Dibuja el eje Y
                 using (Pen axisPen = new Pen(Color.White))
                 {
-                    g.DrawLine(axisPen, 80, 20, 80, panel1.Height - 20);
+                    g.DrawLine(axisPen, 20, panel1.Height - 80, 20, 20);
                 }
 
                 // Dibuja el eje X
                 using (Pen axisPen = new Pen(Color.White))
                 {
-                    g.DrawLine(axisPen, 80, panel1.Height - 20, panel1.Width - 20, panel1.Height - 20);
+                    g.DrawLine(axisPen, 20, panel1.Height - 80, panel1.Width - 20, panel1.Height - 80);
                 }
 
-                // Ajustar la longitud del eje X
-                int ejeXLength = panel1.Width - 120;
-
                 // Ajustar la longitud del eje Y
-                int ejeYLength = panel1.Height - 60;
+                int ejeYLength = panel1.Height - 120;
 
-                // Dibuja etiquetas en el eje X
+                // Ajustar la longitud del eje X
+                int ejeXLength = panel1.Width - 60;
+
+                // Dibuja etiquetas en el eje Y
                 int[] etiquetas = new int[] { 500, 600, 700, 800, 900, 1000 };
                 for (int i = 0; i < etiquetas.Length; i++)
                 {
                     decimal valorEtiqueta = etiquetas[i];
                     decimal porcentaje = (valorEtiqueta - minDolar) / (maxDolar - minDolar);
-                    int x = 80 + (int)(porcentaje * ejeXLength);
-                    int y = panel1.Height - 15;
+                    int x = 5;
+                    int y = panel1.Height - 80 - (int)(porcentaje * ejeYLength);
 
                     using (SolidBrush labelBrush = new SolidBrush(Color.White))
                     {
@@ -216,6 +216,7 @@ namespace Ferrete2.Formularios
                 MessageBox.Show("Error al dibujar el gráfico: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         /// <summary>
         /// Maneja el evento ValueChanged del DateTimePicker para filtrar los registros por fecha.

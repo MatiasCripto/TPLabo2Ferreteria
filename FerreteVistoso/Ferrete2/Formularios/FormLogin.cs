@@ -63,7 +63,7 @@ namespace Ferrete2.Formularios
                         if (usuario.GetType() == typeof(PersonalInterno))
                         {
                             usuario = Sistema.ObtenerUsuarioLogueado();
-                            Sistema.UsuarioLogeado = usuario.Nombre;
+                            Sistema.UsuarioLogueado = usuario.Nombre;
                             Sistema.RegistrarMovimientos("Inicio sesión");
                             FormPrincipal frmPrincipal = new FormPrincipal();
                             frmPrincipal.Show();

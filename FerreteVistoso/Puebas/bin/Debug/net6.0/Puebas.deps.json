@@ -20,37 +20,7 @@
           "Puebas.dll": {}
         }
       },
-      "BouncyCastle/1.8.9": {
-        "runtime": {
-          "lib/BouncyCastle.Crypto.dll": {
-            "assemblyVersion": "1.8.9.0",
-            "fileVersion": "1.8.20343.1"
-          }
-        }
-      },
       "coverlet.collector/3.1.2": {},
-      "iTextSharp/5.5.13.3": {
-        "dependencies": {
-          "BouncyCastle": "1.8.9"
-        },
-        "runtime": {
-          "lib/itextsharp.dll": {
-            "assemblyVersion": "5.5.13.3",
-            "fileVersion": "5.5.13.3"
-          }
-        }
-      },
-      "itextsharp.xmlworker/5.5.13.3": {
-        "dependencies": {
-          "iTextSharp": "5.5.13.3"
-        },
-        "runtime": {
-          "lib/itextsharp.xmlworker.dll": {
-            "assemblyVersion": "5.5.13.3",
-            "fileVersion": "5.5.13.3"
-          }
-        }
-      },
       "Microsoft.CodeCoverage/17.3.2": {
         "runtime": {
           "lib/netcoreapp1.0/Microsoft.VisualStudio.CodeCoverage.Shim.dll": {
@@ -795,9 +765,7 @@
           "Entidades": "1.0.0",
           "MSTest.TestAdapter": "3.0.4",
           "MSTest.TestFramework": "3.0.4",
-          "System.Data.SqlClient": "4.8.5",
-          "iTextSharp": "5.5.13.3",
-          "itextsharp.xmlworker": "5.5.13.3"
+          "System.Data.SqlClient": "4.8.5"
         },
         "runtime": {
           "Datos.dll": {}
@@ -806,9 +774,7 @@
       "Entidades/1.0.0": {
         "dependencies": {
           "MSTest.TestAdapter": "3.0.4",
-          "MSTest.TestFramework": "3.0.4",
-          "iTextSharp": "5.5.13.3",
-          "itextsharp.xmlworker": "5.5.13.3"
+          "MSTest.TestFramework": "3.0.4"
         },
         "runtime": {
           "Entidades.dll": {}
@@ -819,9 +785,7 @@
           "Datos": "1.0.0",
           "Entidades": "1.0.0",
           "MSTest.TestAdapter": "3.0.4",
-          "MSTest.TestFramework": "3.0.4",
-          "iTextSharp": "5.5.13.3",
-          "itextsharp.xmlworker": "5.5.13.3"
+          "MSTest.TestFramework": "3.0.4"
         },
         "runtime": {
           "Logica.dll": {}
@@ -843,33 +807,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "BouncyCastle/1.8.9": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-axnBgvdD5n+FnEG6efk/tfKuMFru7R/EoISH9zjh319yb3HD24TEHSAbNN/lTRT2ulOGRxDgOsCjkuk08iwWPg==",
-      "path": "bouncycastle/1.8.9",
-      "hashPath": "bouncycastle.1.8.9.nupkg.sha512"
-    },
     "coverlet.collector/3.1.2": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-wuLDIDKD5XMt0A7lE31JPenT7QQwZPFkP5rRpdJeblyXZ9MGLI8rYjvm5fvAKln+2/X+4IxxQDxBtwdrqKNLZw==",
       "path": "coverlet.collector/3.1.2",
       "hashPath": "coverlet.collector.3.1.2.nupkg.sha512"
-    },
-    "iTextSharp/5.5.13.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-vtnMhTEJdZFCkLqaQLjD8aqTBIVKHPrSFuSXnxbLEJlvE/j/l88fvG9wtsejXTmhtErMo0lA9T2LdfdfbwplYw==",
-      "path": "itextsharp/5.5.13.3",
-      "hashPath": "itextsharp.5.5.13.3.nupkg.sha512"
-    },
-    "itextsharp.xmlworker/5.5.13.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-tRxeolUZl5863E/IHVb+5riZwsHw8uNiP0uku0gO1nktR2M9DCJS+U9EoLV3CFr0VuxoxQF/sLOffa8BP0hJzg==",
-      "path": "itextsharp.xmlworker/5.5.13.3",
-      "hashPath": "itextsharp.xmlworker.5.5.13.3.nupkg.sha512"
     },
     "Microsoft.CodeCoverage/17.3.2": {
       "type": "package",
