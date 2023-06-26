@@ -45,6 +45,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.lbl_cerrar = new System.Windows.Forms.Label();
             this.pnl_menuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Movimientos)).BeginInit();
@@ -229,12 +230,27 @@
             this.label2.TabIndex = 17;
             this.label2.Text = "Filtrar por usuario";
             // 
+            // lbl_cerrar
+            // 
+            this.lbl_cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_cerrar.AutoSize = true;
+            this.lbl_cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_cerrar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_cerrar.ForeColor = System.Drawing.Color.Gray;
+            this.lbl_cerrar.Location = new System.Drawing.Point(982, 9);
+            this.lbl_cerrar.Name = "lbl_cerrar";
+            this.lbl_cerrar.Size = new System.Drawing.Size(18, 20);
+            this.lbl_cerrar.TabIndex = 34;
+            this.lbl_cerrar.Text = "X";
+            this.lbl_cerrar.Click += new System.EventHandler(this.lbl_cerrar_Click);
+            // 
             // FormLogs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(200)))));
             this.ClientSize = new System.Drawing.Size(1012, 511);
+            this.Controls.Add(this.lbl_cerrar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePicker1);
@@ -269,5 +285,6 @@
         private DateTimePicker dateTimePicker1;
         private Label label1;
         private Label label2;
+        private Label lbl_cerrar;
     }
 }

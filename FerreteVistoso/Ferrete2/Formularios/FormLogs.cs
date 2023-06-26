@@ -236,6 +236,11 @@ namespace Ferrete2.Formularios
                 MessageBox.Show("Error al filtrar los registros: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void lbl_cerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 

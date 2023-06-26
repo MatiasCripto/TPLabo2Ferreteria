@@ -439,6 +439,16 @@ namespace Ferrete2.Formularios
                 }
             }
         }
+
+        private void btn_CancelarModificado_Click(object sender, EventArgs e)
+        {
+            gpbx_modificarUsuario.Visible = false;
+        }
+
+        private void btn_CancelarGb_Click(object sender, EventArgs e)
+        {
+            grpbx_AgregarUsuario.Visible = false;
+        }
     }
 }
 

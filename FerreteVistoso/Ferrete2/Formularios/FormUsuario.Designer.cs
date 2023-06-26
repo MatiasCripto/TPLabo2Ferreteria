@@ -206,6 +206,7 @@
             this.btn_CancelarModificado.Text = "Cancelar";
             this.btn_CancelarModificado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_CancelarModificado.UseVisualStyleBackColor = true;
+            this.btn_CancelarModificado.Click += new System.EventHandler(this.btn_CancelarModificado_Click);
             // 
             // btn_GuardarModificado
             // 
@@ -341,6 +342,7 @@
             this.btn_CancelarGb.Text = "Cancelar";
             this.btn_CancelarGb.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_CancelarGb.UseVisualStyleBackColor = true;
+            this.btn_CancelarGb.Click += new System.EventHandler(this.btn_CancelarGb_Click);
             // 
             // btn_GuardarGb
             // 
