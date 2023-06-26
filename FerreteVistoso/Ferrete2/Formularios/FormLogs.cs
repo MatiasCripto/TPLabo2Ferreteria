@@ -242,6 +242,7 @@ namespace Ferrete2.Formularios
         {
             this.Close();
         }
+     
     }
 }
 

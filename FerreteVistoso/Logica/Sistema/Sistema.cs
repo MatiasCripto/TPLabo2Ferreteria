@@ -82,17 +82,14 @@ namespace Logica.Sistema
                 Persona usuarioEncontrado = usuarios.FirstOrDefault(u => u.Usuario == usuario && u.Contrasenia == contraseña);
 
                 if (usuarioEncontrado != null)
-                {
-                    Console.WriteLine("Inicio de sesión exitoso");
+                {                    
                     return true;
                 }
-
-                Console.WriteLine("Nombre de usuario o contraseña incorrectos");
+                
                 return false;
             }
             catch (Exception ex)
-            {
-                Console.WriteLine($"Error al iniciar sesión: {ex.Message}");
+            {               
                 return false;
             }
         }
