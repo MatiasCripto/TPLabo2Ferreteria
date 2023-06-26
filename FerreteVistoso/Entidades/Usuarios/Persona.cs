@@ -89,6 +89,13 @@ namespace Logica.Usuarios
 
         }
         public abstract decimal ObtenerDescuento(decimal totalVenta);
-       
+
+        /// <summary>
+        /// Obtiene el descuento aplicable a una venta en función del monto total de la misma.
+        /// </summary>
+        /// <param name="totalVenta">Monto total de la venta.</param>
+        /// <returns>Descuento aplicable a la venta.</returns>
+
+
     }
 }

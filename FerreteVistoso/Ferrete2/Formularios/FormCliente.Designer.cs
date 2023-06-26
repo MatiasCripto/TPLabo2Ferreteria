@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCliente));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_menuVertical = new System.Windows.Forms.Panel();
+            this.btn_Guardar = new System.Windows.Forms.Button();
             this.btn_Eliminar = new System.Windows.Forms.Button();
             this.btn_agregar = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -55,7 +56,9 @@
             this.dgv_Clientes = new System.Windows.Forms.DataGridView();
             this.lbl_TituloUsuario = new System.Windows.Forms.Label();
             this.lbl_cerrar = new System.Windows.Forms.Label();
-            this.btn_Guardar = new System.Windows.Forms.Button();
+            this.btn_ExportarPDF = new System.Windows.Forms.Button();
+            this.btn_ExportarCsv = new System.Windows.Forms.Button();
+            this.btn_ExportarJson = new System.Windows.Forms.Button();
             this.pnl_menuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.grpbx_AgregarCliente.SuspendLayout();
@@ -73,6 +76,23 @@
             this.pnl_menuVertical.Name = "pnl_menuVertical";
             this.pnl_menuVertical.Size = new System.Drawing.Size(250, 621);
             this.pnl_menuVertical.TabIndex = 6;
+            // 
+            // btn_Guardar
+            // 
+            this.btn_Guardar.FlatAppearance.BorderSize = 0;
+            this.btn_Guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Guardar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Guardar.ForeColor = System.Drawing.Color.White;
+            this.btn_Guardar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Guardar.Image")));
+            this.btn_Guardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Guardar.Location = new System.Drawing.Point(0, 204);
+            this.btn_Guardar.Name = "btn_Guardar";
+            this.btn_Guardar.Size = new System.Drawing.Size(250, 49);
+            this.btn_Guardar.TabIndex = 5;
+            this.btn_Guardar.Text = "Informes";
+            this.btn_Guardar.UseVisualStyleBackColor = true;
+            this.btn_Guardar.Click += new System.EventHandler(this.btn_Guardar_Click);
             // 
             // btn_Eliminar
             // 
@@ -125,6 +145,7 @@
             this.txb_Buscar.Name = "txb_Buscar";
             this.txb_Buscar.Size = new System.Drawing.Size(249, 23);
             this.txb_Buscar.TabIndex = 32;
+            this.txb_Buscar.TextChanged += new System.EventHandler(this.txb_Buscar_TextChanged_1);
             // 
             // lbl_Buscar
             // 
@@ -302,14 +323,14 @@
             this.dgv_Clientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Clientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_Clientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(200)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(200)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Clientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(200)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(200)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Clientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgv_Clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_Clientes.EnableHeadersVisualStyles = false;
             this.dgv_Clientes.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -317,24 +338,24 @@
             this.dgv_Clientes.Name = "dgv_Clientes";
             this.dgv_Clientes.ReadOnly = true;
             this.dgv_Clientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(200)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(200)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Clientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(200)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(200)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Clientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgv_Clientes.RowHeadersVisible = false;
             this.dgv_Clientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(200)))));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(200)))));
-            this.dgv_Clientes.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(200)))));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(200)))));
+            this.dgv_Clientes.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgv_Clientes.RowTemplate.Height = 25;
             this.dgv_Clientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Clientes.Size = new System.Drawing.Size(381, 522);
+            this.dgv_Clientes.Size = new System.Drawing.Size(381, 329);
             this.dgv_Clientes.TabIndex = 29;
             // 
             // lbl_TituloUsuario
@@ -362,21 +383,62 @@
             this.lbl_cerrar.Text = "X";
             this.lbl_cerrar.Click += new System.EventHandler(this.lbl_cerrar_Click_1);
             // 
-            // btn_Guardar
+            // btn_ExportarPDF
             // 
-            this.btn_Guardar.FlatAppearance.BorderSize = 0;
-            this.btn_Guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Guardar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Guardar.ForeColor = System.Drawing.Color.White;
-            this.btn_Guardar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Guardar.Image")));
-            this.btn_Guardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Guardar.Location = new System.Drawing.Point(0, 204);
-            this.btn_Guardar.Name = "btn_Guardar";
-            this.btn_Guardar.Size = new System.Drawing.Size(250, 49);
-            this.btn_Guardar.TabIndex = 5;
-            this.btn_Guardar.Text = "Informes";
-            this.btn_Guardar.UseVisualStyleBackColor = true;
+            this.btn_ExportarPDF.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_ExportarPDF.FlatAppearance.BorderSize = 0;
+            this.btn_ExportarPDF.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_ExportarPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ExportarPDF.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_ExportarPDF.ForeColor = System.Drawing.Color.White;
+            this.btn_ExportarPDF.Image = ((System.Drawing.Image)(resources.GetObject("btn_ExportarPDF.Image")));
+            this.btn_ExportarPDF.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_ExportarPDF.Location = new System.Drawing.Point(705, 542);
+            this.btn_ExportarPDF.Name = "btn_ExportarPDF";
+            this.btn_ExportarPDF.Size = new System.Drawing.Size(250, 49);
+            this.btn_ExportarPDF.TabIndex = 34;
+            this.btn_ExportarPDF.Text = "Exportar PDF";
+            this.btn_ExportarPDF.UseVisualStyleBackColor = true;
+            this.btn_ExportarPDF.Click += new System.EventHandler(this.btn_ExportarPDF_Click);
+            // 
+            // btn_ExportarCsv
+            // 
+            this.btn_ExportarCsv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_ExportarCsv.FlatAppearance.BorderSize = 0;
+            this.btn_ExportarCsv.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_ExportarCsv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ExportarCsv.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_ExportarCsv.ForeColor = System.Drawing.Color.White;
+            this.btn_ExportarCsv.Image = ((System.Drawing.Image)(resources.GetObject("btn_ExportarCsv.Image")));
+            this.btn_ExportarCsv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_ExportarCsv.Location = new System.Drawing.Point(499, 542);
+            this.btn_ExportarCsv.Name = "btn_ExportarCsv";
+            this.btn_ExportarCsv.Size = new System.Drawing.Size(190, 49);
+            this.btn_ExportarCsv.TabIndex = 36;
+            this.btn_ExportarCsv.Text = "Exportar CSV";
+            this.btn_ExportarCsv.UseVisualStyleBackColor = true;
+            this.btn_ExportarCsv.Click += new System.EventHandler(this.btn_ExportarCsv_Click);
+            // 
+            // btn_ExportarJson
+            // 
+            this.btn_ExportarJson.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_ExportarJson.FlatAppearance.BorderSize = 0;
+            this.btn_ExportarJson.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btn_ExportarJson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ExportarJson.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_ExportarJson.ForeColor = System.Drawing.Color.White;
+            this.btn_ExportarJson.Image = ((System.Drawing.Image)(resources.GetObject("btn_ExportarJson.Image")));
+            this.btn_ExportarJson.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_ExportarJson.Location = new System.Drawing.Point(268, 542);
+            this.btn_ExportarJson.Name = "btn_ExportarJson";
+            this.btn_ExportarJson.Size = new System.Drawing.Size(202, 49);
+            this.btn_ExportarJson.TabIndex = 35;
+            this.btn_ExportarJson.Text = "Exportar JSON";
+            this.btn_ExportarJson.UseVisualStyleBackColor = true;
+            this.btn_ExportarJson.Click += new System.EventHandler(this.btn_ExportarJson_Click);
             // 
             // FormCliente
             // 
@@ -384,6 +446,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(200)))));
             this.ClientSize = new System.Drawing.Size(1012, 603);
+            this.Controls.Add(this.btn_ExportarPDF);
+            this.Controls.Add(this.btn_ExportarCsv);
+            this.Controls.Add(this.btn_ExportarJson);
             this.Controls.Add(this.lbl_cerrar);
             this.Controls.Add(this.txb_Buscar);
             this.Controls.Add(this.lbl_Buscar);
@@ -430,5 +495,8 @@
         private Label lbl_TituloUsuario;
         private Label lbl_cerrar;
         private Button btn_Guardar;
+        private Button btn_ExportarPDF;
+        private Button btn_ExportarCsv;
+        private Button btn_ExportarJson;
     }
 }

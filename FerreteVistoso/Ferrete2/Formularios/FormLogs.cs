@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Logica.Sistema.Sistema;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Ferrete2.Formularios
 {
@@ -18,6 +19,7 @@ namespace Ferrete2.Formularios
         private Sistema _sistema;
         private Task _tarea;
         private decimal[] ultimosValores;
+
         public FormLogs()
         {
             InitializeComponent();
@@ -27,56 +29,68 @@ namespace Ferrete2.Formularios
             _tarea = new Task(_sistema.Comenzar);
             _tarea.Start();
             _sistema.UltimosValores += ManejarUltimosValores;
-
         }
+
         private void FormLogs_Load(object sender, EventArgs e)
         {
             dateTimePicker1.Format = DateTimePickerFormat.Short;
             dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
         }
+
         private void ActualizarRegistrosDgv()
         {
-            var dt = new DataTable();
-
-            dt.Columns.Add("Id", typeof(int));
-            dt.Columns.Add("Fecha y hora", typeof(DateTime));
-            dt.Columns.Add("Usuario", typeof(string));
-            dt.Columns.Add("Accion", typeof(string));
-
-            foreach (var item in Sistema.ObtenerRegistros())
+            try
             {
-                var row = dt.NewRow();
+                var dt = new DataTable();
 
-                row["Id"] = item.Id;
-                row["Fecha y hora"] = item.FechaHora;
-                row["Usuario"] = item.Usuario;
-                row["Accion"] = item.Accion;
+                dt.Columns.Add("Id", typeof(int));
+                dt.Columns.Add("Fecha y hora", typeof(DateTime));
+                dt.Columns.Add("Usuario", typeof(string));
+                dt.Columns.Add("Accion", typeof(string));
 
+                foreach (var item in Sistema.ObtenerRegistros())
+                {
+                    var row = dt.NewRow();
 
-                dt.Rows.Add(row);
+                    row["Id"] = item.Id;
+                    row["Fecha y hora"] = item.FechaHora;
+                    row["Usuario"] = item.Usuario;
+                    row["Accion"] = item.Accion;
+
+                    dt.Rows.Add(row);
+                }
+
+                // Mantener la selección actual en el DataGridView de stock
+                int selectedIndex = dgv_Movimientos.SelectedRows.Count > 0 ? dgv_Movimientos.SelectedRows[0].Index : -1;
+
+                dgv_Movimientos.DataSource = dt;
+
+                // Restaurar la selección anterior si existe
+                if (selectedIndex >= 0 && selectedIndex < dgv_Movimientos.Rows.Count)
+                {
+                    dgv_Movimientos.Rows[selectedIndex].Selected = true;
+                }
             }
-
-            // Mantener la selección actual en el DataGridView de stock
-            int selectedIndex = dgv_Movimientos.SelectedRows.Count > 0 ? dgv_Movimientos.SelectedRows[0].Index : -1;
-
-            dgv_Movimientos.DataSource = dt;
-
-            // Restaurar la selección anterior si existe
-            if (selectedIndex >= 0 && selectedIndex < dgv_Movimientos.Rows.Count)
+            catch (Exception ex)
             {
-                dgv_Movimientos.Rows[selectedIndex].Selected = true;
+                throw new Exception($"Error al actualizar los registros en el DataGridView: {ex.Message}");
             }
         }
 
-
         /// <summary>
-        /// Actualiza el DataGridView con la lista de productos.
+        /// Actualiza el DataGridView con la lista de usuarios.
         /// </summary>
         private void ActualizarDgv()
         {
-            dgv_Movimientos.DataSource = null;
-            dgv_Movimientos.DataSource = Sistema.ObtenerUsuarios();
-
+            try
+            {
+                dgv_Movimientos.DataSource = null;
+                dgv_Movimientos.DataSource = Sistema.ObtenerUsuarios();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al actualizar el DataGridView con la lista de usuarios: {ex.Message}");
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -93,105 +107,121 @@ namespace Ferrete2.Formularios
 
         private void ManejarUltimosValores(decimal[] valores)
         {
-            ultimosValores = valores;
-            panel1.Invalidate(); // Vuelve a dibujar el panel para reflejar los cambios en la interfaz gráfica
+            try
+            {
+                ultimosValores = valores;
+                panel1.Invalidate(); // Vuelve a dibujar el panel para reflejar los cambios en la interfaz gráfica
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al manejar los últimos valores: {ex.Message}");
+            }
         }
-        
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
-            int barHeight = (panel1.Height - 40) / 20; // Altura de las barras (ajustada para incluir los valores)
-
-            // Añadir verificación de null para ultimosValores
-            if (ultimosValores == null) return;
-
-            // Definir valores mínimo y máximo del dólar
-            decimal minDolar = 500;
-            decimal maxDolar = 1000;
-
-            Color[] colors = new Color[]
+            try
             {
-                Color.FromArgb(255, 255, 128, 128),
-                Color.FromArgb(255, 128, 255, 128),
-                Color.FromArgb(255, 128, 128, 255),
-                Color.FromArgb(255, 255, 255, 128),
-                Color.FromArgb(255, 255, 128, 255),
-                Color.FromArgb(255, 128, 255, 255),
-                Color.FromArgb(255, 192, 192, 192),
-                Color.FromArgb(255, 128, 0, 0),
-                Color.FromArgb(255, 0, 128, 0),
-                Color.FromArgb(255, 0, 0, 128),
-                Color.FromArgb(255, 128, 128, 0),
-                Color.FromArgb(255, 128, 0, 128),
-                Color.FromArgb(255, 0, 128, 128),
-                Color.FromArgb(255, 255, 0, 0),
-                Color.FromArgb(255, 0, 255, 0),
-                Color.FromArgb(255, 0, 0, 255),
-                Color.FromArgb(255, 128, 128, 255),
-                Color.FromArgb(255, 255, 128, 128),
-                Color.FromArgb(255, 128, 255, 128),
-                Color.FromArgb(255, 128, 128, 128)// colores omitidos por brevedad
-            };
+                Graphics g = e.Graphics;
+                int barHeight = (panel1.Height - 40) / 20; // Altura de las barras (ajustada para incluir los valores)
 
-            using (SolidBrush headerBrush = new SolidBrush(Color.White))
-            {
-                g.DrawString("Valor Dólar", Font, headerBrush, 0, 10);
-            }
+                // Añadir verificación de null para ultimosValores
+                if (ultimosValores == null)
+                    return;
 
-            // Dibuja las barras del gráfico con colores pastel
-            for (int i = 0; i < ultimosValores.Length; i++)
-            {
-                // Calcular el valor proporcional de la barra
-                decimal valor = ultimosValores[i];
-                decimal porcentaje = (valor - minDolar) / (maxDolar - minDolar);
-                int barWidth = (int)(porcentaje * (panel1.Width - 100)); // Ancho de las barras (ajustado para incluir los valores)
-                int barX = 80;
-                int barY = ((ultimosValores.Length - i - 1) * (barHeight + 10));
+                // Definir valores mínimo y máximo del dólar
+                decimal minDolar = 500;
+                decimal maxDolar = 1000;
 
-                using (SolidBrush brush = new SolidBrush(colors[i % colors.Length]))
+                Color[] colors = new Color[]
                 {
-                    g.FillRectangle(brush, barX, barY, barWidth, barHeight);
+                    Color.FromArgb(255, 255, 128, 128),
+                    Color.FromArgb(255, 128, 255, 128),
+                    Color.FromArgb(255, 128, 128, 255),
+                    Color.FromArgb(255, 255, 255, 128),
+                    Color.FromArgb(255, 255, 128, 255),
+                    Color.FromArgb(255, 128, 255, 255),
+                    Color.FromArgb(255, 192, 192, 192),
+                    Color.FromArgb(255, 128, 0, 0),
+                    Color.FromArgb(255, 0, 128, 0),
+                    Color.FromArgb(255, 0, 0, 128),
+                    Color.FromArgb(255, 128, 128, 0),
+                    Color.FromArgb(255, 128, 0, 128),
+                    Color.FromArgb(255, 0, 128, 128),
+                    Color.FromArgb(255, 255, 0, 0),
+                    Color.FromArgb(255, 0, 255, 0),
+                    Color.FromArgb(255, 0, 0, 255),
+                    Color.FromArgb(255, 128, 128, 255),
+                    Color.FromArgb(255, 255, 128, 128),
+                    Color.FromArgb(255, 128, 255, 128),
+                    Color.FromArgb(255, 128, 128, 128) // colores omitidos por brevedad
+                };
+
+                using (SolidBrush headerBrush = new SolidBrush(Color.White))
+                {
+                    g.DrawString("Valor Dólar", Font, headerBrush, 0, 10);
+                }
+
+                // Dibuja las barras del gráfico con colores pastel
+                for (int i = 0; i < ultimosValores.Length; i++)
+                {
+                    // Calcular el valor proporcional de la barra
+                    decimal valor = ultimosValores[i];
+                    decimal porcentaje = (valor - minDolar) / (maxDolar - minDolar);
+                    int barWidth = (int)(porcentaje * (panel1.Width - 100)); // Ancho de las barras (ajustado para incluir los valores)
+                    int barX = 80;
+                    int barY = ((ultimosValores.Length - i - 1) * (barHeight + 10));
+
+                    using (SolidBrush brush = new SolidBrush(colors[i % colors.Length]))
+                    {
+                        g.FillRectangle(brush, barX, barY, barWidth, barHeight);
+                    }
+                }
+
+                // Dibuja el eje Y
+                using (Pen axisPen = new Pen(Color.White))
+                {
+                    g.DrawLine(axisPen, 80, 20, 80, panel1.Height - 20);
+                }
+
+                // Dibuja el eje X
+                using (Pen axisPen = new Pen(Color.White))
+                {
+                    g.DrawLine(axisPen, 80, panel1.Height - 20, panel1.Width - 20, panel1.Height - 20);
+                }
+
+                // Ajustar la longitud del eje X
+                int ejeXLength = panel1.Width - 120;
+
+                // Ajustar la longitud del eje Y
+                int ejeYLength = panel1.Height - 60;
+
+                // Dibuja etiquetas en el eje X
+                int[] etiquetas = new int[] { 500, 600, 700, 800, 900, 1000 };
+                for (int i = 0; i < etiquetas.Length; i++)
+                {
+                    decimal valorEtiqueta = etiquetas[i];
+                    decimal porcentaje = (valorEtiqueta - minDolar) / (maxDolar - minDolar);
+                    int x = 80 + (int)(porcentaje * ejeXLength);
+                    int y = panel1.Height - 15;
+
+                    using (SolidBrush labelBrush = new SolidBrush(Color.White))
+                    {
+                        g.DrawString(valorEtiqueta.ToString(), Font, labelBrush, x, y);
+                    }
                 }
             }
-
-            // Dibuja el eje Y
-            using (Pen axisPen = new Pen(Color.White))
+            catch (Exception ex)
             {
-                g.DrawLine(axisPen, 80, 20, 80, panel1.Height - 20);
+                MessageBox.Show("Error al dibujar el gráfico: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            // Dibuja el eje X
-            using (Pen axisPen = new Pen(Color.White))
-            {
-                g.DrawLine(axisPen, 80, panel1.Height - 20, panel1.Width - 20, panel1.Height - 20);
-            }
-
-            // Ajustar la longitud del eje X
-            int ejeXLength = panel1.Width - 120;
-
-            // Ajustar la longitud del eje Y
-            int ejeYLength = panel1.Height - 60;
-
-            // Dibuja etiquetas en el eje X
-            int[] etiquetas = new int[] { 500, 600, 700, 800, 900, 1000 };
-            for (int i = 0; i < etiquetas.Length; i++)
-            {
-                decimal valorEtiqueta = etiquetas[i];
-                decimal porcentaje = (valorEtiqueta - minDolar) / (maxDolar - minDolar);
-                int x = 80 + (int)(porcentaje * ejeXLength);
-                int y = panel1.Height - 15;
-
-                using (SolidBrush labelBrush = new SolidBrush(Color.White))
-                {
-                    g.DrawString(valorEtiqueta.ToString(), Font, labelBrush, x, y);
-                }
-            }
-
-
-            g.Dispose();
         }
 
+        /// <summary>
+        /// Maneja el evento ValueChanged del DateTimePicker para filtrar los registros por fecha.
+        /// </summary>
+        /// <param name="sender">Objeto que generó el evento.</param>
+        /// <param name="e">Argumentos del evento.</param>
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             try
@@ -208,3 +238,4 @@ namespace Ferrete2.Formularios
         }
     }
 }
+

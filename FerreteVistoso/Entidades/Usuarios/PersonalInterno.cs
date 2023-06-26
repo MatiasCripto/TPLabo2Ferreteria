@@ -7,13 +7,18 @@ namespace Logica.Usuarios
     /// </summary>
     public class PersonalInterno : Persona
     {
-        private int id;       
+        private int id;
         private string nombre;
         private string usuario;
         private string contrasenia;
 
         public string Funciones { get; set; }
 
+        /// <summary>
+        /// Saluda con un mensaje específico.
+        /// </summary>
+        /// <param name="mensaje">El mensaje de saludo.</param>
+        /// <returns>El mensaje de saludo.</returns>
         public override string Saludar(string mensaje)
         {
             return mensaje;
@@ -52,6 +57,12 @@ namespace Logica.Usuarios
         {
 
         }
+
+        /// <summary>
+        /// Obtiene el descuento aplicable a una venta según el rol del personal interno.
+        /// </summary>
+        /// <param name="totalVenta">El total de la venta.</param>
+        /// <returns>El descuento aplicable.</returns>
         public override decimal ObtenerDescuento(decimal totalVenta)
         {
             if (this.Role == Role.Administrador)
@@ -62,12 +73,6 @@ namespace Logica.Usuarios
             {
                 return totalVenta * 0.15m;
             }
-            
         }
-
-
-
     }
-
 }
-

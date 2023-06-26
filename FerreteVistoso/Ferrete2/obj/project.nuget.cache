@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "KjizeUOThovK8wnR0nHgsp9qSItxk1f1EgwtxwBvO7N2uAcuTZAJd38EX6jnGJNe4sBDbpqwRZhbXVi82iCu0w==",
+  "dgSpecHash": "TYFGGIYnCbz6ZUefD9zxVTOER0B8SILNoopgr0ZvsxaafaXJZB0WsbRKiUDiDGojxXKMWy7T3pjT+2bSI37Bvw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Pablo\\Desktop\\formLindo\\FerreteVistoso\\Ferrete2\\Ferrete2.csproj",
   "expectedPackageFiles": [
@@ -17,7 +17,8 @@
     "C:\\Users\\Pablo\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Pablo\\.nuget\\packages\\system.data.sqlclient\\4.8.5\\system.data.sqlclient.4.8.5.nupkg.sha512",
     "C:\\Users\\Pablo\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
-    "C:\\Users\\Pablo\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
+    "C:\\Users\\Pablo\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
+    "C:\\Users\\Pablo\\.nuget\\packages\\winforms.datavisualization\\1.8.0\\winforms.datavisualization.1.8.0.nupkg.sha512"
   ],
   "logs": [
     {

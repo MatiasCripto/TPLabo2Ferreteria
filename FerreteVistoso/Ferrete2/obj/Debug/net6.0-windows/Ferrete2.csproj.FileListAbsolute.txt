@@ -57,3 +57,5 @@ C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Ferrete2\obj\Debug\net6.0-window
 C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Ferrete2\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
 C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Ferrete2\bin\Debug\net6.0-windows\itextsharp.dll
 C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Ferrete2\bin\Debug\net6.0-windows\itextsharp.xmlworker.dll
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Ferrete2\bin\Debug\net6.0-windows\WinForms.DataVisualization.Utilities.dll
+C:\Users\Pablo\Desktop\formLindo\FerreteVistoso\Ferrete2\bin\Debug\net6.0-windows\WinForms.DataVisualization.dll

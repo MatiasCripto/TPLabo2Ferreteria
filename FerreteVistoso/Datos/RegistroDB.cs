@@ -14,15 +14,26 @@ namespace Datos
 {
     public class RegistroDB : ConsultasSQL, IRepositorio<Registro>
     {
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase RegistroDB con la cadena de conexión especificada.
+        /// </summary>
+        /// <param name="connectionString">Cadena de conexión a la base de datos.</param>
         public RegistroDB(string connectionString) : base(connectionString)
         {
         }
 
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase RegistroDB con una cadena de conexión predeterminada.
+        /// </summary>
         public RegistroDB()
         {
 
         }
 
+        /// <summary>
+        /// Agrega un registro a la base de datos.
+        /// </summary>
+        /// <param name="entidad">Registro a agregar.</param>
         public void Agregar(Registro entidad)
         {
             string fechaHora = entidad.FechaHora.ToString("yyyy-MM-dd HH:mm:ss");
@@ -31,6 +42,10 @@ namespace Datos
         }
 
 
+        /// <summary>
+        /// Obtiene todos los registros de la base de datos.
+        /// </summary>
+        /// <returns>Lista de registros.</returns>
         public List<Registro> ObtenerTodos()
         {
             List<Registro> Lista = new List<Registro>();
@@ -49,18 +64,31 @@ namespace Datos
             return Lista;
         }
 
+        /// <summary>
+        /// Elimina un registro de la base de datos por su ID.
+        /// </summary>
+        /// <param name="id">ID del registro a eliminar.</param>
         public void Eliminar(int id)
         {
             string query = $"delete from registro where Id = {id}";
             this.EjecutarConsulta(query);
         }
 
+        /// <summary>
+        /// Modifica un registro de la base de datos.
+        /// </summary>
+        /// <param name="entidad">Registro modificado.</param>
         public void Modificar(Registro entidad)
         {
-            string query = $"update registro set FechaHora ={entidad.Id},'{entidad.FechaHora}', Usuario = '{entidad.Usuario}', Accion = '{entidad.Accion}' where Id = {entidad.Id}";
+            string query = $"update registro set FechaHora ='{entidad.FechaHora}', Usuario = '{entidad.Usuario}', Accion = '{entidad.Accion}' where Id = {entidad.Id}";
             this.EjecutarConsulta(query);
         }
 
+        /// <summary>
+        /// Obtiene un registro de la base de datos por su ID.
+        /// </summary>
+        /// <param name="id">ID del registro.</param>
+        /// <returns>Registro correspondiente al ID especificado, o null si no se encuentra.</returns>
         public Registro ObtenerPorId(int id)
         {
             string query = $"SELECT * FROM registro WHERE Id = {id}";
@@ -81,7 +109,5 @@ namespace Datos
 
             return null;
         }
-               
     }
 }
-

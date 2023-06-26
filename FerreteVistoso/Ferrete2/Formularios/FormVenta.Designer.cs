@@ -35,13 +35,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_menuVertical = new System.Windows.Forms.Panel();
-            this.btn_Guardar = new System.Windows.Forms.Button();
-            this.btn_Eliminar = new System.Windows.Forms.Button();
-            this.btn_ConsultarVentas = new System.Windows.Forms.Button();
             this.btn_nuevaVenta = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dgv_stock = new System.Windows.Forms.DataGridView();
@@ -57,22 +51,17 @@
             this.lbl_total = new System.Windows.Forms.Label();
             this.btn_ImporteTotal = new System.Windows.Forms.Button();
             this.btn_Salir = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lbl_cerrar = new System.Windows.Forms.Label();
             this.pnl_menuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_stock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_venta)).BeginInit();
             this.grpbx_AgregarProducto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnl_menuVertical
             // 
             this.pnl_menuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
-            this.pnl_menuVertical.Controls.Add(this.btn_Guardar);
-            this.pnl_menuVertical.Controls.Add(this.btn_Eliminar);
-            this.pnl_menuVertical.Controls.Add(this.btn_ConsultarVentas);
             this.pnl_menuVertical.Controls.Add(this.btn_nuevaVenta);
             this.pnl_menuVertical.Controls.Add(this.pictureBox2);
             this.pnl_menuVertical.Dock = System.Windows.Forms.DockStyle.Left;
@@ -80,54 +69,6 @@
             this.pnl_menuVertical.Name = "pnl_menuVertical";
             this.pnl_menuVertical.Size = new System.Drawing.Size(250, 450);
             this.pnl_menuVertical.TabIndex = 5;
-            // 
-            // btn_Guardar
-            // 
-            this.btn_Guardar.FlatAppearance.BorderSize = 0;
-            this.btn_Guardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Guardar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Guardar.ForeColor = System.Drawing.Color.White;
-            this.btn_Guardar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Guardar.Image")));
-            this.btn_Guardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Guardar.Location = new System.Drawing.Point(0, 262);
-            this.btn_Guardar.Name = "btn_Guardar";
-            this.btn_Guardar.Size = new System.Drawing.Size(250, 49);
-            this.btn_Guardar.TabIndex = 4;
-            this.btn_Guardar.Text = "Guardar";
-            this.btn_Guardar.UseVisualStyleBackColor = true;
-            // 
-            // btn_Eliminar
-            // 
-            this.btn_Eliminar.FlatAppearance.BorderSize = 0;
-            this.btn_Eliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btn_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Eliminar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Eliminar.ForeColor = System.Drawing.Color.White;
-            this.btn_Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Eliminar.Image")));
-            this.btn_Eliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Eliminar.Location = new System.Drawing.Point(0, 206);
-            this.btn_Eliminar.Name = "btn_Eliminar";
-            this.btn_Eliminar.Size = new System.Drawing.Size(250, 49);
-            this.btn_Eliminar.TabIndex = 3;
-            this.btn_Eliminar.Text = "Eliminar";
-            this.btn_Eliminar.UseVisualStyleBackColor = true;
-            // 
-            // btn_ConsultarVentas
-            // 
-            this.btn_ConsultarVentas.FlatAppearance.BorderSize = 0;
-            this.btn_ConsultarVentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btn_ConsultarVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ConsultarVentas.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_ConsultarVentas.ForeColor = System.Drawing.Color.White;
-            this.btn_ConsultarVentas.Image = ((System.Drawing.Image)(resources.GetObject("btn_ConsultarVentas.Image")));
-            this.btn_ConsultarVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ConsultarVentas.Location = new System.Drawing.Point(0, 150);
-            this.btn_ConsultarVentas.Name = "btn_ConsultarVentas";
-            this.btn_ConsultarVentas.Size = new System.Drawing.Size(250, 49);
-            this.btn_ConsultarVentas.TabIndex = 2;
-            this.btn_ConsultarVentas.Text = "Consultar ventas";
-            this.btn_ConsultarVentas.UseVisualStyleBackColor = true;
             // 
             // btn_nuevaVenta
             // 
@@ -403,53 +344,6 @@
             this.btn_Salir.Visible = false;
             this.btn_Salir.Click += new System.EventHandler(this.btn_Salir_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(200)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(200)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridView1.Location = new System.Drawing.Point(266, 280);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(200)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(200)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(200)))));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(200)))));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(383, 103);
-            this.dataGridView1.TabIndex = 13;
-            this.dataGridView1.Visible = false;
-            // 
             // lbl_cerrar
             // 
             this.lbl_cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -473,7 +367,6 @@
             this.Controls.Add(this.dgv_venta);
             this.Controls.Add(this.dgv_stock);
             this.Controls.Add(this.lbl_cerrar);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_Salir);
             this.Controls.Add(this.btn_ImporteTotal);
             this.Controls.Add(this.lbl_total);
@@ -490,7 +383,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_venta)).EndInit();
             this.grpbx_AgregarProducto.ResumeLayout(false);
             this.grpbx_AgregarProducto.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -499,9 +391,6 @@
         #endregion
 
         private Panel pnl_menuVertical;
-        private Button btn_Guardar;
-        private Button btn_Eliminar;
-        private Button btn_ConsultarVentas;
         private Button btn_nuevaVenta;
         private PictureBox pictureBox2;
         private DataGridView dgv_stock;
@@ -517,7 +406,6 @@
         private Button btn_Salir;
         private Label lbl_fechaActual;
         private Label lbl_fecha;
-        private DataGridView dataGridView1;
         private Label lbl_cerrar;
     }
 }
